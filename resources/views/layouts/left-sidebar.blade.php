@@ -43,179 +43,256 @@
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Components</h4>
+                    <h4 class="text-section">Modules</h4>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#base">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Base</p>
+                    <a data-bs-toggle="collapse" href="#appointments">
+                        <i class="fas fa-calendar-check"></i>
+                        <p>Appointments</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="base">
+                    <div class="collapse" id="appointments">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="components/avatars.html">
-                                    <span class="sub-item">Avatars</span>
+                                <a href="/appointments">
+                                    <span class="sub-item">Manage Appointments</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="components/buttons.html">
-                                    <span class="sub-item">Buttons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/gridsystem.html">
-                                    <span class="sub-item">Grid System</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/panels.html">
-                                    <span class="sub-item">Panels</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/notifications.html">
-                                    <span class="sub-item">Notifications</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/sweetalert.html">
-                                    <span class="sub-item">Sweet Alert</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/font-awesome-icons.html">
-                                    <span class="sub-item">Font Awesome Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/simple-line-icons.html">
-                                    <span class="sub-item">Simple Line Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/typography.html">
-                                    <span class="sub-item">Typography</span>
+                                <a href="/appointments/create">
+                                    <span class="sub-item">Create Appointment</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                        <i class="fas fa-th-list"></i>
-                        <p>Sidebar Layouts</p>
+                    <a data-bs-toggle="collapse" href="#patients">
+                        <i class="fa-solid fa-hospital-user"></i>
+                        <p>Patients</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="sidebarLayouts">
+                    <div class="collapse" id="patients">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="sidebar-style-2.html">
-                                    <span class="sub-item">Sidebar Style 2</span>
+                                <a href="/patients">
+                                    <span class="sub-item">Manage Patients</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="icon-menu.html">
-                                    <span class="sub-item">Icon Menu</span>
+                                <a href="/patients/create">
+                                    <span class="sub-item">Create Patient</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#forms">
-                        <i class="fas fa-pen-square"></i>
-                        <p>Forms</p>
+                    <a data-bs-toggle="collapse" href="#departments">
+                        <i class="fas fa-building"></i>
+                        <p>Departments</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="forms">
+                    <div class="collapse" id="departments">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="forms/forms.html">
-                                    <span class="sub-item">Basic Form</span>
+                                <a href="/departments">
+                                    <span class="sub-item">Manage Departments</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/departments/create">
+                                    <span class="sub-item">Create Departments</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#tables">
-                        <i class="fas fa-table"></i>
-                        <p>Tables</p>
+                    <a data-bs-toggle="collapse" href="#doctors">
+                        <i class="fas fa-user-md"></i>
+                        <p>Doctors</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="tables">
+                    <div class="collapse" id="doctors">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="tables/tables.html">
-                                    <span class="sub-item">Basic Table</span>
+                                <a href="/doctors">
+                                    <span class="sub-item">Manage Doctors</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="tables/datatables.html">
-                                    <span class="sub-item">Datatables</span>
+                                <a href="/doctors/create">
+                                    <span class="sub-item">Create Doctor</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#maps">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Maps</p>
+                    <a data-bs-toggle="collapse" href="#prescriptions">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <p>Prescriptions</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="maps">
+                    <div class="collapse" id="prescriptions">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="maps/googlemaps.html">
-                                    <span class="sub-item">Google Maps</span>
+                                <a href="/prescriptions">
+                                    <span class="sub-item">Manage Prescriptions</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="maps/jsvectormap.html">
-                                    <span class="sub-item">Jsvectormap</span>
+                                <a href="/prescriptions/create">
+                                    <span class="sub-item">Create Prescription</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="#charts">
-                        <i class="far fa-chart-bar"></i>
-                        <p>Charts</p>
+                    <a data-bs-toggle="collapse" href="#admissions">
+                        <i class="fas fa-procedures"></i>
+                        <p>Admissions</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="charts">
+                    <div class="collapse" id="admissions">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="charts/charts.html">
-                                    <span class="sub-item">Chart Js</span>
+                                <a href="/admissions">
+                                    <span class="sub-item">Manage Admissions</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="charts/sparkline.html">
-                                    <span class="sub-item">Sparkline</span>
+                                <a href="/admissions/create">
+                                    <span class="sub-item">Create Admission</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="widgets.html">
-                        <i class="fas fa-desktop"></i>
-                        <p>Widgets</p>
-                        <span class="badge badge-success">4</span>
+                    <a data-bs-toggle="collapse" href="#hpServices">
+                        <i class="fas fa-stethoscope"></i>
+                        <p>HP Services</p>
+                        <span class="caret"></span>
                     </a>
+                    <div class="collapse" id="hpServices">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="/hpServices">
+                                    <span class="sub-item">Manage HP Services</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/hpServices/create">
+                                    <span class="sub-item">Create HP Service</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a href="../../documentation/index.html">
-                        <i class="fas fa-file"></i>
-                        <p>Documentation</p>
-                        <span class="badge badge-secondary">1</span>
+                    <a data-bs-toggle="collapse" href="#pharmacies">
+                        <i class="fas fa-pills"></i>
+                        <p>Pharmacies</p>
+                        <span class="caret"></span>
                     </a>
+                    <div class="collapse" id="pharmacies">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="/medicines">
+                                    <span class="sub-item">Manage Medicines</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/pharmacies/create">
+                                    <span class="sub-item">Add Medicines</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/medicinestypes">
+                                    <span class="sub-item">Manage Medi Types</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/medicinestypes/create">
+                                    <span class="sub-item">Add Medi Type</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/medicinecategories/create">
+                                    <span class="sub-item">Manage Medi Categories</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/medicinecategories/create">
+                                    <span class="sub-item">Add Medi Category</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#accounts">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <p>Accounts</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="accounts">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="/invoices">
+                                    <span class="sub-item">Manage Invoices</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/invoices/create">
+                                    <span class="sub-item">Create Invoices</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/moneyreceipts">
+                                    <span class="sub-item">Manage Money Receipts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/moneyreceipts/create">
+                                    <span class="sub-item">Create Money Receipt</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#system">
+                        <i class="fas fa-cogs"></i>
+                        <p>System</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="system">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="/themes">
+                                    <span class="sub-item">Manage Themes</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/themes/create">
+                                    <span class="sub-item">Change Theme</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
+                {{-- nested dropdown link --}}
+                {{-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#submenu">
                         <i class="fas fa-bars"></i>
                         <p>Menu Levels</p>
@@ -265,7 +342,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

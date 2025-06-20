@@ -61,6 +61,8 @@
         lineColor: "#ffa534",
         fillColor: "rgba(255, 165, 52, .14)",
     });
+
+    // for dynamic year in the footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
 </body>

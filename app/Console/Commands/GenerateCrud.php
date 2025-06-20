@@ -44,23 +44,31 @@ class GenerateCrud extends Command
         $fillable = array_diff($columns, ['id']);
         $fillableStr = implode("', '", $fillable);
 
+        // Check if the table has 'created_at' and 'updated_at' columns
+        $hasTimestamps = in_array('created_at', $columns) && in_array('updated_at', $columns);
+
+        $timestampsCode = $hasTimestamps ? "" : "    public \$timestamps = false; // Disable timestamps\n";
+
         $modelTemplate = <<<EOD
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class $model extends Model
-{
-    protected \$fillable = ['$fillableStr'];
-}
-EOD;
+    <?php
+    
+    namespace App\Models;
+    
+    use Illuminate\Database\Eloquent\Model;
+    
+    class $model extends Model
+    {
+        protected \$fillable = ['$fillableStr'];
+    
+    $timestampsCode
+    }
+    EOD;
 
         File::ensureDirectoryExists(app_path("Models"));
         File::put(app_path("Models/$model.php"), $modelTemplate);
         $this->info("📦 Model generated: $model");
     }
+
 
     protected function generateController($model, $controller)
     {
@@ -123,7 +131,7 @@ class $controller extends Controller
 {
     public function index()
     {
-        \$$modelPlural = $model::latest()->paginate(10);
+        \$$modelPlural = $model::orderBy('id','DESC')->paginate(10);
         return view('pages.$modelPlural.index', compact('$modelPlural'));
     }
 

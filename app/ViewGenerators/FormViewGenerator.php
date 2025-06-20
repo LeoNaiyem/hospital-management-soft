@@ -72,11 +72,12 @@ class FormViewGenerator
 ACTIONS;
 
         $view = <<<BLADE
-@extends('layouts.main')
-@section('content')
-<div class="container">
+@extends('layouts.app')
+@section('page-title', '$model Page')
+@section('page-content')
+<div class="page-inner">
     <!-- Page Header -->
-    <div class="card bg-primary mb-3 p-4">
+    <div class="card bg-info mb-3 p-4">
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-item-center ">
                 <h3 class=" card-title text-white d-flex align-items-center  m-0">$model List</h3>
@@ -90,12 +91,12 @@ ACTIONS;
     <div class="card mb-3 p-4">
         <div class="row">
             <div class="col-12">
-                <div class="form-row">
+                <div class="row">
                     <!-- Search Input with Icon -->
                     <div class="col-md-5">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text px-2 bg-primary text-white">
+                                <span class="input-group-text px-2 bg-info text-white">
                                     <i class="fa fa-search"></i>
                                 </span>
                             </div>
@@ -104,8 +105,8 @@ ACTIONS;
                     </div>
 
                     <!-- Filter by Category -->
-                    <div class="col-md-3">
-                        <select class="form-control" id="filterCategory">
+                    <div class="col-md-3 d-flex">
+                        <select class="form-select" id="filterCategory">
                             <option value="">Filter by Category</option>
                             <option value="">option-1</option>
                             <option value="">option-2</option>
@@ -116,7 +117,7 @@ ACTIONS;
 
                     <!-- Apply Filters Button -->
                     <div class="col-md-2">
-                        <button class="btn btn-primary btn-block">Apply Filters</button>
+                        <button class="btn btn-info btn-block">Apply Filters</button>
                     </div>
 
                     <!-- Reset Filters Button -->
@@ -130,11 +131,11 @@ ACTIONS;
     <!-- end filter section -->
 
     <!-- Table section -->
-    <div class="card mb-3 p-4">
+    <div class="card mb-3">
         <!-- Table -->
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead class="thead-dark"><tr>$thead</tr></thead>
+        <div class="table-responsive rounded-3">
+            <table class="table table-hover">
+                <thead class="table-primary"><tr>$thead</tr></thead>
                 <tbody>
                 @foreach (\$$modelSnakePlural as \$item)
                     <tr>$tbody</tr>
@@ -230,22 +231,27 @@ BLADE;
     protected function createCreateView($dir, $model, $modelVar, $modelSnakePlural)
     {
         $template = <<<'BLADE'
-@extends('layouts.main')
-@section('content')
-    <!-- Page Header -->
-    <div class="card bg-primary mb-3 p-4">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-between align-item-center ">
-                <h3 class=" card-title text-white d-flex align-items-center  m-0">Create __MODEL__</h3>
-                <a href="{{ route('__ROUTE__.index') }}" class="btn btn-light btn-sm" title="Back">
-                    <i class="fa fa-arrow-left mr-1"></i> Back
-                </a>
+@extends('layouts.app')
+@section('page-title', 'Create __MODEL__')
+@section('page-content')
+    <div class="page-inner">
+        <!-- Page Header -->
+        <div class="card bg-info mb-3 p-4">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between align-item-center ">
+                    <h3 class=" card-title text-white d-flex align-items-center  m-0">Create __MODEL__</h3>
+                    <a href="{{ route('__ROUTE__.index') }}" class="btn btn-light btn-sm" title="Back">
+                        <i class="fa fa-arrow-left mr-1"></i> Back
+                    </a>
+                </div>
             </div>
         </div>
-    </div>    
-    <form action="{{ route('__ROUTE__.store') }}" method="POST" enctype="multipart/form-data">
-        @include('pages.__ROUTE__._form', ['mode' => 'create', '__MODELVAR__' => new App\Models\__MODEL__])
-    </form>
+        <div class="card p-4">    
+            <form action="{{ route('__ROUTE__.store') }}" method="POST" enctype="multipart/form-data">
+                @include('pages.__ROUTE__._form', ['mode' => 'create', '__MODELVAR__' => new App\Models\__MODEL__])
+            </form>
+        </div>
+    </div>
 @endsection
 BLADE;
 
@@ -262,22 +268,27 @@ BLADE;
     protected function createEditView($dir, $model, $modelVar, $modelSnakePlural)
     {
         $template = <<<'BLADE'
-@extends('layouts.main')
-@section('content')
-    <!-- Page Header -->
-    <div class="card bg-primary mb-3 p-4">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-between align-item-center ">
-                <h3 class=" card-title text-white d-flex align-items-center  m-0">Edit __MODEL__</h3>
-                <a href="{{ route('__ROUTE__.index') }}" class="btn btn-light btn-sm" title="Back">
-                    <i class="fa fa-arrow-left mr-1"></i> Back
-                </a>
+@extends('layouts.app')
+@section('page-title', 'Edit __MODEL__')
+@section('page-content')
+    <div class="page-inner">
+        <!-- Page Header -->
+        <div class="card bg-info mb-3 p-4">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between align-item-center ">
+                    <h3 class=" card-title text-white d-flex align-items-center  m-0">Edit __MODEL__</h3>
+                    <a href="{{ route('__ROUTE__.index') }}" class="btn btn-light btn-sm" title="Back">
+                        <i class="fa fa-arrow-left mr-1"></i> Back
+                    </a>
+                </div>
             </div>
         </div>
-    </div> 
-    <form action="{{ route('__ROUTE__.update', $__MODELVAR__->id) }}" method="POST" enctype="multipart/form-data">
-        @include('pages.__ROUTE__._form', ['mode' => 'edit', '__MODELVAR__' => $__MODELVAR__])
-    </form>
+        <div class="card p-4"> 
+            <form action="{{ route('__ROUTE__.update', $__MODELVAR__->id) }}" method="POST" enctype="multipart/form-data">
+                @include('pages.__ROUTE__._form', ['mode' => 'edit', '__MODELVAR__' => $__MODELVAR__])
+            </form>
+        </div>
+    </div>
 @endsection
 BLADE;
 
@@ -294,67 +305,147 @@ BLADE;
 
     protected function createViewView($dir, $model, $modelVar, $modelSnakePlural, $columns)
     {
-        $fields = '';
+        $tableRows = '';
 
         foreach ($columns as $col) {
             $label = ucfirst(str_replace('_', ' ', $col));
             $type = $this->detectInputType($col);
 
             if ($type === 'file') {
-                $fields .= <<<BLADE
-<div class="mb-2">
-    <strong>$label:</strong><br>
-    @if(\${$modelVar}->$col)
-        <img src="{{ asset('storage/' . \${$modelVar}->$col) }}" width="150">
-    @else
-        No $label
-    @endif
-</div>
-
+                $tableRows .= <<<BLADE
+                <tr>
+                    <th width="30%">$label</th>
+                    <td>
+                        @if(\${$modelVar}->$col)
+                            <img src="{{ asset('storage/' . \${$modelVar}->$col) }}" class="img-thumbnail" width="150">
+                        @else
+                            <span class="text-muted">No $label</span>
+                        @endif
+                    </td>
+                </tr>
 BLADE;
             } elseif ($type === 'select') {
                 $related = Str::camel(Str::singular(str_replace('_id', '', $col)));
-
-                // Use placeholders so PHP doesn't evaluate during generation
-                $fieldBlock = <<<'BLADE'
-<div class="mb-2">
-    <strong>__LABEL__:</strong> {{ $__MODELVAR__->__RELATION__->name ?? $__MODELVAR__->__COLUMN__ }}
-</div>
-
+                $tableRows .= <<<BLADE
+                <tr>
+                    <th>$label</th>
+                    <td>{{ \${$modelVar}->{$related}->name ?? \${$modelVar}->$col }}</td>
+                </tr>
 BLADE;
-                $fieldBlock = str_replace(
-                    ['__LABEL__', '__MODELVAR__', '__RELATION__', '__COLUMN__'],
-                    [$label, $modelVar, $related, $col],
-                    $fieldBlock
-                );
-
-                $fields .= $fieldBlock;
             } else {
-                $fields .= <<<BLADE
-<div class="mb-2">
-    <strong>$label:</strong> {{ \${$modelVar}->$col }}
-</div>
-
+                $tableRows .= <<<BLADE
+                <tr>
+                    <th>$label</th>
+                    <td>{{ \${$modelVar}->$col ?? 'N/A' }}</td>
+                </tr>
 BLADE;
             }
         }
 
+        // Add timestamps if they exist
+        if (in_array('created_at', $columns)) {
+            $tableRows .= <<<'BLADE'
+                <tr>
+                    <th>Created At</th>
+                    <td>{{ \${$modelVar}->created_at->format('M d, Y h:i A') }}</td>
+                </tr>
+BLADE;
+        }
+
+        if (in_array('updated_at', $columns)) {
+            $tableRows .= <<<'BLADE'
+                <tr>
+                    <th>Updated At</th>
+                    <td>{{ \${$modelVar}->updated_at->format('M d, Y h:i A') }}</td>
+                </tr>
+BLADE;
+        }
+
         $template = <<<BLADE
-@extends('layouts.main')
-@section('content')
-    <!-- Page Header -->
-    <div class="card bg-primary mb-3 p-4">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-between align-item-center ">
-                <h3 class=" card-title text-white d-flex align-items-center  m-0">Create __MODEL__</h3>
-                <a href="{{ route('$modelSnakePlural.index') }}" class="btn btn-light btn-sm" title="Back">
-                    <i class="fa fa-arrow-left mr-1"></i> Back
-                </a>
+@extends('layouts.app')
+@section('page-title', '$model Details')
+@section('page-content')
+    <div class="page-inner">
+        <!-- Page Header -->
+        <div class="card bg-info mb-3 p-4">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-between align-items-center">
+                    <h3 class="card-title text-white d-flex align-items-center m-0">
+                         $model Details
+                    </h3>
+                    <div>
+                        <a href="{{ route('$modelSnakePlural.index') }}" class="btn btn-light btn-sm" title="Back">
+                            <i class="fa fa-arrow-left mr-1"></i> Back
+                        </a>
+                        <a href="{{ route('$modelSnakePlural.edit', \${$modelVar}->id) }}" class="btn btn-warning btn-sm" title="Edit">
+                            <i class="fa fa-edit mr-1"></i> Edit
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> 
-$fields
+
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            $tableRows
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 d-flex justify-content-between">
+                    <form action="{{ route('$modelSnakePlural.destroy', \${$modelVar}->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">
+                            <i class="fas fa-trash mr-1"></i> Delete
+                        </button>
+                    </form>
+                    
+                    @if(isset(\${$modelVar}->status))
+                        <span class="badge 
+                            @if(\${$modelVar}->status == 'active') bg-success @endif
+                            @if(\${$modelVar}->status == 'inactive') bg-danger @endif
+                            @if(\${$modelVar}->status == 'pending') bg-warning @endif">
+                            {{ ucfirst(\${$modelVar}->status) }}
+                        </span>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
+
+@push('styles')
+<style>
+    .table th {
+        width: 30%;
+        background-color: #f8f9fa;
+    }
+    .img-thumbnail {
+        max-height: 200px;
+        object-fit: contain;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+    }
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+    .bg-success {
+        background-color: #28a745 !important;
+    }
+    .bg-danger {
+        background-color: #dc3545 !important;
+    }
+    .bg-warning {
+        background-color: #ffc107 !important;
+        color: #212529;
+    }
+</style>
+@endpush
 BLADE;
 
         File::put("$dir/view.blade.php", $template);
