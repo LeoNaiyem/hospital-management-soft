@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Patient extends Model
+class HmsMedicineCategory extends Model
 {
-    protected $fillable = ['name', 'mobile', 'dob', 'mob_ext', 'gender', 'profession'];
+    protected $fillable = ['name'];
 
     public $timestamps = false; // Disable timestamps
 

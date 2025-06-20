@@ -177,7 +177,7 @@ BLADE;
             if (in_array($col, ['id', 'created_at', 'updated_at']))
                 continue;
 
-            $label = ucfirst(str_replace('_', ' ', $col));
+            $label = ucfirst(str_replace('_id', '', $col));
             $type = $this->detectInputType($col);
 
             if ($type === 'select') {
@@ -187,7 +187,7 @@ BLADE;
 <div class="mb-2">
     <label>$label</label>
     <select name="$col" class="form-select">
-        <option value="">Select $label</option>
+        <option value="">--- Select $label ---</option>
         @foreach (\$$related as \$option)
             <option value="{{ \$option->id }}" {{ old('$col', \${$modelVar}->$col ?? '') == \$option->id ? 'selected' : '' }}>{{ \$option->name ?? \$option->id }}</option>
         @endforeach

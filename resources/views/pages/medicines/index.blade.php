@@ -1,14 +1,14 @@
 @extends('layouts.app')
-@section('page-title', 'Appointment Page')
+@section('page-title', 'Medicine Page')
 @section('page-content')
 <div class="page-inner">
     <!-- Page Header -->
     <div class="card bg-info mb-3 p-4">
         <div class="row">
             <div class="col-12 d-flex justify-content-between align-item-center ">
-                <h3 class=" card-title text-white d-flex align-items-center  m-0">Appointment List</h3>
-                <a href="{{ route('appointments.create') }}" class="btn btn-light btn-sm" title="Create New Product">
-                    <i class="fa fa-plus mr-1"></i> Create New Appointment
+                <h3 class=" card-title text-white d-flex align-items-center  m-0">Medicine List</h3>
+                <a href="{{ route('medicines.create') }}" class="btn btn-light btn-sm" title="Create New Product">
+                    <i class="fa fa-plus mr-1"></i> Create New Medicine
                 </a>
             </div>
         </div>
@@ -61,13 +61,13 @@
         <!-- Table -->
         <div class="table-responsive rounded-3">
             <table class="table table-hover">
-                <thead class="table-primary"><tr><th>Id</th><th>Patient id</th><th>Doctor id</th><th>Appointment at</th><th>Cc</th><th>Actions</th></tr></thead>
+                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Hms medicine category id</th><th>Hms medicine type id</th><th>Generic name</th><th>Description</th><th>Actions</th></tr></thead>
                 <tbody>
-                @foreach ($appointments as $item)
-                    <tr><td>{{ $item->id }}</td><td>{{ optional($item->patient)->name ?? $item->patient_id }}</td><td>{{ optional($item->doctor)->name ?? $item->doctor_id }}</td><td>{{ $item->appointment_at }}</td><td>{{ $item->cc }}</td><td>
-    <a href="{{ route('appointments.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
-    <a href="{{ route('appointments.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
-    <form action="{{ route('appointments.destroy', $item->id) }}" method="POST" style="display:inline;">
+                @foreach ($medicines as $item)
+                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ optional($item->hmsMedicineCategory)->name ?? $item->hms_medicine_category_id }}</td><td>{{ optional($item->hmsMedicineType)->name ?? $item->hms_medicine_type_id }}</td><td>{{ $item->generic_name }}</td><td>{{ $item->description }}</td><td>
+    <a href="{{ route('medicines.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
+    <a href="{{ route('medicines.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
+    <form action="{{ route('medicines.destroy', $item->id) }}" method="POST" style="display:inline;">
         @csrf
         @method('DELETE')
         <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>

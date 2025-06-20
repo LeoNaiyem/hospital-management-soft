@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'phone', 'designation_id', 'department_id', 'created_at', 'updated_at'];
 
-    public $timestamps = false; // Disable timestamps
 
 }

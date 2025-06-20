@@ -180,12 +180,12 @@
                     <div class="collapse" id="hpServices">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/hpServices">
+                                <a href="/services">
                                     <span class="sub-item">Manage HP Services</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/hpServices/create">
+                                <a href="/services/create">
                                     <span class="sub-item">Create HP Service</span>
                                 </a>
                             </li>
