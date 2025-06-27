@@ -8,19 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <title>@yield('page-title') | Health Care - Admin Dashboard</title>
-    <style>
-        .input-group-prepend .input-group-text {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px 0 0 5px;
-        }
-
-        .input-group-prepend .input-group-text i {
-            font-size: 1.2rem;
-        }
-    </style>
 
     <!-- Fonts and icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -52,6 +39,7 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="/assets/css/demo.css" />
+    <link rel="stylesheet" href="/assets/css/hms.css" />
 </head>
 
 <body>

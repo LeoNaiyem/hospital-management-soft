@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,3 +15,4 @@ Route::resource('consultants', App\Http\Controllers\ConsultantController::class)
 Route::resource('medicine_types', App\Http\Controllers\MedicineTypeController::class);
 Route::resource('medicine_categories', App\Http\Controllers\MedicineCategoryController::class);
 Route::resource('medicines', App\Http\Controllers\MedicineController::class);
+Route::resource('prescriptions', PrescriptionController::class);
