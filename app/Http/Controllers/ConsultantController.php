@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Consultant;
 use Illuminate\Http\Request;
-use App\Models\HmsDepartment;
+use App\Models\Department;
 
 
 class ConsultantController extends Controller
@@ -17,12 +17,12 @@ class ConsultantController extends Controller
 
     public function create()
     {
-        $hmsDepartments = \App\Models\HmsDepartment::all();
+        $departments = \App\Models\Department::all();
 
         return view('pages.consultants.create', [
             'mode' => 'create',
             'consultant' => new Consultant(),
-            'hmsDepartments' => $hmsDepartments,
+            'departments' => $departments,
 
         ]);
     }
@@ -44,12 +44,12 @@ class ConsultantController extends Controller
 
     public function edit(Consultant $consultant)
     {
-        $hmsDepartments = \App\Models\HmsDepartment::all();
+        $departments = \App\Models\Department::all();
 
         return view('pages.consultants.edit', [
             'mode' => 'edit',
             'consultant' => $consultant,
-            'hmsDepartments' => $hmsDepartments,
+            'departments' => $departments,
 
         ]);
     }

@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Category extends Model
 {
-    protected $fillable = ['name', 'price', 'discount', 'vat', 'medicine_category_id'];
+    protected $fillable = ['name'];
 
     public $timestamps = false; // Disable timestamps
 

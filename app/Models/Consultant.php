@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Consultant extends Model
 {
-    protected $fillable = ['name', 'hms_department_id', 'designation'];
+    protected $fillable = ['name', 'department_id', 'designation'];
 
     public $timestamps = false; // Disable timestamps
 

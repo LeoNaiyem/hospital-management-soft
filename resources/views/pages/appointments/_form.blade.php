@@ -30,4 +30,4 @@
     <label>Cc</label>
     <input type="text" name="cc" value="{{ old('cc', $appointment->cc ?? '') }}" class="form-control">
 </div>
-<button class="btn btn-success">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>
+<button class="btn btn-info">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>

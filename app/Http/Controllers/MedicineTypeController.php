@@ -10,14 +10,14 @@ class MedicineTypeController extends Controller
 {
     public function index()
     {
-        $medicineTypes = MedicineType::orderBy('id','DESC')->paginate(10);
-        return view('pages.medicineTypes.index', compact('medicineTypes'));
+        $medicine_types = MedicineType::orderBy('id', 'DESC')->paginate(10);
+        return view('pages.medicine_types.index', compact('medicine_types'));
     }
 
     public function create()
     {
 
-        return view('pages.medicineTypes.create', [
+        return view('pages.medicine_types.create', [
             'mode' => 'create',
             'medicineType' => new MedicineType(),
 
@@ -31,18 +31,18 @@ class MedicineTypeController extends Controller
             $data['photo'] = $request->file('photo')->store('uploads', 'public');
         }
         MedicineType::create($data);
-        return redirect()->route('medicineTypes.index')->with('success', 'Successfully created!');
+        return redirect()->route('medicine_types.index')->with('success', 'Successfully created!');
     }
 
     public function show(MedicineType $medicineType)
     {
-        return view('pages.medicineTypes.view', compact('medicineType'));
+        return view('pages.medicine_types.view', compact('medicineType'));
     }
 
     public function edit(MedicineType $medicineType)
     {
 
-        return view('pages.medicineTypes.edit', [
+        return view('pages.medicine_types.edit', [
             'mode' => 'edit',
             'medicineType' => $medicineType,
 
@@ -56,12 +56,12 @@ class MedicineTypeController extends Controller
             $data['photo'] = $request->file('photo')->store('uploads', 'public');
         }
         $medicineType->update($data);
-        return redirect()->route('medicineTypes.index')->with('success', 'Successfully updated!');
+        return redirect()->route('medicine_types.index')->with('success', 'Successfully updated!');
     }
 
     public function destroy(MedicineType $medicineType)
     {
         $medicineType->delete();
-        return redirect()->route('medicineTypes.index')->with('success', 'Successfully deleted!');
+        return redirect()->route('medicine_types.index')->with('success', 'Successfully deleted!');
     }
 }

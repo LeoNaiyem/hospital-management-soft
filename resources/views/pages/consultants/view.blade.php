@@ -33,8 +33,8 @@
                     <th>Name</th>
                     <td>{{ $consultant->name ?? 'N/A' }}</td>
                 </tr>                <tr>
-                    <th>Hms department id</th>
-                    <td>{{ $consultant->hmsDepartment->name ?? $consultant->hms_department_id }}</td>
+                    <th>Department id</th>
+                    <td>{{ $consultant->department->name ?? $consultant->department_id }}</td>
                 </tr>                <tr>
                     <th>Designation</th>
                     <td>{{ $consultant->designation ?? 'N/A' }}</td>

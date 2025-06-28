@@ -3,8 +3,8 @@
         <!-- Logo Header -->
         <div class="logo-header" style="background-color: #161b2c">
             <a href="index.html" class="logo">
-                <img src="/assets/img/kaiadmin/healthcare-logo.png" alt="navbar brand" class="navbar-brand"
-                    height="35" />
+                <img src="{{ asset('assets/img/kaiadmin/healthcare-logo.png') }}" alt="navbar brand"
+                    class="navbar-brand" height="38" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -206,27 +206,27 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/pharmacies/create">
+                                <a href="/medicines/create">
                                     <span class="sub-item">Add Medicines</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicinestypes">
+                                <a href="/medicine_types">
                                     <span class="sub-item">Manage Medi Types</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicinestypes/create">
+                                <a href="/medicine_types/create">
                                     <span class="sub-item">Add Medi Type</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicinecategories/create">
+                                <a href="/medicine_categories/create">
                                     <span class="sub-item">Manage Medi Categories</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicinecategories/create">
+                                <a href="/medicine_categories/create">
                                     <span class="sub-item">Add Medi Category</span>
                                 </a>
                             </li>

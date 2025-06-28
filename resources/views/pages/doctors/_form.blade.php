@@ -29,4 +29,4 @@
         @endforeach
     </select>
 </div>
-<button class="btn btn-success">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>
+<button class="btn btn-info">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>

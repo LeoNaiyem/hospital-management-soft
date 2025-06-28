@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Models\MedicineCategory;
 
 
 class ServiceController extends Controller
@@ -16,10 +17,12 @@ class ServiceController extends Controller
 
     public function create()
     {
+        $medicineCategories = \App\Models\MedicineCategory::all();
 
         return view('pages.services.create', [
             'mode' => 'create',
             'service' => new Service(),
+            'medicineCategories' => $medicineCategories,
 
         ]);
     }
@@ -41,10 +44,12 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
+        $medicineCategories = \App\Models\MedicineCategory::all();
 
         return view('pages.services.edit', [
             'mode' => 'edit',
             'service' => $service,
+            'medicineCategories' => $medicineCategories,
 
         ]);
     }

@@ -61,10 +61,10 @@
         <!-- Table -->
         <div class="table-responsive rounded-3">
             <table class="table table-hover">
-                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Description</th><th>Price</th><th>Created at</th><th>Updated at</th><th>Actions</th></tr></thead>
+                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Price</th><th>Discount</th><th>Vat</th><th>Medicine category id</th><th>Actions</th></tr></thead>
                 <tbody>
                 @foreach ($services as $item)
-                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ $item->description }}</td><td>{{ $item->price }}</td><td>{{ $item->created_at }}</td><td>{{ $item->updated_at }}</td><td>
+                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ $item->price }}</td><td>{{ $item->discount }}</td><td>{{ $item->vat }}</td><td>{{ optional($item->medicineCategory)->name ?? $item->medicine_category_id }}</td><td style="min-width:220px">
     <a href="{{ route('services.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
     <a href="{{ route('services.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
     <form action="{{ route('services.destroy', $item->id) }}" method="POST" style="display:inline;">

@@ -60,7 +60,7 @@ class FormViewGenerator
 
         $thead .= "<th>Actions</th>";
         $tbody .= <<<ACTIONS
-<td>
+<td style="min-width:220px">
     <a href="{{ route('$modelSnakePlural.show', \$item->id) }}" class="btn btn-sm btn-info">View</a>
     <a href="{{ route('$modelSnakePlural.edit', \$item->id) }}" class="btn btn-sm btn-warning">Edit</a>
     <form action="{{ route('$modelSnakePlural.destroy', \$item->id) }}" method="POST" style="display:inline;">
@@ -222,7 +222,7 @@ BLADE;
     @method('PUT')
 @endif
 $fields
-<button class="btn btn-success">{{ \$mode === 'edit' ? 'Update' : 'Create' }}</button>
+<button class="btn btn-info">{{ \$mode === 'edit' ? 'Update' : 'Create' }}</button>
 BLADE;
 
         File::put("$dir/_form.blade.php", $template);

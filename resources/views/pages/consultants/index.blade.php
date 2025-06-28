@@ -61,10 +61,10 @@
         <!-- Table -->
         <div class="table-responsive rounded-3">
             <table class="table table-hover">
-                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Hms department id</th><th>Designation</th><th>Actions</th></tr></thead>
+                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Department id</th><th>Designation</th><th>Actions</th></tr></thead>
                 <tbody>
                 @foreach ($consultants as $item)
-                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ optional($item->hmsDepartment)->name ?? $item->hms_department_id }}</td><td>{{ $item->designation }}</td><td>
+                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ optional($item->department)->name ?? $item->department_id }}</td><td>{{ $item->designation }}</td><td style="min-width:220px">
     <a href="{{ route('consultants.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
     <a href="{{ route('consultants.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
     <form action="{{ route('consultants.destroy', $item->id) }}" method="POST" style="display:inline;">

@@ -7,4 +7,4 @@
     <label>Name</label>
     <input type="text" name="name" value="{{ old('name', $medicineCategory->name ?? '') }}" class="form-control">
 </div>
-<button class="btn btn-success">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>
+<button class="btn btn-info">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>

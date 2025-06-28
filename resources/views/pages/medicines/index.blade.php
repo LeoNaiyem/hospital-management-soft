@@ -61,10 +61,10 @@
         <!-- Table -->
         <div class="table-responsive rounded-3">
             <table class="table table-hover">
-                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Hms medicine category id</th><th>Hms medicine type id</th><th>Generic name</th><th>Description</th><th>Actions</th></tr></thead>
+                <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Medicine category id</th><th>Medicine type id</th><th>Generic name</th><th>Description</th><th>Actions</th></tr></thead>
                 <tbody>
                 @foreach ($medicines as $item)
-                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ optional($item->hmsMedicineCategory)->name ?? $item->hms_medicine_category_id }}</td><td>{{ optional($item->hmsMedicineType)->name ?? $item->hms_medicine_type_id }}</td><td>{{ $item->generic_name }}</td><td>{{ $item->description }}</td><td>
+                    <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ optional($item->medicineCategory)->name ?? $item->medicine_category_id }}</td><td>{{ optional($item->medicineType)->name ?? $item->medicine_type_id }}</td><td>{{ $item->generic_name }}</td><td>{{ $item->description }}</td><td style="min-width:220px">
     <a href="{{ route('medicines.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
     <a href="{{ route('medicines.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
     <form action="{{ route('medicines.destroy', $item->id) }}" method="POST" style="display:inline;">

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Medicine;
 use Illuminate\Http\Request;
-use App\Models\HmsMedicineCategory;
-use App\Models\HmsMedicineType;
+use App\Models\MedicineCategory;
+use App\Models\MedicineType;
 
 
 class MedicineController extends Controller
@@ -18,14 +18,14 @@ class MedicineController extends Controller
 
     public function create()
     {
-        $hmsMedicineCategories = \App\Models\HmsMedicineCategory::all();
-        $hmsMedicineTypes = \App\Models\HmsMedicineType::all();
+        $medicineCategories = \App\Models\MedicineCategory::all();
+        $medicineTypes = \App\Models\MedicineType::all();
 
         return view('pages.medicines.create', [
             'mode' => 'create',
             'medicine' => new Medicine(),
-            'hmsMedicineCategories' => $hmsMedicineCategories,
-            'hmsMedicineTypes' => $hmsMedicineTypes,
+            'medicineCategories' => $medicineCategories,
+            'medicineTypes' => $medicineTypes,
 
         ]);
     }
@@ -47,14 +47,14 @@ class MedicineController extends Controller
 
     public function edit(Medicine $medicine)
     {
-        $hmsMedicineCategories = \App\Models\HmsMedicineCategory::all();
-        $hmsMedicineTypes = \App\Models\HmsMedicineType::all();
+        $medicineCategories = \App\Models\MedicineCategory::all();
+        $medicineTypes = \App\Models\MedicineType::all();
 
         return view('pages.medicines.edit', [
             'mode' => 'edit',
             'medicine' => $medicine,
-            'hmsMedicineCategories' => $hmsMedicineCategories,
-            'hmsMedicineTypes' => $hmsMedicineTypes,
+            'medicineCategories' => $medicineCategories,
+            'medicineTypes' => $medicineTypes,
 
         ]);
     }

@@ -2,63 +2,76 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prescription;
 use Illuminate\Http\Request;
+use App\Models\Patient;
+use App\Models\Consultant;
+
 
 class PrescriptionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('pages.prescriptions.index');
+        $prescriptions = Prescription::orderBy('id','DESC')->paginate(10);
+        return view('pages.prescriptions.index', compact('prescriptions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $patients = \App\Models\Patient::all();
+        $consultants = \App\Models\Consultant::all();
+
+        return view('pages.prescriptions.create', [
+            'mode' => 'create',
+            'prescription' => new Prescription(),
+            'patients' => $patients,
+            'consultants' => $consultants,
+
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('uploads', 'public');
+        }
+        Prescription::create($data);
+        return redirect()->route('prescriptions.index')->with('success', 'Successfully created!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Prescription $prescription)
     {
-        return view('pages.prescriptions.view');
+        return view('pages.prescriptions.view', compact('prescription'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Prescription $prescription)
     {
-        //
+        $patients = \App\Models\Patient::all();
+        $consultants = \App\Models\Consultant::all();
+
+        return view('pages.prescriptions.edit', [
+            'mode' => 'edit',
+            'prescription' => $prescription,
+            'patients' => $patients,
+            'consultants' => $consultants,
+
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Prescription $prescription)
     {
-        //
+        $data = $request->all();
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('uploads', 'public');
+        }
+        $prescription->update($data);
+        return redirect()->route('prescriptions.index')->with('success', 'Successfully updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Prescription $prescription)
     {
-        //
+        $prescription->delete();
+        return redirect()->route('prescriptions.index')->with('success', 'Successfully deleted!');
     }
 }

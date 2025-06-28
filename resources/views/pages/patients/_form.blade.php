@@ -13,18 +13,19 @@
 </div>
 <div class="mb-2">
     <label>Dob</label>
-    <input type="text" name="dob" value="{{ old('dob', $patient->dob ?? '') }}" class="form-control">
+    <input type="date" name="dob" value="{{ old('dob', $patient->dob ?? '') }}" class="form-control">
 </div>
 <div class="mb-2">
     <label>Mob_ext</label>
-    <input type="text" name="mob_ext" value="{{ old('mob_ext', $patient->mob_ext ?? '') }}" class="form-control">
+    <input type="number" name="mob_ext" value="{{ old('mob_ext', $patient->mob_ext ?? '') }}" class="form-control">
 </div>
 <div class="mb-2">
     <label>Gender</label>
-    <input type="text" name="gender" value="{{ old('gender', $patient->gender ?? '') }}" class="form-control">
+    <input type="number" name="gender" value="{{ old('gender', $patient->gender ?? '') }}" class="form-control">
 </div>
 <div class="mb-2">
     <label>Profession</label>
-    <input type="text" name="profession" value="{{ old('profession', $patient->profession ?? '') }}" class="form-control">
+    <input type="text" name="profession" value="{{ old('profession', $patient->profession ?? '') }}"
+        class="form-control">
 </div>
-<button class="btn btn-success">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>
+<button class="btn btn-info">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>

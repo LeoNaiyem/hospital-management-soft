@@ -33,11 +33,11 @@
                     <th>Name</th>
                     <td>{{ $medicine->name ?? 'N/A' }}</td>
                 </tr>                <tr>
-                    <th>Hms medicine category id</th>
-                    <td>{{ $medicine->hmsMedicineCategory->name ?? $medicine->hms_medicine_category_id }}</td>
+                    <th>Medicine category id</th>
+                    <td>{{ $medicine->medicineCategory->name ?? $medicine->medicine_category_id }}</td>
                 </tr>                <tr>
-                    <th>Hms medicine type id</th>
-                    <td>{{ $medicine->hmsMedicineType->name ?? $medicine->hms_medicine_type_id }}</td>
+                    <th>Medicine type id</th>
+                    <td>{{ $medicine->medicineType->name ?? $medicine->medicine_type_id }}</td>
                 </tr>                <tr>
                     <th>Generic name</th>
                     <td>{{ $medicine->generic_name ?? 'N/A' }}</td>

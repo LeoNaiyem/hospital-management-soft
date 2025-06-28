@@ -10,14 +10,14 @@ class MedicineCategoryController extends Controller
 {
     public function index()
     {
-        $medicineCategories = MedicineCategory::orderBy('id','DESC')->paginate(10);
-        return view('pages.medicineCategories.index', compact('medicineCategories'));
+        $medicine_categories = MedicineCategory::orderBy('id', 'DESC')->paginate(10);
+        return view('pages.medicine_categories.index', compact('medicine_categories'));
     }
 
     public function create()
     {
 
-        return view('pages.medicineCategories.create', [
+        return view('pages.medicine_categories.create', [
             'mode' => 'create',
             'medicineCategory' => new MedicineCategory(),
 
@@ -31,18 +31,18 @@ class MedicineCategoryController extends Controller
             $data['photo'] = $request->file('photo')->store('uploads', 'public');
         }
         MedicineCategory::create($data);
-        return redirect()->route('medicineCategories.index')->with('success', 'Successfully created!');
+        return redirect()->route('medicine_categories.index')->with('success', 'Successfully created!');
     }
 
     public function show(MedicineCategory $medicineCategory)
     {
-        return view('pages.medicineCategories.view', compact('medicineCategory'));
+        return view('pages.medicine_categories.view', compact('medicineCategory'));
     }
 
     public function edit(MedicineCategory $medicineCategory)
     {
 
-        return view('pages.medicineCategories.edit', [
+        return view('pages.medicine_categories.edit', [
             'mode' => 'edit',
             'medicineCategory' => $medicineCategory,
 
@@ -56,12 +56,12 @@ class MedicineCategoryController extends Controller
             $data['photo'] = $request->file('photo')->store('uploads', 'public');
         }
         $medicineCategory->update($data);
-        return redirect()->route('medicineCategories.index')->with('success', 'Successfully updated!');
+        return redirect()->route('medicine_categories.index')->with('success', 'Successfully updated!');
     }
 
     public function destroy(MedicineCategory $medicineCategory)
     {
         $medicineCategory->delete();
-        return redirect()->route('medicineCategories.index')->with('success', 'Successfully deleted!');
+        return redirect()->route('medicine_categories.index')->with('success', 'Successfully deleted!');
     }
 }
