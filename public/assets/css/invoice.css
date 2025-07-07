@@ -132,9 +132,10 @@
 
     #invoice-area {
         position: absolute;
-        left: 0;
-        top: 0;
-        min-width: 100%;
+        left: -262px;
+        top: -40px;
+        min-width: 800px !important;
+        width: 100% !important;
     }
 
     .no-print {
