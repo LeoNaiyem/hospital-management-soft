@@ -40,10 +40,10 @@
                     <td>{{ $designation->updated_at ?? 'N/A' }}</td>
                 </tr>                <tr>
                     <th>Created At</th>
-                    <td>{{ \${$modelVar}->created_at->format('M d, Y h:i A') }}</td>
+                    <td>{{ ${$modelVar}->created_at->format('M d, Y h:i A') }}</td>
                 </tr>                <tr>
                     <th>Updated At</th>
-                    <td>{{ \${$modelVar}->updated_at->format('M d, Y h:i A') }}</td>
+                    <td>{{ ${$modelVar}->updated_at->format('M d, Y h:i A') }}</td>
                 </tr>
                         </tbody>
                     </table>

@@ -43,4 +43,4 @@
     @stack('invoice-css')
 </head>
 
-<body>
+<body class="position-relative">

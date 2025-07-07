@@ -87,12 +87,12 @@
                     </div>
                     <div class="col-4 ps-4">
                         <p class="fw-bold mb-2">DIAGNOSIS:</p>
-                        <ol id='diagnosis-container' class="list-group list-group-numbered mt-1">
+                        <ol id='diagnosis-container' class="list-group list-group-numbered my-2">
 
                         </ol>
 
                         <hr>
-                        <p style="letter-spacing: 2px" class="fw-bold text-info text-uppercase">Clinical Notes</p>
+                        <p style="letter-spacing: 2px" class="fw-bold text-info text-uppercase my-3">Clinical Notes</p>
                         <div class="mb-3">
                             <p class="mb-1 fw-semibold">Chief Complaint (CC):</p>
                             <p class="m-0 fw-light">{{$prescription->cc}}</p>
@@ -174,7 +174,7 @@
             diagnosisArr.forEach((item, index) => {
                 const li = document.createElement('li');
                 li.innerHTML = `
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-2">
                                 ${index + 1}.&nbsp; ${item}                            
                             </li>
                         `;
