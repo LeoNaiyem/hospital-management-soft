@@ -40,6 +40,7 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/hms.css') }}" />
+    @stack('invoice-css')
 </head>
 
 <body>

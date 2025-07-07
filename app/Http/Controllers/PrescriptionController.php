@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
+use App\Models\Medicine;
 use App\Models\Prescription;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Models\Consultant;
@@ -18,14 +21,20 @@ class PrescriptionController extends Controller
 
     public function create()
     {
-        $patients = \App\Models\Patient::all();
-        $consultants = \App\Models\Consultant::all();
+        $patients = Patient::all();
+        $consultants = Consultant::all();
+        $doctor = Doctor::all();
+        $medicines = Medicine::all();
+        $services = Service::all();
 
         return view('pages.prescriptions.create', [
             'mode' => 'create',
             'prescription' => new Prescription(),
+            'doctors' => $doctor,
             'patients' => $patients,
             'consultants' => $consultants,
+            'medicines' => $medicines,
+            'services' => $services,
 
         ]);
     }
@@ -42,7 +51,9 @@ class PrescriptionController extends Controller
 
     public function show(Prescription $prescription)
     {
-        return view('pages.prescriptions.view', compact('prescription'));
+        $doctor=Doctor::find($prescription->consultant_id);
+        $patient=Patient::find($prescription->patient_id);
+        return view('pages.prescriptions.view', compact('prescription','doctor','patient'));
     }
 
     public function edit(Prescription $prescription)

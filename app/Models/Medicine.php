@@ -8,6 +8,6 @@ class Medicine extends Model
 {
     protected $fillable = ['name', 'medicine_category_id', 'medicine_type_id', 'generic_name', 'description'];
 
-    public $timestamps = false; // Disable timestamps
+    public $timestamps = false;
 
 }
