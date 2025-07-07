@@ -2,7 +2,7 @@
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" style="background-color: #161b2c">
-            <a href="index.html" class="logo">
+            <a href="{{ url('/') }}" class="logo">
                 <img src="{{ asset('assets/img/kaiadmin/healthcare-logo.png') }}" alt="navbar brand"
                     class="navbar-brand" height="38" />
             </a>
@@ -54,12 +54,12 @@
                     <div class="collapse" id="appointments">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/appointments">
+                                <a href="{{ url('appointments') }}">
                                     <span class="sub-item">Manage Appointments</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/appointments/create">
+                                <a href="{{ url('appointments/create') }}">
                                     <span class="sub-item">Create Appointment</span>
                                 </a>
                             </li>
@@ -75,12 +75,12 @@
                     <div class="collapse" id="patients">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/patients">
+                                <a href="{{ url('patients') }}">
                                     <span class="sub-item">Manage Patients</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/patients/create">
+                                <a href="{{ url('patients/create') }}">
                                     <span class="sub-item">Create Patient</span>
                                 </a>
                             </li>
@@ -96,13 +96,34 @@
                     <div class="collapse" id="departments">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/departments">
+                                <a href="{{ url('departments') }}">
                                     <span class="sub-item">Manage Departments</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/departments/create">
+                                <a href="{{ url('departments/create') }}">
                                     <span class="sub-item">Create Departments</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#designations">
+                        <i class="fas fa-building"></i>
+                        <p>Designations</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="designations">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ url('designations') }}">
+                                    <span class="sub-item">Manage Designations</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('designations/create') }}">
+                                    <span class="sub-item">Create Designations</span>
                                 </a>
                             </li>
                         </ul>
@@ -117,12 +138,12 @@
                     <div class="collapse" id="doctors">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/doctors">
+                                <a href="{{ url('doctors') }}">
                                     <span class="sub-item">Manage Doctors</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/doctors/create">
+                                <a href="{{ url('doctors/create') }}">
                                     <span class="sub-item">Create Doctor</span>
                                 </a>
                             </li>
@@ -138,12 +159,12 @@
                     <div class="collapse" id="prescriptions">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/prescriptions">
+                                <a href="{{ url('prescriptions') }}">
                                     <span class="sub-item">Manage Prescriptions</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/prescriptions/create">
+                                <a href="{{ url('prescriptions/create') }}">
                                     <span class="sub-item">Create Prescription</span>
                                 </a>
                             </li>
@@ -159,12 +180,12 @@
                     <div class="collapse" id="admissions">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/admissions">
+                                <a href="{{ url('admissions') }}">
                                     <span class="sub-item">Manage Admissions</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/admissions/create">
+                                <a href="{{ url('admissions/create') }}">
                                     <span class="sub-item">Create Admission</span>
                                 </a>
                             </li>
@@ -180,12 +201,12 @@
                     <div class="collapse" id="hpServices">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/services">
+                                <a href="{{ url('services') }}">
                                     <span class="sub-item">Manage HP Services</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/services/create">
+                                <a href="{{ url('services/create') }}">
                                     <span class="sub-item">Create HP Service</span>
                                 </a>
                             </li>
@@ -201,32 +222,32 @@
                     <div class="collapse" id="pharmacies">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/medicines">
+                                <a href="{{ url('medicines') }}">
                                     <span class="sub-item">Manage Medicines</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicines/create">
+                                <a href="{{ url('medicines/create') }}">
                                     <span class="sub-item">Add Medicines</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicine_types">
+                                <a href="{{ url('medicine_types') }}">
                                     <span class="sub-item">Manage Medi Types</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicine_types/create">
+                                <a href="{{ url('medicine_types/create') }}">
                                     <span class="sub-item">Add Medi Type</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicine_categories/create">
+                                <a href="{{ url('medicine_categories/create') }}">
                                     <span class="sub-item">Manage Medi Categories</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/medicine_categories/create">
+                                <a href="{{ url('medicine_categories/create') }}">
                                     <span class="sub-item">Add Medi Category</span>
                                 </a>
                             </li>
@@ -242,22 +263,22 @@
                     <div class="collapse" id="accounts">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/invoices">
+                                <a href="{{ url('invoices') }}">
                                     <span class="sub-item">Manage Invoices</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/invoices/create">
+                                <a href="{{ url('invoices/create') }}">
                                     <span class="sub-item">Create Invoices</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/moneyreceipts">
+                                <a href="{{ url('moneyreceipts') }}">
                                     <span class="sub-item">Manage Money Receipts</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/moneyreceipts/create">
+                                <a href="{{ url('moneyreceipts/create') }}">
                                     <span class="sub-item">Create Money Receipt</span>
                                 </a>
                             </li>
@@ -273,12 +294,12 @@
                     <div class="collapse" id="system">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/themes">
+                                <a href="{{ url('themes') }}">
                                     <span class="sub-item">Manage Themes</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/themes/create">
+                                <a href="{{ url('themes/create') }}">
                                     <span class="sub-item">Change Theme</span>
                                 </a>
                             </li>

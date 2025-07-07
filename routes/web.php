@@ -16,3 +16,4 @@ Route::resource('medicine_types', App\Http\Controllers\MedicineTypeController::c
 Route::resource('medicine_categories', App\Http\Controllers\MedicineCategoryController::class);
 Route::resource('medicines', App\Http\Controllers\MedicineController::class);
 Route::resource('prescriptions', PrescriptionController::class);
+Route::resource('designations', App\Http\Controllers\DesignationController::class);
