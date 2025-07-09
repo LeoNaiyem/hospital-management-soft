@@ -19,3 +19,5 @@ Route::resource('medicines', App\Http\Controllers\MedicineController::class);
 Route::resource('prescriptions', PrescriptionController::class);
 Route::resource('designations', App\Http\Controllers\DesignationController::class);
 Route::resource('invoices', InvoiceController::class);
+Route::resource('money_receipts', App\Http\Controllers\MoneyReceiptController::class);
+Route::resource('money_receipts', App\Http\Controllers\MoneyReceiptController::class);

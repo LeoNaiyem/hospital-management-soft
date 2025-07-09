@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/hms.css') }}" />
     @stack('invoice-css')
+    @stack('mr-css')
 </head>
 
 <body class="position-relative">

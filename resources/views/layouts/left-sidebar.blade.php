@@ -273,12 +273,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('moneyreceipts') }}">
+                                <a href="{{ url('money_receipts') }}">
                                     <span class="sub-item">Manage Money Receipts</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('moneyreceipts/create') }}">
+                                <a href="{{ url('money_receipts/create') }}">
                                     <span class="sub-item">Create Money Receipt</span>
                                 </a>
                             </li>
