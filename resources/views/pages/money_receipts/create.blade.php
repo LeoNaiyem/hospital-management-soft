@@ -124,7 +124,7 @@
                                 ATTENTION
                             </p>
                             <div class="signature-box d-flex justify-content-center align-items-center mt-3">
-                                <button class="btn btn-info my-4">Create</button>
+                                <button id="create-btn" class="btn btn-info my-4">Create</button>
                             </div>
                             <p class="text-center fw-bold mt-1 mb-3"></p>
                             <button class="btn btn-primary">
@@ -206,6 +206,24 @@
             })
 
         }
+        
+        //handle crate money receipt
+        document.getElementById('create-btn').addEventListener('click',()=>{
+            const patient_id =document.getElementById('patient-id').value;
+            const remark=document.getElementById('remark').value;
+            const receipt_total=document.getElementById('total-amount').textContent;
+            const subtotal=document.getElementById('subtotal-amount').textContent;
+            const vat=parseFloat(subtotal)*0.05;
+            const payload={
+                patient_id,
+                remark,
+                receipt_total,
+                vat:vat.toFixed(2),
+                discount:0,
+                items,
+            }
+            console.log(payload);
+        });
     </script>
 @endsection
 
