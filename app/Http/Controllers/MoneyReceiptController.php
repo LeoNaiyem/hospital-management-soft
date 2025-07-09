@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MoneyReceipt;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 
@@ -17,14 +18,13 @@ class MoneyReceiptController extends Controller
 
     public function create()
     {
-        $patients = \App\Models\Patient::all();
+        $patients =Patient::all();
+        $services=Service::all();
+        $mr=MoneyReceipt::all();
+        $maxId=$mr->max('id');        
+        $newMrId="MR-". str_pad($maxId+1,5,'0',STR_PAD_LEFT);
 
-        return view('pages.money_receipts.create', [
-            'mode' => 'create',
-            'moneyReceipt' => new MoneyReceipt(),
-            'patients' => $patients,
-
-        ]);
+        return view('pages.money_receipts.create',compact('patients','newMrId','services'));
     }
 
     public function store(Request $request)
