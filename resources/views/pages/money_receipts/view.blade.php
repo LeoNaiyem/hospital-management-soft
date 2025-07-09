@@ -1,114 +1,159 @@
 @extends('layouts.app')
-@section('page-title', 'MoneyReceipt Details')
+@section('page-title', 'Create MoneyReceipt')
 @section('page-content')
-    <div class="page-inner">
-        <!-- Page Header -->
-        <div class="card bg-info mb-3 p-4">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-between align-items-center">
-                    <h3 class="card-title text-white d-flex align-items-center m-0">
-                         MoneyReceipt Details
-                    </h3>
-                    <div>
-                        <a href="{{ route('money_receipts.index') }}" class="btn btn-light btn-sm" title="Back">
-                            <i class="fa fa-arrow-left mr-1"></i> Back
-                        </a>
-                        <a href="{{ route('money_receipts.edit', $moneyReceipt->id) }}" class="btn btn-warning btn-sm" title="Edit">
-                            <i class="fa fa-edit mr-1"></i> Edit
-                        </a>
+
+    <div class="page-inner fy-montserrat">
+        <div class="mr-container rounded-2 shadow position-relative">
+            <div class="p-5">
+                {{-- head --}}
+                <div class="mr-head d-flex justify-content-between align-items-end">
+
+                    <div class="head-left flex-fill">
+                        <h1 class=" text-seagreen">
+                            <span>MONEY</span> <br>
+                            RECEIPT
+                        </h1>
+                        <p class=" mt-2">25 January, 2024</p>
+                    </div>
+                    <div class="head-right flex-fill">
+                        <div class="d-flex justify-content-end">
+                            <img src="{{ asset('assets/img/money_receipt/logo.png') }}" height="110" alt="logo">
+                        </div>
+                        <div class="mr-no d-flex align-items-center justify-content-end gap-2 mt-2">
+                            <p class="text-light py-2 pe-5  text-uppercase fw-bold">Invoice Number: 01234</p>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- transaction info --}}
+                <div class="row mt-5">
+                    <div class="col-7">
+                        <p class=" fw-bold mb-1">PAYABLE TO:</p>
+                        <p class="text-capitalized ">Jonathan Peterson</p>
+                        <p style="line-height: 20px" class=" text-capitalized">123 Anywhere St., Any City</p>
+                    </div>
+                    <div class="col-5">
+                        <p class=" fw-bold mb-1">BANK DETAILS:</p>
+                        <p class=" text-capitalized">Arowwai Industries</p>
+                        <p style="line-height: 20px" class=" text-capitalized">+123-456-7890</p>
+                    </div>
+                </div>
+
+                {{-- table --}}
+                <table class="table table-striped mt-5 ">
+                    <thead class="table-info">
+                        <tr>
+                            <th class=" text-center">NO</th>
+                            <th>DESCRIPTION</th>
+                            <th class=" text-center">QUANTITY</th>
+                            <th class=" text-center">PRICE</th>
+                            <th class=" text-center">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class=" text-center">1</th>
+                            <td class="">Social Media Development</td>
+                            <td class=" text-center">1</td>
+                            <td class=" text-center">$100</td>
+                            <td class=" text-center">$100</td>
+                        </tr>
+                        <tr>
+                            <th class=" text-center">1</th>
+                            <td class=" ">Social Media Development</td>
+                            <td class=" text-center">1</td>
+                            <td class=" text-center">$100</td>
+                            <td class=" text-center">$100</td>
+                        </tr>
+                        <tr>
+                            <th class=" text-center">1</th>
+                            <td class=" ">Social Media Development</td>
+                            <td class=" text-center">1</td>
+                            <td class=" text-center">$100</td>
+                            <td class=" text-center">$100</td>
+                        </tr>
+                        <tr>
+                            <th class=" text-center">1</th>
+                            <td class=" ">Social Media Development</td>
+                            <td class=" text-center">1</td>
+                            <td class=" text-center">$100</td>
+                            <td class=" text-center">$100</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                {{-- calculations --}}
+                <div class="d-flex justify-content-end align-items-center pe-5 gap-5">
+                    <div class="d-flex flex-column">
+                        <p class="text-end fw-semibold ">SUBTOTAL:</p>
+                        <p class="text-end fw-semibold ">TAX:</p>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <p>$800</p>
+                        <p>$96</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between px-5 py-2 text-light mt-3 align-items-center bg-seagreen">
+                    <p class="fw-bold">GRAND TOTAL:</p>
+                    <p class="fw-bold">$896</p>
+                </div>
+
+                {{-- trams and conditions --}}
+                <div class="row mt-5 px-4">
+                    <div class="col-6">
+                        <p class="fw-bold text-seagreen mb-1">
+                            TRAMS & CONDITIONS
+                        </p>
+                        <p style="font-size: 12px">
+                            Refunds are available for services or products that do not meet the agreed upon specifications
+                            or were delivered in an
+                            unsatisfactory condition & refund requests must be made within 30 days from the date of
+                            service/product delivery.
+                        </p>
+                    </div>
+
+                    {{-- signature --}}
+                    <div class="col-6 d-flex flex-column align-items-end mt-1">
+                        <div class="d-flex align-items-center flex-column">
+                            <p class="fw-bold text-center">
+                                THANK YOU FOR YOUR <br>
+                                ATTENTION
+                            </p>
+                            <div class="signature-box mt-3">
+                                <img src="{{ asset('assets/img/money_receipt/signature.png') }}" alt="signature">
+                            </div>
+                            <p class="text-center fw-bold mt-1 mb-3">NAIYEM HOSSAIN</p>
+                            <button class="btn btn-info">
+                                OUR CONTACT INFORMATION
+                            </button>
+                            <p class="my-2">
+                                <small>
+                                    naiyemhossain@gmail.com
+
+                                    <i class="fa fa-envelope px-3 text-seagreen"></i>
+                                </small>
+                                <small>
+                                    +8801478569853
+                                    <i class="fa fa-phone ps-3 text-seagreen"></i>
+                                </small>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover table-striped">
-                        <tbody>
-                                            <tr>
-                    <th>Id</th>
-                    <td>{{ $moneyReceipt->id ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Created at</th>
-                    <td>{{ $moneyReceipt->created_at ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Updated at</th>
-                    <td>{{ $moneyReceipt->updated_at ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Patient id</th>
-                    <td>{{ $moneyReceipt->patient->name ?? $moneyReceipt->patient_id }}</td>
-                </tr>                <tr>
-                    <th>Remark</th>
-                    <td>{{ $moneyReceipt->remark ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Receipt total</th>
-                    <td>{{ $moneyReceipt->receipt_total ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Discount</th>
-                    <td>{{ $moneyReceipt->discount ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Vat</th>
-                    <td>{{ $moneyReceipt->vat ?? 'N/A' }}</td>
-                </tr>                <tr>
-                    <th>Created At</th>
-                    <td>{{ \${$modelVar}->created_at->format('M d, Y h:i A') }}</td>
-                </tr>                <tr>
-                    <th>Updated At</th>
-                    <td>{{ \${$modelVar}->updated_at->format('M d, Y h:i A') }}</td>
-                </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="mt-4 d-flex justify-content-between">
-                    <form action="{{ route('money_receipts.destroy', $moneyReceipt->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">
-                            <i class="fas fa-trash mr-1"></i> Delete
-                        </button>
-                    </form>
-                    
-                    @if(isset($moneyReceipt->status))
-                        <span class="badge 
-                            @if($moneyReceipt->status == 'active') bg-success @endif
-                            @if($moneyReceipt->status == 'inactive') bg-danger @endif
-                            @if($moneyReceipt->status == 'pending') bg-warning @endif">
-                            {{ ucfirst($moneyReceipt->status) }}
-                        </span>
-                    @endif
-                </div>
+            {{-- footer image --}}
+            <div class="position-absolute bottom-0 left-0 pe-none">
+                <img height="250" src="{{ asset('assets/img/money_receipt/footer-corner.png') }}" alt="footer graphics">
             </div>
+        </div>
+        <div onclick="window.print()" class="d-flex justify-content-center mt-3">
+            <button class="btn btn-info">
+                PRINT
+            </button>
         </div>
     </div>
 @endsection
 
-@push('styles')
-<style>
-    .table th {
-        width: 30%;
-        background-color: #f8f9fa;
-    }
-    .img-thumbnail {
-        max-height: 200px;
-        object-fit: contain;
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-    }
-    .badge {
-        font-size: 0.85rem;
-        padding: 0.5rem 0.75rem;
-    }
-    .bg-success {
-        background-color: #28a745 !important;
-    }
-    .bg-danger {
-        background-color: #dc3545 !important;
-    }
-    .bg-warning {
-        background-color: #ffc107 !important;
-        color: #212529;
-    }
-</style>
+@push('mr-css')
+    <link rel="stylesheet" href="{{ asset('assets/css/moneyreceipt.css') }}">
 @endpush

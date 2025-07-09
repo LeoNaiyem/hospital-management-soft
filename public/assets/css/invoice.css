@@ -115,6 +115,8 @@
     font-weight: 700;
     color: #013064;
 }
+
+/* printing styles */
 @media print {
     body {
         -webkit-print-color-adjust: exact !important;
@@ -131,10 +133,11 @@
     }
 
     #invoice-area {
-        position: absolute;
+        position: absolute !important;
         left: -262px;
         top: -40px;
-        min-width: 800px !important;
+        min-width: 780px !important;
+        min-height: 100%;
         width: 100% !important;
     }
 

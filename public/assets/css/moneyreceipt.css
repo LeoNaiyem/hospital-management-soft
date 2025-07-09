@@ -75,3 +75,26 @@ h1 {
     height: 100%;
     object-fit: cover;
 }
+
+@media print{
+    body{
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust: exact !important;
+    }
+    body *{
+        visibility: hidden;
+    }
+    .mr-container,
+    .mr-container *{
+        visibility: visible;
+    }
+    .mr-container{
+        position: absolute !important;
+        left: -262px;
+        top: -40px;
+        min-width: 780px;
+        min-height: 100%;
+        width: 100%;
+
+    }
+}
