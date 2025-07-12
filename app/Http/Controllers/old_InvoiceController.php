@@ -7,7 +7,7 @@ use App\Models\Patient;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
-class InvoiceController extends Controller
+class old_InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
