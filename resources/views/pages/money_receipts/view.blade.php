@@ -3,6 +3,9 @@
 @section('page-content')
 
     <div class="page-inner fy-montserrat">
+        <pre>
+                {{-- @dd($details) --}}
+            </pre>
         <div class="mr-container rounded-2 shadow position-relative">
             <div class="p-5">
                 {{-- head --}}
@@ -13,14 +16,14 @@
                             <span>MONEY</span> <br>
                             RECEIPT
                         </h1>
-                        <p class=" mt-2">25 January, 2024</p>
+                        <p class=" mt-2">{{ $moneyReceipt->created_at->format('F d, Y') }}</p>
                     </div>
                     <div class="head-right flex-fill">
                         <div class="d-flex justify-content-end">
                             <img src="{{ asset('assets/img/money_receipt/logo.png') }}" height="110" alt="logo">
                         </div>
                         <div class="mr-no d-flex align-items-center justify-content-end gap-2 mt-2">
-                            <p class="text-light py-2 pe-5  text-uppercase fw-bold">Invoice Number: 01234</p>
+                            <p class="text-light py-2 pe-5  text-uppercase fw-bold">Money Receipt No: {{ $customMrId }}</p>
                         </div>
                     </div>
                 </div>
@@ -29,13 +32,13 @@
                 <div class="row mt-5">
                     <div class="col-7">
                         <p class=" fw-bold mb-1">PAYABLE TO:</p>
-                        <p class="text-capitalized ">Jonathan Peterson</p>
-                        <p style="line-height: 20px" class=" text-capitalized">123 Anywhere St., Any City</p>
+                        <p class="text-capitalized ">{{ $patient->name }}</p>
+                        <p style="line-height: 20px" class=" text-capitalized">370/Cha, Saudi colony,Dhaka Cant.
                     </div>
                     <div class="col-5">
                         <p class=" fw-bold mb-1">BANK DETAILS:</p>
-                        <p class=" text-capitalized">Arowwai Industries</p>
-                        <p style="line-height: 20px" class=" text-capitalized">+123-456-7890</p>
+                        <p class=" text-capitalized">Islami Bank Bangladesh Ltd.</p>
+                        <p style="line-height: 20px" class=" text-capitalized">+880-1525-327890</p>
                     </div>
                 </div>
 
@@ -47,38 +50,23 @@
                             <th>DESCRIPTION</th>
                             <th class=" text-center">QUANTITY</th>
                             <th class=" text-center">PRICE</th>
+                            <th class=" text-center">VAT</th>
+                            <th class=" text-center">DISCOUNT</th>
                             <th class=" text-center">TOTAL</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th class=" text-center">1</th>
-                            <td class="">Social Media Development</td>
-                            <td class=" text-center">1</td>
-                            <td class=" text-center">$100</td>
-                            <td class=" text-center">$100</td>
-                        </tr>
-                        <tr>
-                            <th class=" text-center">1</th>
-                            <td class=" ">Social Media Development</td>
-                            <td class=" text-center">1</td>
-                            <td class=" text-center">$100</td>
-                            <td class=" text-center">$100</td>
-                        </tr>
-                        <tr>
-                            <th class=" text-center">1</th>
-                            <td class=" ">Social Media Development</td>
-                            <td class=" text-center">1</td>
-                            <td class=" text-center">$100</td>
-                            <td class=" text-center">$100</td>
-                        </tr>
-                        <tr>
-                            <th class=" text-center">1</th>
-                            <td class=" ">Social Media Development</td>
-                            <td class=" text-center">1</td>
-                            <td class=" text-center">$100</td>
-                            <td class=" text-center">$100</td>
-                        </tr>
+                        @foreach ($details as $index => $detail)
+                            <tr>
+                                <th class=" text-center">{{ $index + 1 }}</th>
+                                <td class="">{{ $detail->serviceName }}</td>
+                                <td class=" text-center">{{$detail->qty}}</td>
+                                <td class=" text-center">${{ number_format($detail->price, 2)}}</td>
+                                <td class=" text-center">${{ number_format($detail->discount, 2) }}</td>
+                                <td class=" text-center">${{ number_format($detail->vat, 2) }}</td>
+                                <td class=" text-center">${{ number_format($detail->lineTotal, 2) }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
@@ -86,16 +74,16 @@
                 <div class="d-flex justify-content-end align-items-center pe-5 gap-5">
                     <div class="d-flex flex-column">
                         <p class="text-end fw-semibold ">SUBTOTAL:</p>
-                        <p class="text-end fw-semibold ">TAX:</p>
+                        <p class="text-end fw-semibold ">TAX (5%):</p>
                     </div>
                     <div class="d-flex flex-column">
-                        <p>$800</p>
-                        <p>$96</p>
+                        <p>${{ number_format($subtotal, 2) }}</p>
+                        <p>${{number_format($tax, 2)}}</p>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between px-5 py-2 text-light mt-3 align-items-center bg-seagreen">
                     <p class="fw-bold">GRAND TOTAL:</p>
-                    <p class="fw-bold">$896</p>
+                    <p class="fw-bold">${{ number_format($moneyReceipt->receipt_total,2) }}</p>
                 </div>
 
                 {{-- trams and conditions --}}
