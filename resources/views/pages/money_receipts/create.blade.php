@@ -176,8 +176,18 @@
                 discount: parseFloat(discount),
             }
             items.push(item);
+            clearInputs();
             showServices();
         });
+
+        //handel clear input fields
+        function clearInputs() {
+            document.getElementById('service-id').selectedIndex = 0;
+            document.getElementById('price').value = '';
+            document.getElementById('quantity').value = '';
+            document.getElementById('vat').value = '';
+            document.getElementById('discount').value = '';
+        }
 
         //handel show services
         function showServices() {
