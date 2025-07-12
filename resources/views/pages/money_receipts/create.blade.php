@@ -238,7 +238,7 @@
         }
 
         //handle crate money receipt
-        document.getElementById('create-btn').addEventListener('click', () => {
+        document.getElementById('create-btn').addEventListener('click', async() => {
             const patient_id = document.getElementById('patient-id').value;
             const remark = document.getElementById('remark').value;
             const receipt_total = document.getElementById('total-amount').textContent;
@@ -252,7 +252,30 @@
                 discount: 0,
                 items,
             }
-            console.log(payload);
+
+            //sending dat to the database
+            try{
+                const response = await fetch('http://127.0.0.1:8000/api/money_receipts',{
+                    method:"POST",
+                    headers:{
+                        'Accept':'application/json',
+                        'Content-Type':'application/json',
+                    },
+                    body:JSON.stringify(payload)
+                });
+                if(!response.ok){
+                    throw new Error(`Server error: ${response.status}`);
+                }
+                const result = await response.json();
+                alert('Successfully created!')
+
+                //redirecting to the manage page
+                window.location.assign('{{ route('money_receipts.index') }}');
+                console.log(result);
+            }catch(err){
+                alert('Error creating Money receipt!')
+                console.log(`Failed to crate Money receipt: ${err}`);
+            }
         });
     </script>
 @endsection
