@@ -3,24 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
+use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Models\Service;
-use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $invoices = Invoice::orderBy('id','desc')->paginate(10);
+        $invoices = Invoice::orderBy('id','DESC')->paginate(10);
         return view('pages.invoices.index', compact('invoices'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $lastInvoiceId = Invoice::max('id') ?? 0;
@@ -33,17 +27,16 @@ class InvoiceController extends Controller
         return view('pages.invoices.create', compact('invoices', 'newInvoiceNo', 'patients', 'services'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // $data = $request->all();
+        // if ($request->hasFile('photo')) {
+        //     $data['photo'] = $request->file('photo')->store('uploads', 'public');
+        // }
+        // Invoice::create($data);
+        // return redirect()->route('invoices.index')->with('success', 'Successfully created!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Invoice $invoice)
     {
         $pId = $invoice->patient_id;
@@ -51,28 +44,31 @@ class InvoiceController extends Controller
         return view('pages.invoices.view', compact('patient', 'invoice'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Invoice $invoice)
     {
-        //
+        $patients = \App\Models\Patient::all();
+
+        return view('pages.invoices.edit', [
+            'mode' => 'edit',
+            'invoice' => $invoice,
+            'patients' => $patients,
+
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Invoice $invoice)
     {
-        //
+        $data = $request->all();
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('uploads', 'public');
+        }
+        $invoice->update($data);
+        return redirect()->route('invoices.index')->with('success', 'Successfully updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Invoice $invoice)
     {
         $invoice->delete();
-        return redirect(route('invoices.index'))->with('message', 'Successfully Deleted!');
+        return redirect()->route('invoices.index')->with('success', 'Successfully deleted!');
     }
 }

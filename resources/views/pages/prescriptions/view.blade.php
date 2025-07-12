@@ -42,7 +42,7 @@
                                 </p>
                             </div>
                             <div class="my-2 d-flex align-items-center gap-4">
-                                <p class="m-0">AGE:</p><strong>{{$patient->age}}</strong>
+                                <p class="m-0">AGE:</p><strong>{{$patient->age}} Years</strong>
                             </div>
                             <div class="mb-2 d-flex align-items-center gap-4">
                                 <p class="m-0">Sex:</p>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <button id="save-btn" onclick="window.print()" class=" btn btn-print no-print btn-lg btn-info
-                    position-absolute top-25 start-50">
+                        position-absolute top-25 start-50">
                     Print
                 </button>
                 <img class="pe-none" src="{{ asset('assets/img/prescription/border_bottom.png') }}" alt="bottom graphics">
@@ -174,10 +174,10 @@
             diagnosisArr.forEach((item, index) => {
                 const li = document.createElement('li');
                 li.innerHTML = `
-                            <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                ${index + 1}.&nbsp; ${item}                            
-                            </li>
-                        `;
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                                    ${index + 1}.&nbsp; ${item}                            
+                                </li>
+                            `;
                 diagnosisContainer.appendChild(li);
             });
         }
@@ -190,11 +190,11 @@
             items.forEach((item, index) => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                            <td>${item.medicine_name}</td>
-                            <td>${item.dose}</td>
-                            <td>${item.days} Days</td>
-                            <td>${item.suggestion}</td>
-                        `;
+                                <td>${item.medicine_name}</td>
+                                <td>${item.dose}</td>
+                                <td>${item.days} Days</td>
+                                <td>${item.suggestion}</td>
+                            `;
                 tbody.appendChild(tr);
             })
         }

@@ -1,23 +1,33 @@
 <?php
 
+use App\Http\Controllers\Api\MoneyReceiptController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ConsultantController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\MedicineCategoryController;
+use App\Http\Controllers\MedicineController;
+use App\Http\Controllers\MedicineTypeController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.dashboard.home');
 });
-Route::resource('appointments', App\Http\Controllers\AppointmentController::class);
-Route::resource('patients', App\Http\Controllers\PatientController::class);
-Route::resource('departments', App\Http\Controllers\DepartmentController::class);
-Route::resource('doctors', App\Http\Controllers\DoctorController::class);
-Route::resource('services', App\Http\Controllers\ServiceController::class);
-Route::resource('consultants', App\Http\Controllers\ConsultantController::class);
-Route::resource('medicine_types', App\Http\Controllers\MedicineTypeController::class);
-Route::resource('medicine_categories', App\Http\Controllers\MedicineCategoryController::class);
-Route::resource('medicines', App\Http\Controllers\MedicineController::class);
+Route::resource('appointments', AppointmentController::class);
+Route::resource('patients', PatientController::class);
+Route::resource('departments', DepartmentController::class);
+Route::resource('doctors', DoctorController::class);
+Route::resource('services', ServiceController::class);
+Route::resource('consultants', ConsultantController::class);
+Route::resource('medicine_types', MedicineTypeController::class);
+Route::resource('medicine_categories', MedicineCategoryController::class);
+Route::resource('medicines', MedicineController::class);
 Route::resource('prescriptions', PrescriptionController::class);
-Route::resource('designations', App\Http\Controllers\DesignationController::class);
+Route::resource('designations', DesignationController::class);
+Route::resource('money_receipts', MoneyReceiptController::class);
 Route::resource('invoices', InvoiceController::class);
-Route::resource('money_receipts', App\Http\Controllers\MoneyReceiptController::class);
-Route::resource('money_receipts', App\Http\Controllers\MoneyReceiptController::class);

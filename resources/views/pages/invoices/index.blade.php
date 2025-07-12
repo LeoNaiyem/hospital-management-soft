@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('page-title', 'Invoice Page')
 @section('page-content')
-    <div class="container my-4">
+    <div class="page-inner">
         <!-- Page Header -->
         <div class="card bg-info mb-3 p-4">
             <div class="row">
@@ -65,11 +65,12 @@
                         <tr>
                             <th>Id</th>
                             <th>Patient id</th>
-                            <th>Invoice Total</th>
-                            <th>Paid Total</th>
-                            <th>Discount</th>
                             <th>Remark</th>
-                            <th>Actions</th>
+                            <th>Created at</th>
+                            <th>Invoice total</th>
+                            <th>Paid total</th>
+                            <th>Payment term</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,11 +78,12 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ optional($item->patient)->name ?? $item->patient_id }}</td>
+                                <td>{{ $item->remark }}</td>
+                                <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->invoice_total }}</td>
                                 <td>{{ $item->paid_total }}</td>
-                                <td>{{ $item->discount }}</td>
-                                <td>{{ $item->remark }}</td>
-                                <td>
+                                <td>{{ $item->payment_term }}</td>
+                                <td style="min-width:220px">
                                     <a href="{{ route('invoices.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
                                     <a href="{{ route('invoices.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form action="{{ route('invoices.destroy', $item->id) }}" method="POST"

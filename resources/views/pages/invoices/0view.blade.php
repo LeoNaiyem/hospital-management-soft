@@ -168,18 +168,18 @@
                 // total += subtotal - service.vat;
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                            <td class="text-left ps-5 text-blue">${service.name}</td>
-                            <td class="text-center text-blue">$${service.price.toFixed(2)}</td>
-                            <td class="text-center text-blue">${service.unit}</td>
-                            <td class="text-center text-blue">$${service.discount.toFixed(2)}</td>
-                            <td class="text-center text-blue">
-                            $${lineTotal.toFixed(2)}
-                            </td>
-                            `;
+                        <td class="text-left ps-5 text-blue">${service.name}</td>
+                        <td class="text-center text-blue">$${service.price}</td>
+                        <td class="text-center text-blue">$${service.unit}</td>
+                        <td class="text-center text-blue">$${service.discount}</td>
+                        <td class="text-center text-blue">
+                        $${lineTotal}
+                        </td>
+                        `;
                 tBody.appendChild(tr);
             });
-            subtotalDiv.textContent = subtotal.toFixed(2);
-            totalDiv.textContent = (subtotal + 10).toFixed(2);
+            subtotalDiv.textContent = subtotal;
+            totalDiv.textContent = subtotal + 10;
         }
         fetchData();
     </script>

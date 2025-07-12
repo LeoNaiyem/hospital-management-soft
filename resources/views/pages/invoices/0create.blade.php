@@ -143,7 +143,7 @@
                     <textarea placeholder="Any special note..." id="remark" rows="3" cols="50" class="py-2 px-3"></textarea>
                 </div>
                 <div class="col-6 d-flex align-items-end text-blue flex-column">
-                    <button onclick="createInvoice()" id="submit" class="btn btn-info">Create Invoice</button>
+                    <button onclick="createInvoice()" id="submit" class="btn btn-success">Create Invoice</button>
                 </div>
             </div>
         </div>
@@ -188,19 +188,19 @@
                 total += subtotal - service.vat;
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                        <td class="text-left ps-5 text-blue">${service.name}</td>
-                        <td class="text-center text-blue">$${service.price}</td>
-                        <td class="text-center text-blue">$${service.unit}</td>
-                        <td class="text-center text-blue">$${service.discount}</td>
-                        <td class="text-center">
-                        <button onClick="removeService(${index})" class="btn btn-sm btn-danger">
-                        <i class="fa fa-trash"></i>
-                        </button>
-                        </td>
-                        <td class="text-center text-blue">
-                        $${lineTotal}
-                        </td>
-                    `;
+                    <td class="text-left ps-5 text-blue">${service.name}</td>
+                    <td class="text-center text-blue">$${service.price}</td>
+                    <td class="text-center text-blue">$${service.unit}</td>
+                    <td class="text-center text-blue">$${service.discount}</td>
+                    <td class="text-center">
+                    <button onClick="removeService(${index})" class="btn btn-sm btn-danger">
+                    <i class="fa fa-trash"></i>
+                    </button>
+                    </td>
+                    <td class="text-center text-blue">
+                    $${lineTotal}
+                    </td>
+                `;
                 tBody.appendChild(tr);
             });
             subtotalDiv.textContent = subtotal;
