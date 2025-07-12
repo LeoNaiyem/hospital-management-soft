@@ -3,7 +3,7 @@
 @section('page-content')
 
     <div class="page-inner fy-montserrat">
-        <div style="width: 70vw" class="mr-container rounded-2 shadow position-relative">
+        <div class="mr-container rounded-2 shadow position-relative">
             <div class="p-5">
                 {{-- head --}}
                 <div class="mr-head d-flex justify-content-between align-items-end">
@@ -85,6 +85,9 @@
                             <th class=" text-center">PRICE</th>
                             <th class=" text-center">VAT</th>
                             <th class=" text-center">DISCOUNT</th>
+                            <th class=" text-center">
+                                <button onclick="clearServices()" class="btn-clear">CLR</button>
+                            </th>
                             <th class=" text-center">TOTAL</th>
                         </tr>
                     </thead>
@@ -113,7 +116,8 @@
                         <p class="fw-bold text-seagreen mb-1">
                             ANY SPECIAL NOTES?
                         </p>
-                        <textarea class="form-control" name="remark" id="remark" cols="40" rows="2" placeholder="Special notes..."></textarea>
+                        <textarea class="form-control" name="remark" id="remark" cols="40" rows="2"
+                            placeholder="Special notes..."></textarea>
                     </div>
 
                     {{-- signature --}}
@@ -152,74 +156,90 @@
         </div>
     </div>
     <script>
-        const items=[];        
+        let items = [];
 
         //handle add 
-        document.getElementById('add-btn').addEventListener('click',()=>{
-            const serviceEl=document.getElementById('service-id');
-            const service_id=serviceEl.value;
-            const service_name=serviceEl.options[serviceEl.selectedIndex].text;
-            const price=document.getElementById('price').value;
-            const quantity=document.getElementById('quantity').value;
-            const vat=document.getElementById('vat').value;
-            const discount=document.getElementById('discount').value;
-            const item={
+        document.getElementById('add-btn').addEventListener('click', () => {
+            const serviceEl = document.getElementById('service-id');
+            const service_id = serviceEl.value;
+            const service_name = serviceEl.options[serviceEl.selectedIndex].text;
+            const price = document.getElementById('price').value;
+            const quantity = document.getElementById('quantity').value;
+            const vat = document.getElementById('vat').value;
+            const discount = document.getElementById('discount').value;
+            const item = {
                 service_id,
                 service_name,
-                price:parseFloat(price),
-                quantity:parseFloat(quantity),
-                vat:parseFloat(vat),
-                discount:parseFloat(discount),
+                price: parseFloat(price),
+                quantity: parseFloat(quantity),
+                vat: parseFloat(vat),
+                discount: parseFloat(discount),
             }
             items.push(item);
-            showServices();            
+            showServices();
         });
 
         //handel show services
-        function showServices(){
+        function showServices() {
+            const TAX = 0.05;
             let tbody = document.getElementById('tbody');
             let subtotalEl = document.getElementById('subtotal-amount');
             let totalEl = document.getElementById('total-amount');
-            tbody.innerHTML='';
-            let lineTotal=0;
-            let subtotal=0;
-            let total=0;
-            items.forEach((item,index)=>{
-                lineTotal=item.price*item.quantity+item.vat-item.discount;
-                subtotal+=lineTotal;
-                total+= subtotal * 0.05;
-                subtotalEl.textContent=subtotal.toFixed(2);
-                totalEl.textContent=total.toFixed(2);
-                const tr=document.createElement('tr');
-                tr.innerHTML=`
-                    <tr>
-                        <th class="text-center">${index+1}</th>
-                        <td>${item.service_name}</td>
-                        <td class="text-center">${item.quantity}</td>
-                        <td class="text-center">$${item.price}</td>
-                        <td class="text-center">$${item.vat}</td>
-                        <td class="text-center">$${item.discount}</td>
-                        <td class="text-center">$${lineTotal}</td>
-                    </tr>
-                `;
+            tbody.innerHTML = '';
+            let lineTotal = 0;
+            let subtotal = 0;
+            items.forEach((item, index) => {
+                lineTotal = item.price * item.quantity + item.vat - item.discount;
+                subtotal += lineTotal;
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                                <tr>
+                                    <th class="text-center">${index + 1}</th>
+                                    <td>${item.service_name}</td>
+                                    <td class="text-center">${item.quantity}</td>
+                                    <td class="text-center">$${item.price}</td>
+                                    <td class="text-center">$${item.vat}</td>
+                                    <td class="text-center">$${item.discount}</td>
+                                    <td class="text-center">
+                                        <button onclick="removeService(${index})" class="btn-clear btn-remove">DEL</button>
+                                    </td>
+                                    <td class="text-center">$${lineTotal}</td>
+                                </tr>
+                            `;
                 tbody.appendChild(tr);
-            })
+            });
+
+            const total = subtotal + (subtotal * TAX);
+            subtotalEl.textContent = subtotal.toFixed(2);
+            totalEl.textContent = total.toFixed(2);
 
         }
-        
+
+        //handle clear services
+        function clearServices() {
+            items = [];
+            showServices();
+        }
+
+        //handle remove service
+        function removeService(index) {
+            items.splice(index, 1);
+            showServices();
+        }
+
         //handle crate money receipt
-        document.getElementById('create-btn').addEventListener('click',()=>{
-            const patient_id =document.getElementById('patient-id').value;
-            const remark=document.getElementById('remark').value;
-            const receipt_total=document.getElementById('total-amount').textContent;
-            const subtotal=document.getElementById('subtotal-amount').textContent;
-            const vat=parseFloat(subtotal)*0.05;
-            const payload={
+        document.getElementById('create-btn').addEventListener('click', () => {
+            const patient_id = document.getElementById('patient-id').value;
+            const remark = document.getElementById('remark').value;
+            const receipt_total = document.getElementById('total-amount').textContent;
+            const subtotal = document.getElementById('subtotal-amount').textContent;
+            const vat = parseFloat(subtotal) * 0.05;
+            const payload = {
                 patient_id,
                 remark,
                 receipt_total,
-                vat:vat.toFixed(2),
-                discount:0,
+                vat: vat.toFixed(2),
+                discount: 0,
                 items,
             }
             console.log(payload);
