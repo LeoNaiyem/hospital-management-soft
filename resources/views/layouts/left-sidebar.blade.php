@@ -307,7 +307,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a data-bs-toggle="collapse" href="/logout">
+                    <a href="{{ route('logout') }}">
                         <i class="fas fa-sign-out-alt"></i>
                         <p>Logout</p>
                     </a>
