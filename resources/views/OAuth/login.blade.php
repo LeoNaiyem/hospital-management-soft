@@ -26,12 +26,12 @@
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
+                    <input type="email" id="email" name="email" class="form-control" required value="naiyem@gmail.com">
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" required>
+                    <input type="password" id="password" name="password" class="form-control" required value="111111">
                 </div>
 
                 <div class="mb-3 form-check">
