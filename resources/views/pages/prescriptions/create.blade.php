@@ -131,7 +131,8 @@
                             </div>
                             <div class="">
                                 <label for="suggestion">Suggestion</label>
-                                <select style="min-width: 165px;" id='suggestion' name="suggestion" class="form-select py-1 px-2">
+                                <select style="min-width: 165px;" id='suggestion' name="suggestion"
+                                    class="form-select py-1 px-2">
                                     <option value="Before Meal 1Tab">Before Meal 1Tab</option>
                                     <option value="After Meal 1Tab">After Meal 1Tab</option>
                                     <option value="Before Meal 2Tab">Before Meal 2Tab</option>
@@ -226,6 +227,9 @@
     </div>
 
     <script>
+        //url form env
+        const BASE_URL = "{{ config('app.url') }}";
+
         const items = [];
         document.getElementById('add').addEventListener('click', () => {
             const medicineEl = document.getElementById('medicine-id');
@@ -258,16 +262,16 @@
             items.forEach((item, index) => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                                 <td>${item.medicine_name}</td>
-                                <td>${item.dose_name}</td>
-                                <td>${item.days_name}</td>
-                                <td>${item.suggestion}</td>
-                                <td class="text-center">
-                                <button onclick="removeItem(${index})" class="btn px-2 btn-sm btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                                </td> 
-                            `;
+                                     <td>${item.medicine_name}</td>
+                                    <td>${item.dose_name}</td>
+                                    <td>${item.days_name}</td>
+                                    <td>${item.suggestion}</td>
+                                    <td class="text-center">
+                                    <button onclick="removeItem(${index})" class="btn px-2 btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                    </td> 
+                                `;
                 tbody.appendChild(tr);
             })
         }
@@ -295,13 +299,13 @@
             diagnosisItems.forEach((item, index) => {
                 const li = document.createElement('li');
                 li.innerHTML = `
-                        <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                            ${item}
-                            <span style="cursor:pointer;height:20px;width:20px" onclick="removeDiagnosisItem(${index})" class="d-flex justify-content-center align-items-center rounded-pill bg-danger bg-opacity-25">
-                                <span style="margin-top:-3px">x</span>
-                                </span>
-                        </li>
-                    `;
+                            <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                                ${item}
+                                <span style="cursor:pointer;height:20px;width:20px" onclick="removeDiagnosisItem(${index})" class="d-flex justify-content-center align-items-center rounded-pill bg-danger bg-opacity-25">
+                                    <span style="margin-top:-3px">x</span>
+                                    </span>
+                            </li>
+                        `;
                 diagnosisContainer.appendChild(li);
             });
         }
@@ -331,7 +335,7 @@
             }
             console.log(payLoad);
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/prescriptions', {
+                const response = await fetch(`${BASE_URL}/api/prescriptions`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -352,7 +356,7 @@
                 window.location.assign("{{ route('prescriptions.index') }}");
 
             } catch (error) {
-                console.log('Server error',error);
+                console.log('Server error', error);
                 alert('Error Creating Prescription')
             }
         });

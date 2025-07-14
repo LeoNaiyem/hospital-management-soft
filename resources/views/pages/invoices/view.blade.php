@@ -125,7 +125,10 @@
 
     {{-- <div id="invoice-data" data-invoice-id="{{ $invoiceId }}" style="display: none;"></div> --}}
     <script>
-        const baseURL = "http://127.0.0.1:8000/api";
+        //url form env
+        const BASE_URL = "{{ config('app.url') }}";
+
+
         const invoiceId = document.getElementById('invoice-id').value;
         // const invoiceId = document.getElementById('invoice-data').dataset.invoiceId;
 
@@ -133,7 +136,7 @@
         // fetch data based on invoice id
         async function fetchData() {
             try {
-                const response = await fetch(`${baseURL}/invoices/${invoiceId}`, {
+                const response = await fetch(`${BASE_URL}/api/invoices/${invoiceId}`, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
@@ -168,14 +171,14 @@
                 // total += subtotal - service.vat;
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                            <td class="text-left ps-5 text-blue">${service.name}</td>
-                            <td class="text-center text-blue">$${service.price.toFixed(2)}</td>
-                            <td class="text-center text-blue">${service.unit}</td>
-                            <td class="text-center text-blue">$${service.discount.toFixed(2)}</td>
-                            <td class="text-center text-blue">
-                            $${lineTotal.toFixed(2)}
-                            </td>
-                            `;
+                                <td class="text-left ps-5 text-blue">${service.name}</td>
+                                <td class="text-center text-blue">$${service.price.toFixed(2)}</td>
+                                <td class="text-center text-blue">${service.unit}</td>
+                                <td class="text-center text-blue">$${service.discount.toFixed(2)}</td>
+                                <td class="text-center text-blue">
+                                $${lineTotal.toFixed(2)}
+                                </td>
+                                `;
                 tBody.appendChild(tr);
             });
             subtotalDiv.textContent = subtotal.toFixed(2);

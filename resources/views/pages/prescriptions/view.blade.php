@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <button id="save-btn" onclick="window.print()" class=" btn btn-print no-print btn-lg btn-info
-                        position-absolute top-25 start-50">
+                            position-absolute top-25 start-50">
                     Print
                 </button>
                 <img class="pe-none" src="{{ asset('assets/img/prescription/border_bottom.png') }}" alt="bottom graphics">
@@ -136,7 +136,9 @@
     <input type="hidden" id="prescription-id" value="{{ $prescription->id }}">
     <script type="module">
 
-        const baseURL = "http://127.0.0.1:8000/api";
+        //url from env
+        const BASE_URL = "{{ config('app.url') }}";
+
         const prescriptionId = document.getElementById('prescription-id').value;
         let data = null;
 
@@ -144,7 +146,7 @@
         // fetch data based on prescription id
         async function fetchData() {
             try {
-                const response = await fetch(`${baseURL}/prescriptions/${prescriptionId}`, {
+                const response = await fetch(`${BASE_URL}/api/prescriptions/${prescriptionId}`, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
@@ -174,10 +176,10 @@
             diagnosisArr.forEach((item, index) => {
                 const li = document.createElement('li');
                 li.innerHTML = `
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-2">
-                                    ${index + 1}.&nbsp; ${item}                            
-                                </li>
-                            `;
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                                        ${index + 1}.&nbsp; ${item}                            
+                                    </li>
+                                `;
                 diagnosisContainer.appendChild(li);
             });
         }
@@ -190,11 +192,11 @@
             items.forEach((item, index) => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                                <td>${item.medicine_name}</td>
-                                <td>${item.dose}</td>
-                                <td>${item.days} Days</td>
-                                <td>${item.suggestion}</td>
-                            `;
+                                    <td>${item.medicine_name}</td>
+                                    <td>${item.dose}</td>
+                                    <td>${item.days} Days</td>
+                                    <td>${item.suggestion}</td>
+                                `;
                 tbody.appendChild(tr);
             })
         }

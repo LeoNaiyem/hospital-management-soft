@@ -156,6 +156,9 @@
         </div>
     </div>
     <script>
+        //url form env
+        const BASE_URL = "{{ config('app.url') }}";
+
         let items = [];
 
         //handle add 
@@ -203,19 +206,19 @@
                 subtotal += lineTotal;
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                                <tr>
-                                    <th class="text-center">${index + 1}</th>
-                                    <td>${item.service_name}</td>
-                                    <td class="text-center">${item.quantity}</td>
-                                    <td class="text-center">$${item.price}</td>
-                                    <td class="text-center">$${item.vat}</td>
-                                    <td class="text-center">$${item.discount}</td>
-                                    <td class="text-center">
-                                        <button onclick="removeService(${index})" class="btn-clear btn-remove">DEL</button>
-                                    </td>
-                                    <td class="text-center">$${lineTotal}</td>
-                                </tr>
-                            `;
+                                    <tr>
+                                        <th class="text-center">${index + 1}</th>
+                                        <td>${item.service_name}</td>
+                                        <td class="text-center">${item.quantity}</td>
+                                        <td class="text-center">$${item.price}</td>
+                                        <td class="text-center">$${item.vat}</td>
+                                        <td class="text-center">$${item.discount}</td>
+                                        <td class="text-center">
+                                            <button onclick="removeService(${index})" class="btn-clear btn-remove">DEL</button>
+                                        </td>
+                                        <td class="text-center">$${lineTotal}</td>
+                                    </tr>
+                                `;
                 tbody.appendChild(tr);
             });
 
@@ -238,7 +241,7 @@
         }
 
         //handle crate money receipt
-        document.getElementById('create-btn').addEventListener('click', async() => {
+        document.getElementById('create-btn').addEventListener('click', async () => {
             const patient_id = document.getElementById('patient-id').value;
             const remark = document.getElementById('remark').value;
             const receipt_total = document.getElementById('total-amount').textContent;
@@ -254,16 +257,16 @@
             }
 
             //sending dat to the database
-            try{
-                const response = await fetch('http://127.0.0.1:8000/api/money_receipts',{
-                    method:"POST",
-                    headers:{
-                        'Accept':'application/json',
-                        'Content-Type':'application/json',
+            try {
+                const response = await fetch(`${BASE_URL}/api/money_receipts`, {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
                     },
-                    body:JSON.stringify(payload)
+                    body: JSON.stringify(payload)
                 });
-                if(!response.ok){
+                if (!response.ok) {
                     throw new Error(`Server error: ${response.status}`);
                 }
                 const result = await response.json();
@@ -272,7 +275,7 @@
                 //redirecting to the manage page
                 window.location.assign('{{ route('money_receipts.index') }}');
                 console.log(result);
-            }catch(err){
+            } catch (err) {
                 alert('Error creating Money receipt!')
                 console.log(`Failed to crate Money receipt: ${err}`);
             }
