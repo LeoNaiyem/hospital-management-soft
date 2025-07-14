@@ -84,7 +84,7 @@
                         </div>
                         <div>
                             <p>$<span id="subtotal">1,510</span></p>
-                            <p>$<span id="tax">10</span></p>
+                            <p>$<span id="tax">10.00</span></p>
                         </div>
                     </div>
                     <div class="total-box">

@@ -13,7 +13,7 @@
 }
 
 .invoice-header {
-    background: url("/assets/img/invoice/heder-bg.png");
+    background: url("../img/invoice/heder-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
@@ -22,7 +22,7 @@
 }
 
 .invoice-thead {
-    background: url("/assets/img/invoice/footer-bg.png") no-repeat center center;
+    background: url("../img/invoice/footer-bg.png") no-repeat center center;
     background-size: cover;
     color: white;
 }
@@ -70,7 +70,7 @@
 }
 
 .total-box {
-    background: url("/assets/img/invoice/total.png") no-repeat right center;
+    background: url("../img/invoice/total.png") no-repeat right center;
     background-size: auto 100%;
     color: white;
     padding: 10px 20px;
@@ -154,18 +154,18 @@
     }
 
     .invoice-header {
-        background: url("/assets/img/invoice/heder-bg.png");
+        background: url("../img/invoice/heder-bg.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
 
     .invoice-thead {
-        background: url("/assets/img/invoice/footer-bg.png") no-repeat center center;
+        background: url("../img/invoice/footer-bg.png") no-repeat center center;
         background-size: cover;
     }
 
     .total-box {
-        background: url("/assets/img/invoice/total.png") no-repeat right center;
+        background: url("../img/invoice/total.png") no-repeat right center;
         background-size: auto 100% !important;
     }
 }

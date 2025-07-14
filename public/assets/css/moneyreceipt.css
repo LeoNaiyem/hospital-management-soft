@@ -54,7 +54,7 @@ h1 {
     max-width: 65vw;
     min-height: 100vh;
     margin: 0 auto;
-    background: url("/assets/img/money_receipt/header-bg.png") no-repeat;
+    background: url("../img/money_receipt/header-bg.png") no-repeat;
     background-size: auto;
     background-position: top center;
 }
@@ -78,7 +78,7 @@ h1 {
 }
 .mr-no {
     margin-right: -3rem;
-    background: url("/assets/img/money_receipt/mr-no.png") no-repeat;
+    background: url("../img/money_receipt/mr-no.png") no-repeat;
     background-size: cover;
     p {
         margin-right: 30px;

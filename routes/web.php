@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\MoneyReceiptController;
+use App\Http\Controllers\MoneyReceiptController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ConsultantController;
 use App\Http\Controllers\DepartmentController;

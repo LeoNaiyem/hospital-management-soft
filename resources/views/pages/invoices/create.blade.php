@@ -149,6 +149,12 @@
         </div>
     </div>
     <script>
+        // local
+        const BASE_URL='http://127.0.0.1:8000'
+
+        //remote
+        // const BASE_URL="{{ config('app.url') }}";
+
         let subtotalDiv = document.getElementById('subtotal');
         let totalDiv = document.getElementById('total');
         const addBtn = document.getElementById('add');
@@ -228,7 +234,7 @@
             };
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/invoices', {
+                const response = await fetch(`${BASE_URL}/api/invoices`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
