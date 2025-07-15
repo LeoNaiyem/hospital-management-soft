@@ -61,7 +61,7 @@
                     <td>{{ $admission->remark ?? 'N/A' }}</td>
                 </tr>                <tr>
                     <th>Created At</th>
-                    <td>{{ \${$modelVar}->created_at->format('M d, Y h:i A') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($admission->created_at)->format('M d, Y h:i A') }}</td>
                 </tr>
                         </tbody>
                     </table>
