@@ -1655,6 +1655,26 @@ INSERT INTO `core_finished_goods` (`id`,`product_code`,`product_name`,`quantity`
 
 
 --
+-- Definition of table `core_hms_admissions`
+--
+
+DROP TABLE IF EXISTS `core_hms_admissions`;
+CREATE TABLE `core_hms_admissions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `patient_id` int(10) unsigned NOT NULL,
+  `ref_doctor_id` int(10) unsigned NOT NULL,
+  `under_doctor_id` int(10) unsigned NOT NULL,
+  `bed_id` int(10) unsigned NOT NULL,
+  `admission_date` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `department_id` int(10) unsigned NOT NULL,
+  `advance` float NOT NULL,
+  `problem` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
 -- Definition of table `core_hms_appointments`
 --
 
