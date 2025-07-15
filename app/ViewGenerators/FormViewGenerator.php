@@ -52,13 +52,12 @@ class FormViewGenerator
             } elseif ($inputType === 'select') {
                 $related = Str::camel(Str::singular(str_replace('_id', '', $col)));
                 $tbody .= "<td>{{ optional(\$item->{$related})->name ?? \$item->$col }}</td>";
-
             } else {
                 $tbody .= "<td>{{ \$item->$col }}</td>";
             }
         }
 
-        $thead .= "<th>Actions</th>";
+        $thead .= "<th class='text-center'>Actions</th>";
         $tbody .= <<<ACTIONS
 <td style="min-width:220px">
     <a href="{{ route('$modelSnakePlural.show', \$item->id) }}" class="btn btn-sm btn-info">View</a>
@@ -299,7 +298,6 @@ BLADE;
         );
 
         File::put("$dir/edit.blade.php", $template);
-
     }
 
 
@@ -450,5 +448,4 @@ BLADE;
 
         File::put("$dir/view.blade.php", $template);
     }
-
 }

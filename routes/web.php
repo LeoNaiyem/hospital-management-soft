@@ -45,3 +45,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('money_receipts', MoneyReceiptController::class);
     Route::resource('invoices', InvoiceController::class);
 });
+Route::resource('admissions', App\Http\Controllers\AdmissionController::class);

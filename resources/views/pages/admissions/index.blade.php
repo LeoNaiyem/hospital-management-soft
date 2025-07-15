@@ -1,14 +1,14 @@
 @extends('layouts.app')
-@section('page-title', 'Patient Page')
+@section('page-title', 'Admission Page')
 @section('page-content')
     <div class="page-inner">
         <!-- Page Header -->
         <div class="card bg-info mb-3 p-4">
             <div class="row">
                 <div class="col-12 d-flex justify-content-between align-item-center ">
-                    <h3 class=" card-title text-white d-flex align-items-center  m-0">Patient List</h3>
-                    <a href="{{ route('patients.create') }}" class="btn btn-light btn-sm" title="Create New Product">
-                        <i class="fa fa-plus mr-1"></i> Create New Patient
+                    <h3 class=" card-title text-white d-flex align-items-center  m-0">Admission List</h3>
+                    <a href="{{ route('admissions.create') }}" class="btn btn-light btn-sm" title="Create New Product">
+                        <i class="fa fa-plus mr-1"></i> Create New Admission
                     </a>
                 </div>
             </div>
@@ -65,30 +65,32 @@
                     <thead class="table-primary">
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>Mobile</th>
-                            <th>Dob</th>
-                            <th>Mob ext</th>
-                            <th>Gender</th>
-                            <th>Profession</th>
+                            <th>Patient</th>
+                            <th>Ref Dr.</th>
+                            <th>Under Dr.</th>
+                            <th>Bed</th>
+                            <th>Ad.Date</th>
+                            <th>Department</th>
+                            <th>Advance</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($patients as $item)
+                        @foreach ($admissions as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->mobile }}</td>
-                                <td>{{ $item->dob }}</td>
-                                <td>{{ $item->mob_ext }}</td>
-                                <td>{{ $item->gender }}</td>
-                                <td>{{ $item->profession }}</td>
-                                <td style="min-width: 220px">
-                                    <a href="{{ route('patients.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
-                                    <a href="{{ route('patients.edit', $item->id) }}"
+                                <td>{{ optional($item->patient)->name ?? $item->patient_id }}</td>
+                                <td>{{ optional($item->refDoctor)->name ?? $item->ref_doctor_id }}</td>
+                                <td>{{ optional($item->underDoctor)->name ?? $item->under_doctor_id }}</td>
+                                <td>{{ optional($item->bed)->name ?? $item->bed_id }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->admission_date)->format('F d, Y') }}</td>
+                                <td>{{ optional($item->department)->name ?? $item->department_id }}</td>
+                                <td>{{ $item->advance }}</td>
+                                <td style="min-width:220px">
+                                    <a href="{{ route('admissions.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
+                                    <a href="{{ route('admissions.edit', $item->id) }}"
                                         class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="{{ route('patients.destroy', $item->id) }}" method="POST"
+                                    <form action="{{ route('admissions.destroy', $item->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
                                         @method('DELETE')

@@ -1655,6 +1655,34 @@ INSERT INTO `core_finished_goods` (`id`,`product_code`,`product_name`,`quantity`
 
 
 --
+-- Definition of table `core_hms_beds`
+--
+DROP TABLE IF EXISTS `core_hms_beds`;
+CREATE TABLE `core_hms_beds` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `bed_number` VARCHAR(50) NOT NULL,
+  `ward_id` INT UNSIGNED NOT NULL,
+  `room_id` INT UNSIGNED DEFAULT NULL,
+  `bed_type` ENUM('General', 'Semi-Cabin', 'Cabin', 'ICU', 'CCU') DEFAULT 'General',
+  `status` ENUM('Available', 'Occupied', 'Maintenance', 'Reserved') DEFAULT 'Available',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `core_hms_beds` (`bed_number`, `ward_id`, `room_id`)
+VALUES 
+  ('B002', 1, 1),
+  ('B003', 1, 1),
+  ('B004', 1, 1);
+
+INSERT INTO `core_hms_beds` (
+  `bed_number`, `ward_id`, `room_id`, `bed_type`, `status`
+) VALUES (
+  'B005', 1, 1, 'ICU', 'Occupied'
+);
+
+--
 -- Definition of table `core_hms_admissions`
 --
 
