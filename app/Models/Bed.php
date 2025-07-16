@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bed extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['bed_number', 'ward_id', 'bed_type', 'status', 'created_at', 'updated_at'];
 
-    public $timestamps = false; // Disable timestamps
 
 }

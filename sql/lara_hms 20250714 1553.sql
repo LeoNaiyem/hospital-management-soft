@@ -1654,6 +1654,27 @@ INSERT INTO `core_finished_goods` (`id`,`product_code`,`product_name`,`quantity`
 /*!40000 ALTER TABLE `core_finished_goods` ENABLE KEYS */;
 
 
+CREATE TABLE core_hms_wards (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL, 
+    ward_code VARCHAR(20) UNIQUE NOT NULL,
+    capacity INT UNSIGNED NOT NULL,  
+    description TEXT NULL,
+    is_active BOOLEAN DEFAULT TRUE, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO core_hms_wards (name, ward_code, capacity, description, is_active) VALUES
+('General Ward', 'GEN01', 30, 'General ward for non-critical patients', TRUE),
+('Intensive Care Unit', 'ICU01', 10, 'Critical care unit for seriously ill patients', TRUE),
+('Maternity Ward', 'MAT01', 20, 'Ward for maternity and childbirth care', TRUE),
+('Pediatrics Ward', 'PED01', 15, 'Ward for child patients', TRUE),
+('Surgical Ward', 'SUR01', 25, 'Ward for post-surgical recovery', TRUE),
+('Isolation Ward', 'ISO01', 5, 'Ward for infectious disease isolation', FALSE);
+
+
+
 --
 -- Definition of table `core_hms_beds`
 --
@@ -1662,7 +1683,6 @@ CREATE TABLE `core_hms_beds` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `bed_number` VARCHAR(50) NOT NULL,
   `ward_id` INT UNSIGNED NOT NULL,
-  `room_id` INT UNSIGNED DEFAULT NULL,
   `bed_type` ENUM('General', 'Semi-Cabin', 'Cabin', 'ICU', 'CCU') DEFAULT 'General',
   `status` ENUM('Available', 'Occupied', 'Maintenance', 'Reserved') DEFAULT 'Available',
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -1670,16 +1690,17 @@ CREATE TABLE `core_hms_beds` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `core_hms_beds` (`bed_number`, `ward_id`, `room_id`)
+INSERT INTO `core_hms_beds` (`bed_number`, `ward_id`)
 VALUES 
-  ('B002', 1, 1),
-  ('B003', 1, 1),
-  ('B004', 1, 1);
+  ('B001', 1),
+  ('B002', 1),
+  ('B003', 1),
+  ('B004', 1);
 
 INSERT INTO `core_hms_beds` (
-  `bed_number`, `ward_id`, `room_id`, `bed_type`, `status`
+  `bed_number`, `ward_id`, `bed_type`, `status`
 ) VALUES (
-  'B005', 1, 1, 'ICU', 'Occupied'
+  'B005', 1, 'ICU', 'Occupied'
 );
 
 --

@@ -192,7 +192,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#hpServices">
                         <i class="fas fa-stethoscope"></i>
                         <p>HP Services</p>
@@ -209,6 +209,57 @@
                                 <a href="{{ url('services/create') }}">
                                     <span class="sub-item">Create HP Service</span>
                                 </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#submenu">
+                        <i class="fas fa-stethoscope"></i>
+                        <p>HP Services</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="submenu">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a data-bs-toggle="collapse" href="#hpServices">
+                                    <span class="sub-item">Services</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="hpServices">
+                                    <ul class="nav nav-collapse subnav">
+                                        <li>
+                                            <a href="{{ url('services') }}">
+                                                <span class="sub-item">Manage Services</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('services/create') }}">
+                                                <span class="sub-item">Add Service</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a data-bs-toggle="collapse" href="#beds">
+                                    <span class="sub-item">Beds</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="beds">
+                                    <ul class="nav nav-collapse subnav">
+                                        <li>
+                                            <a href="{{ url('beds') }}">
+                                                <span class="sub-item">Managed Beds</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('beds/create') }}">
+                                                <span class="sub-item">Add Bed</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -316,41 +367,46 @@
                 {{-- <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#submenu">
                         <i class="fas fa-bars"></i>
-                        <p>Menu Levels</p>
+                        <p>HP Services</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="submenu">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a data-bs-toggle="collapse" href="#subnav1">
-                                    <span class="sub-item">Level 1</span>
+                                <a data-bs-toggle="collapse" href="#services">
+                                    <span class="sub-item">Diag</span>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse" id="subnav1">
+                                <div class="collapse" id="services">
                                     <ul class="nav nav-collapse subnav">
                                         <li>
-                                            <a href="#">
-                                                <span class="sub-item">Level 2</span>
+                                            <a href="{{ url('services') }}">
+                                                <span class="sub-item">Manage Services</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <span class="sub-item">Level 2</span>
+                                            <a href="{{ url('services/create') }}">
+                                                <span class="sub-item">Add Services</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li>
-                                <a data-bs-toggle="collapse" href="#subnav2">
-                                    <span class="sub-item">Level 1</span>
+                                <a data-bs-toggle="collapse" href="#beds">
+                                    <span class="sub-item">Beds</span>
                                     <span class="caret"></span>
                                 </a>
-                                <div class="collapse" id="subnav2">
+                                <div class="collapse" id="beds">
                                     <ul class="nav nav-collapse subnav">
                                         <li>
-                                            <a href="#">
-                                                <span class="sub-item">Level 2</span>
+                                            <a href="{{ url('beds') }}">
+                                                <span class="sub-item">Managed Beds</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('beds/create') }}">
+                                                <span class="sub-item">Add Beds</span>
                                             </a>
                                         </li>
                                     </ul>
