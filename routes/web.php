@@ -22,9 +22,9 @@ Route::get('register', [OAuthController::class, 'showRegister']);
 Route::post('register', [OAuthController::class, 'register'])->name('register');
 Route::get('login', [OAuthController::class, 'showLogin'])->name('login');
 Route::post('login', [OAuthController::class, 'login'])->name('login');
-Route::get('logout', [OAuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
+    Route::get('logout', [OAuthController::class, 'logout'])->name('logout');
     Route::get('/', function () {
         return view('pages.dashboard.home');
     });
@@ -44,5 +44,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('designations', DesignationController::class);
     Route::resource('money_receipts', MoneyReceiptController::class);
     Route::resource('invoices', InvoiceController::class);
+    Route::resource('admissions', App\Http\Controllers\AdmissionController::class);
 });
-Route::resource('admissions', App\Http\Controllers\AdmissionController::class);
