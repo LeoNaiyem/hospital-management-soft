@@ -149,11 +149,9 @@
         </div>
     </div>
     <script>
-        // local
-        const BASE_URL='http://127.0.0.1:8000'
 
         //remote
-        // const BASE_URL="{{ config('app.url') }}";
+        const BASE_URL="{{ config('app.url') }}";
 
         let subtotalDiv = document.getElementById('subtotal');
         let totalDiv = document.getElementById('total');
@@ -253,11 +251,12 @@
 
                 //redirect to the index page
                 window.location.assign("{{ route('invoices.index') }}");
-
+                
             } catch (error) {
                 console.error('Failed to create invoice:', error);
                 alert('Error creating invoice.');
             }
+            console.log('request data',data);
         }
     </script>
 @endsection

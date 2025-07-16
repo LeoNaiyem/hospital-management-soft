@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admission;
+use App\Models\Bed;
 use App\Models\Invoice;
 use App\Models\InvoiceDetail;
 use App\Models\Patient;
@@ -67,7 +69,23 @@ class InvoiceController extends Controller
             $details->vat = $service['vat'];
             $details->save();
         }
-        return response()->json($invoices);
+
+        //change the bed status
+        // $bedId = Admission::where('patient_id', $invoices->patient_id)
+        //     ->value('bed_id');   // This directly returns the scalar bed_id
+
+
+        $admission=Admission::where('patient_id',$invoices->patient_id)->first();
+        if($admission && $admission->bed_id){
+            $bed=Bed::find($admission->bed_id);
+            if($bed){
+                $bed->status="Available";
+                $bed->save();
+            }
+        }
+
+
+        return response()->json(['created invoice'=>$invoices,'occupied bed'=>$bed]);
     }
 
     /**
