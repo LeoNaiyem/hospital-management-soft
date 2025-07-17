@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
+//web routes
+Route::get('/', function () {
+    return view('site.pages.home');
+});
+
+// Admin routes
 Route::get('register', [OAuthController::class, 'showRegister']);
 Route::post('register', [OAuthController::class, 'register'])->name('register');
 Route::get('login', [OAuthController::class, 'showLogin'])->name('login');
@@ -25,9 +31,9 @@ Route::post('login', [OAuthController::class, 'login'])->name('login');
 
 Route::middleware('auth')->group(function () {
     Route::get('logout', [OAuthController::class, 'logout'])->name('logout');
-    Route::get('/', function () {
-        return view('pages.dashboard.home');
-    });
+    // Route::get('/', function () {
+    //     return view('pages.dashboard.home');
+    // });
     Route::get('dashboard', function () {
         return view('pages.dashboard.home');
     })->name('dashboard');
