@@ -74,7 +74,7 @@ class InvoiceController extends Controller
         // $bedId = Admission::where('patient_id', $invoices->patient_id)
         //     ->value('bed_id');   // This directly returns the scalar bed_id
 
-
+        $bed=null;
         $admission=Admission::where('patient_id',$invoices->patient_id)->first();
         if($admission && $admission->bed_id){
             $bed=Bed::find($admission->bed_id);
