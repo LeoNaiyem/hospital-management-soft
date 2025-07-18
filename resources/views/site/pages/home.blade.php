@@ -10,10 +10,12 @@
                 <div class="carousel-item active">
                     <img src="{{ asset('site/assets/img/hero-carousel/hero-carousel-1.jpg') }}" alt="">
                     <div class="container">
-                        <h2>Welcome to Medicio</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h2>Welcome to Health Care</h2>
+                        <p>We are dedicated to delivering compassionate, high-quality healthcare services to every patient.
+                            Our team of experienced
+                            professionals is here to support your well-being through personalized care, modern facilities,
+                            and trusted medical
+                            expertise.</p>
                         <a href="#about" class="btn-get-started">Read More</a>
                     </div>
                 </div><!-- End Carousel Item -->
@@ -21,10 +23,13 @@
                 <div class="carousel-item">
                     <img src="{{ asset('site/assets/img/hero-carousel/hero-carousel-2.jpg') }}" alt="">
                     <div class="container">
-                        <h2>At vero eos et accusamus</h2>
-                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
-                            maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                            Temporibus autem quibusdam et aut officiis debitis aut.</p>
+                        <h2>Your Health, Our Priority.</h2>
+                        <p>
+                            From routine checkups to advanced treatments, we are committed to delivering trusted,
+                            personalized care with compassion.
+                            Our team of skilled professionals ensures your comfort, safety, and wellness every step of the
+                            way.
+                        </p>
                         <a href="#about" class="btn-get-started">Read More</a>
                     </div>
                 </div><!-- End Carousel Item -->
@@ -32,10 +37,12 @@
                 <div class="carousel-item">
                     <img src="{{ asset('site/assets/img/hero-carousel/hero-carousel-3.jpg') }}" alt="">
                     <div class="container">
-                        <h2>Temporibus autem quibusdam</h2>
-                        <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-                            odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt
-                            omnis iste natus error sit voluptatem accusantium.</p>
+                        <h2>Compassionate Care. Advanced Medicine.</h2>
+                        <p>At our hospital, we are committed to providing exceptional healthcare with empathy, integrity,
+                            and innovation. Whether
+                            you're seeking expert treatment, preventive care, or support through recovery, we're here for
+                            you — every step of the
+                            way.</p>
                         <a href="#about" class="btn-get-started">Read More</a>
                     </div>
                 </div><!-- End Carousel Item -->
@@ -132,7 +139,7 @@
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
                         <img class="w-100" src="{{ asset('site/assets/img/about.jpg') }}" alt="">
-                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                        <a href="https://youtu.be/MWMcvNxuT4c?si=AKCMZl-DDs3uClPA" class="glightbox pulsating-play-btn"></a>
                     </div>
                     <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
                         <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
@@ -608,40 +615,42 @@
                 <div class="swiper init-swiper" data-speed="600" data-delay="5000"
                     data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
                     <script type="application/json" class="swiper-config">
-                                                {
-                                                  "loop": true,
-                                                  "speed": 600,
-                                                  "autoplay": {
-                                                    "delay": 5000
-                                                  },
-                                                  "slidesPerView": "auto",
-                                                  "pagination": {
-                                                    "el": ".swiper-pagination",
-                                                    "type": "bullets",
-                                                    "clickable": true
-                                                  },
-                                                  "breakpoints": {
-                                                    "320": {
-                                                      "slidesPerView": 1,
-                                                      "spaceBetween": 40
-                                                    },
-                                                    "1200": {
-                                                      "slidesPerView": 3,
-                                                      "spaceBetween": 20
-                                                    }
-                                                  }
-                                                }
-                                              </script>
+                                                                            {
+                                                                              "loop": true,
+                                                                              "speed": 600,
+                                                                              "autoplay": {
+                                                                                "delay": 5000
+                                                                              },
+                                                                              "slidesPerView": "auto",
+                                                                              "pagination": {
+                                                                                "el": ".swiper-pagination",
+                                                                                "type": "bullets",
+                                                                                "clickable": true
+                                                                              },
+                                                                              "breakpoints": {
+                                                                                "320": {
+                                                                                  "slidesPerView": 1,
+                                                                                  "spaceBetween": 40
+                                                                                },
+                                                                                "1200": {
+                                                                                  "slidesPerView": 3,
+                                                                                  "spaceBetween": 20
+                                                                                }
+                                                                              }
+                                                                            }
+                                        </script>
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
-                            <div class="testimonial-item" "="">
-                                                <p>
-                                                  <i class=" bi bi-quote quote-icon-left"></i>
-                                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
-                                    rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class=" bi bi-quote quote-icon-left"></i>
+                                    <span>
+                                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
+                                        rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
+                                        risus at semper.
+                                    </span>
+                                    <i class="bi bi-quote quote-icon-right"></i>
                                 </p>
                                 <img src="{{ asset('site/assets/img/testimonials/testimonials-1.jpg') }}"
                                     class="testimonial-img" alt="">
@@ -722,8 +731,83 @@
 
         </section><!-- /Testimonials Section -->
 
-        <!-- Doctors Section -->
+        {{-- dublicte doctor section --}}
         <section id="doctors" class="doctors section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Doctors</h2>
+                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="swiper init-swiper" data-speed="600" data-delay="5000"
+                    data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
+                    <script type="application/json" class="swiper-config">
+                                                                            {
+                                                                              "loop": true,
+                                                                              "speed": 600,
+                                                                              "autoplay": {
+                                                                                "delay": 5000
+                                                                              },
+                                                                              "slidesPerView": "auto",
+                                                                              "pagination": {
+                                                                                "el": ".swiper-pagination",
+                                                                                "type": "bullets",
+                                                                                "clickable": true
+                                                                              },
+                                                                              "breakpoints": {
+                                                                                "320": {
+                                                                                  "slidesPerView": 1,
+                                                                                  "spaceBetween": 40
+                                                                                },
+                                                                                "1200": {
+                                                                                  "slidesPerView": 3,
+                                                                                  "spaceBetween": 20
+                                                                                }
+                                                                              }
+                                                                            }
+                                    </script>
+                    <div class="swiper-wrapper">
+                        @foreach ($doctors as $item)
+                            <div class="swiper-slide">
+                                <div class="d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="team-member">
+                                        <div class="member-img">
+                                            @if($item->photo)
+                                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid"
+                                                    alt="{{ $item->name }}">
+                                            @else
+                                                <img src="{{ asset('site/assets/img/doctors/Image_not_available.png') }}"
+                                                    class="img-fluid" alt="doctor">
+                                            @endif
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter-x"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4 class="text-capitalized">{{ $item->name }}</h4>
+                                            <span>{{ $item->designation_name }}</span>
+                                        </div>
+                                    </div>
+                                </div><!-- End Team Member -->
+
+                            </div><!-- End testimonial item -->
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+            </div>
+
+        </section><!-- /dublicate doctor -->
+
+        <!-- Doctors Section -->
+        {{-- <section id="doctors" class="doctors section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -735,10 +819,15 @@
 
                 <div class="row gy-4">
 
+                    @foreach ($doctors as $item)
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="team-member">
                             <div class="member-img">
+                                @if($item->photo)
+                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid" alt="">
+                                @else
                                 <img src="{{ asset('site/assets/img/doctors/doctors-1.jpg') }}" class="img-fluid" alt="">
+                                @endif
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter-x"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
@@ -752,66 +841,15 @@
                             </div>
                         </div>
                     </div><!-- End Team Member -->
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('site/assets/img/doctors/doctors-2.jpg') }}" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Anesthesiologist</span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('site/assets/img/doctors/doctors-3.jpg') }}" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>William Anderson</h4>
-                                <span>Cardiology</span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ asset('site/assets/img/doctors/doctors-4.jpg') }}" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Neurosurgeon</span>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
+                    @endforeach
 
                 </div>
 
             </div>
 
-        </section><!-- /Doctors Section -->
+        </section> --}}
+        <!-- /Doctors Section -->
+
 
         <!-- Gallery Section -->
         <section id="gallery" class="gallery section">
@@ -826,35 +864,35 @@
 
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
-                                                {
-                                                  "loop": true,
-                                                  "speed": 600,
-                                                  "autoplay": {
-                                                    "delay": 5000
-                                                  },
-                                                  "slidesPerView": "auto",
-                                                  "centeredSlides": true,
-                                                  "pagination": {
-                                                    "el": ".swiper-pagination",
-                                                    "type": "bullets",
-                                                    "clickable": true
-                                                  },
-                                                  "breakpoints": {
-                                                    "320": {
-                                                      "slidesPerView": 1,
-                                                      "spaceBetween": 0
-                                                    },
-                                                    "768": {
-                                                      "slidesPerView": 3,
-                                                      "spaceBetween": 20
-                                                    },
-                                                    "1200": {
-                                                      "slidesPerView": 5,
-                                                      "spaceBetween": 20
-                                                    }
-                                                  }
-                                                }
-                                        </script>
+                                                                            {
+                                                                              "loop": true,
+                                                                              "speed": 600,
+                                                                              "autoplay": {
+                                                                                "delay": 5000
+                                                                              },
+                                                                              "slidesPerView": "auto",
+                                                                              "centeredSlides": true,
+                                                                              "pagination": {
+                                                                                "el": ".swiper-pagination",
+                                                                                "type": "bullets",
+                                                                                "clickable": true
+                                                                              },
+                                                                              "breakpoints": {
+                                                                                "320": {
+                                                                                  "slidesPerView": 1,
+                                                                                  "spaceBetween": 0
+                                                                                },
+                                                                                "768": {
+                                                                                  "slidesPerView": 3,
+                                                                                  "spaceBetween": 20
+                                                                                },
+                                                                                "1200": {
+                                                                                  "slidesPerView": 5,
+                                                                                  "spaceBetween": 20
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                    </script>
                     <div class="swiper-wrapper align-items-center">
                         <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
                                 href="{{ asset('site/assets/img/gallery/gallery-1.jpg') }}">
