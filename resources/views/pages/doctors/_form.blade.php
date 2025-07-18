@@ -29,4 +29,11 @@
         @endforeach
     </select>
 </div>
+<div class="mb-2">
+    <label>Photo</label>
+    @if(isset($doctor->photo) && $doctor->photo)
+        <br><img src="{{ asset('storage/' . $doctor->photo) }}" width="100">
+    @endif
+    <input type="file" name="photo" class="form-control">
+</div>
 <button class="btn btn-info">{{ $mode === 'edit' ? 'Update' : 'Create' }}</button>

@@ -1836,17 +1836,18 @@ INSERT INTO `core_hms_designations` (`id`,`name`,`created_at`,`updated_at`) VALU
 -- Definition of table `core_hms_doctors`
 --
 
-DROP TABLE IF EXISTS `core_hms_doctors`;
-CREATE TABLE `core_hms_doctors` (
+DROP TABLE IF EXISTS `test`.`core_hms_doctors`;
+CREATE TABLE  `test`.`core_hms_doctors` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
   `designation_id` varchar(255) NOT NULL,
   `department_id` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `core_hms_doctors`

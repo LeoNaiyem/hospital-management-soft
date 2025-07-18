@@ -68,7 +68,10 @@
                             <th>Phone</th>
                             <th>Designation id</th>
                             <th>Department id</th>
-                            <th>Actions</th>
+                            <th>Created at</th>
+                            <th>Updated at</th>
+                            <th>Photo</th>
+                            <th class='text-center'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,7 +82,10 @@
                                 <td>{{ $item->phone }}</td>
                                 <td>{{ optional($item->designation)->name ?? $item->designation_id }}</td>
                                 <td>{{ optional($item->department)->name ?? $item->department_id }}</td>
-                                <td>
+                                <td>{{ $item->created_at }}</td>
+                                <td>{{ $item->updated_at }}</td>
+                                <td>@if($item->photo)<img src="{{ asset('storage/' . $item->photo) }}" width="50">@endif</td>
+                                <td style="min-width:220px">
                                     <a href="{{ route('doctors.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
                                     <a href="{{ route('doctors.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form action="{{ route('doctors.destroy', $item->id) }}" method="POST"

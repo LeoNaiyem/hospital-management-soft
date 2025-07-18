@@ -47,20 +47,22 @@
                                 <td>{{ $doctor->department->name ?? $doctor->department_id }}</td>
                             </tr>
                             <tr>
-                                <th>Created at</th>
-                                <td>{{ $doctor->created_at ?? 'N/A' }}</td>
-                            </tr>
-                            <tr>
-                                <th>Updated at</th>
-                                <td>{{ $doctor->updated_at ?? 'N/A' }}</td>
+                                <th width="30%">Photo</th>
+                                <td>
+                                    @if($doctor->photo)
+                                        <img src="{{ asset('storage/' . $doctor->photo) }}" class="img-thumbnail" width="150">
+                                    @else
+                                        <span class="text-muted">No Photo</span>
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>Created At</th>
-                                <td>{{ $doctor->created_at->format('M d, Y h:i A') }}</td>
+                                <td>{{\Carbon\Carbon::parse($doctor->created_at)->format('M d, Y h:i A') }}</td>
                             </tr>
                             <tr>
                                 <th>Updated At</th>
-                                <td>{{ $doctor->updated_at->format('M d, Y h:i A') }}</td>
+                                <td>{{\Carbon\Carbon::parse($doctor->updated_at)->format('M d, Y h:i A') }}</td>
                             </tr>
                         </tbody>
                     </table>
