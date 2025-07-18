@@ -389,59 +389,59 @@
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                <form action="/appointments/store" method="POST">
+                <form action="{{ route('site.appointments.store') }}" method="POST">
                     <!-- CSRF token for Laravel -->
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <!-- PATIENT SECTION -->
-                    <h4 class="mb-3 text-uppercase">Patient Information</h4>
+                    <h5 class="mb-3 text-uppercase">Patient Information</h5>
                     <div class="row g-3 mb-4">
                         <div class="col-md-4">
                             <label class="form-label">Full Name</label>
-                            <input type="text" name="name" class="form-control" required>
+                            <input id="name" type="text" name="name" class="form-control" placeholder="Your full name"
+                                required>
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Mobile</label>
-                            <input type="text" name="mobile" class="form-control" required>
+                            <input id="mobile" type="text" name="mobile" class="form-control" required
+                                placeholder="+08815xxxxxxxx">
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Mobile Ext (optional)</label>
-                            <input type="number" name="mob_ext" class="form-control">
+                            <input id="mob_ext" type="number" name="mob_ext" class="form-control" placeholder="Optional">
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Date of Birth</label>
-                            <input type="date" name="dob" class="form-control" required>
+                            <input id="dob" type="date" name="dob" class="form-control" required>
                         </div>
 
                         <div class="col-md-4">
-                            <label class="form-label">Gender</label>
-                            <select name="gender" class="form-select" required>
-                                <option value="">-- Select --</option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                                <option value="3">Other</option>
-                            </select>
+                            <label class="form-label">Gender</label> <br>
+                            <input type="radio" name="gender" value="0"> Male
+                            <input type="radio" name="gender" value="1"> Female
+                            <input type="radio" name="gender" value="2"> Others
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Profession</label>
-                            <input type="text" name="profession" class="form-control">
+                            <input id="profession" type="text" name="profession" class="form-control"
+                                placeholder="e.g., student, pilot">
                         </div>
                     </div>
 
                     <!-- APPOINTMENT SECTION -->
-                    <h4 class="text-uppercase my-3">Appointment Information</h4>
+                    <h5 class="text-uppercase mb-3 mt-5">Appointment Information</h5>
                     <div class="row g-3 mb-4">
                         <div class="col-md-6">
                             <label class="form-label">Doctor</label>
                             <select name="doctor_id" class="form-select" required>
                                 <option value="">-- Select Doctor --</option>
-                                {{-- @foreach ($doctors as $doctor)
+                                @foreach ($doctors as $doctor)
                                     <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
 
@@ -452,13 +452,15 @@
 
                         <div class="col-12">
                             <label class="form-label">Chief Complaint (CC)</label>
-                            <textarea name="cc" class="form-control" rows="3"></textarea>
+                            <textarea name="cc" class="form-control" rows="3"
+                                placeholder="e.g., chest pain, fever"></textarea>
                         </div>
                     </div>
 
                     <!-- SUBMIT -->
                     <div class="d-flex align-items-center justify-content-center">
-                        <button style="background: #3dbabf" type="submit" class="btn btn-info text-light w-25">Save Appointment</button>
+                        <button style="background: #3dbabf" type="submit" class="btn btn-info text-light w-25">Save
+                            Appointment</button>
                     </div>
                 </form>
 
@@ -606,36 +608,36 @@
                 <div class="swiper init-swiper" data-speed="600" data-delay="5000"
                     data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
                     <script type="application/json" class="swiper-config">
-                                    {
-                                      "loop": true,
-                                      "speed": 600,
-                                      "autoplay": {
-                                        "delay": 5000
-                                      },
-                                      "slidesPerView": "auto",
-                                      "pagination": {
-                                        "el": ".swiper-pagination",
-                                        "type": "bullets",
-                                        "clickable": true
-                                      },
-                                      "breakpoints": {
-                                        "320": {
-                                          "slidesPerView": 1,
-                                          "spaceBetween": 40
-                                        },
-                                        "1200": {
-                                          "slidesPerView": 3,
-                                          "spaceBetween": 20
-                                        }
-                                      }
-                                    }
-                                  </script>
+                                                {
+                                                  "loop": true,
+                                                  "speed": 600,
+                                                  "autoplay": {
+                                                    "delay": 5000
+                                                  },
+                                                  "slidesPerView": "auto",
+                                                  "pagination": {
+                                                    "el": ".swiper-pagination",
+                                                    "type": "bullets",
+                                                    "clickable": true
+                                                  },
+                                                  "breakpoints": {
+                                                    "320": {
+                                                      "slidesPerView": 1,
+                                                      "spaceBetween": 40
+                                                    },
+                                                    "1200": {
+                                                      "slidesPerView": 3,
+                                                      "spaceBetween": 20
+                                                    }
+                                                  }
+                                                }
+                                              </script>
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" "="">
-                                    <p>
-                                      <i class=" bi bi-quote quote-icon-left"></i>
+                                                <p>
+                                                  <i class=" bi bi-quote quote-icon-left"></i>
                                 <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit
                                     rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam,
                                     risus at semper.</span>
@@ -824,35 +826,35 @@
 
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
-                                    {
-                                      "loop": true,
-                                      "speed": 600,
-                                      "autoplay": {
-                                        "delay": 5000
-                                      },
-                                      "slidesPerView": "auto",
-                                      "centeredSlides": true,
-                                      "pagination": {
-                                        "el": ".swiper-pagination",
-                                        "type": "bullets",
-                                        "clickable": true
-                                      },
-                                      "breakpoints": {
-                                        "320": {
-                                          "slidesPerView": 1,
-                                          "spaceBetween": 0
-                                        },
-                                        "768": {
-                                          "slidesPerView": 3,
-                                          "spaceBetween": 20
-                                        },
-                                        "1200": {
-                                          "slidesPerView": 5,
-                                          "spaceBetween": 20
-                                        }
-                                      }
-                                    }
-                            </script>
+                                                {
+                                                  "loop": true,
+                                                  "speed": 600,
+                                                  "autoplay": {
+                                                    "delay": 5000
+                                                  },
+                                                  "slidesPerView": "auto",
+                                                  "centeredSlides": true,
+                                                  "pagination": {
+                                                    "el": ".swiper-pagination",
+                                                    "type": "bullets",
+                                                    "clickable": true
+                                                  },
+                                                  "breakpoints": {
+                                                    "320": {
+                                                      "slidesPerView": 1,
+                                                      "spaceBetween": 0
+                                                    },
+                                                    "768": {
+                                                      "slidesPerView": 3,
+                                                      "spaceBetween": 20
+                                                    },
+                                                    "1200": {
+                                                      "slidesPerView": 5,
+                                                      "spaceBetween": 20
+                                                    }
+                                                  }
+                                                }
+                                        </script>
                     <div class="swiper-wrapper align-items-center">
                         <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
                                 href="{{ asset('site/assets/img/gallery/gallery-1.jpg') }}">
@@ -1164,5 +1166,22 @@
 
         </section><!-- /Contact Section -->
 
+        <!-- Bootstrap 5 Toast Container -->
+        <div aria-live="polite" aria-atomic="true" class="position-relative">
+            <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+                @if(session('message'))
+                    <div class="toast align-items-center text-white bg-{{ session('alert-type', 'success') == 'danger' ? 'danger' : session('alert-type', 'success') }} border-0"
+                        role="alert" aria-live="assertive" aria-atomic="true" id="liveToast">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                {{ session('message') }}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
     </main>
 @endsection

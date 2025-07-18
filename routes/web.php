@@ -14,13 +14,16 @@ use App\Http\Controllers\MedicineTypeController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Site\AppointmentController as SiteAppointmentController;
+use App\Http\Controllers\Site\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
 
 //web routes
-Route::get('/', function () {
-    return view('site.pages.home');
+Route::get('/', [HomeController::class,'home'])->name('home');
+Route::prefix('site')->name('site.')->group(function () {
+    Route::resource('appointments', SiteAppointmentController::class);
 });
 
 // Admin routes

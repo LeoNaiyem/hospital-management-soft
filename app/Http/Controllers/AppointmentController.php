@@ -18,8 +18,8 @@ class AppointmentController extends Controller
 
     public function create()
     {
-        $patients = \App\Models\Patient::all();
-        $doctors = \App\Models\Doctor::all();
+        $patients = Patient::all();
+        $doctors = Doctor::all();
 
         return view('pages.appointments.create', [
             'mode' => 'create',
@@ -47,8 +47,8 @@ class AppointmentController extends Controller
 
     public function edit(Appointment $appointment)
     {
-        $patients = \App\Models\Patient::all();
-        $doctors = \App\Models\Doctor::all();
+        $patients = Patient::all();
+        $doctors = Doctor::all();
 
         return view('pages.appointments.edit', [
             'mode' => 'edit',
