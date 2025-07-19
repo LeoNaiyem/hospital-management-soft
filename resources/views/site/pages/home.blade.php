@@ -131,7 +131,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>About Us<br></h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Committed to Integrity, Compassion, and Trusted Medical Excellence</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -142,26 +142,45 @@
                         <a href="https://youtu.be/MWMcvNxuT4c?si=AKCMZl-DDs3uClPA" class="glightbox pulsating-play-btn"></a>
                     </div>
                     <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                        <h3>Compassionate Care Rooted in Excellence and Dignity. Trusted Care for Every Patient</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
+                            At Health Care, we are dedicated to delivering exceptional medical services with compassion,
+                            dignity, and respect. Our
+                            mission is to enhance the health and well-being of our community through advanced technology and
+                            a committed team of
+                            healthcare professionals.
                         </p>
                         <ul>
-                            <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</span></li>
-                            <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</span></li>
-                            <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda
-                                    mastiro dolore eu fugiat nulla pariatur.</span></li>
+                            <li>
+                                <i class="bi bi-check2-all"></i>
+                                <span>
+                                    We prioritize your comfort and well-being, ensuring every service is tailored to meet
+                                    your unique healthcare needs.
+                                </span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-all"></i>
+                                <span>
+                                    Our dedicated medical professionals are committed to providing care with empathy,
+                                    respect, and clinical excellence.
+                                </span>
+                            </li>
+                            <li>
+                                <i class="bi bi-check2-all"></i>
+                                <span>
+                                    From diagnosis to recovery, we offer a wide range of services supported by
+                                    state-of-the-art technology to ensure the
+                                    highest standard of care.
+                                </span>
+                            </li>
                         </ul>
                         <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                            in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident
+                            Our team of skilled doctors, nurses, and support staff work together to deliver the best
+                            possible outcomes for our
+                            patients. We believe everyone deserves access to quality care and proudly offer a wide range of
+                            services to meet the
+                            diverse needs of individuals and families.
+
                         </p>
                     </div>
                 </div>
@@ -238,16 +257,23 @@
                     </div>
 
                     <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima
-                            temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
+                        <h3>Dedicated to Meeting Every Healthcare Need with Excellence and Integrity</h3>
+                        <p>
+                            We provide care with compassion and precision. Our team is dedicated and trustworthy. No concern
+                            is too small, and every
+                            patient deserves full attention. We strive to deliver comfort, healing, and hope every step of
+                            the way.
+                        </p>
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
                             <i class="fa-solid fa-hand-holding-medical flex-shrink-0"></i>
                             <div>
                                 <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                    occaecati cupiditate non provident</p>
+                                <p>
+                                    Committed to alleviating pain and discomfort, we provide compassionate care while
+                                    respecting every patient’s dignity and
+                                    needs.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
@@ -255,8 +281,10 @@
                             <i class="fa-solid fa-suitcase-medical flex-shrink-0"></i>
                             <div>
                                 <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                    voluptatum deleniti atque</p>
+                                <p>
+                                    We stand firm in our commitment to justice and dignity, delivering compassionate care
+                                    without compromise.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
@@ -264,8 +292,10 @@
                             <i class="fa-solid fa-staff-snake flex-shrink-0"></i>
                             <div>
                                 <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
-                                    deserunt minus aut eligendi omnis</p>
+                                <p>
+                                    We ensure exceptional care with honesty and integrity. Our team goes above and beyond to
+                                    meet every patient’s needs.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
@@ -273,8 +303,11 @@
                             <i class="fa-solid fa-lungs flex-shrink-0"></i>
                             <div>
                                 <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <p>
+                                    We take pride in delivering reliable care with dedication. Our team is committed to
+                                    addressing all patient needs with
+                                    respect and excellence.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
@@ -512,12 +545,18 @@
                                 <div class="row">
                                     <div class="col-lg-7 details order-2 order-lg-1">
                                         <h3>Cardiology</h3>
-                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila
-                                            parde sonata raqer a videna mareta paulona marka</p>
-                                        <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum
-                                            eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat
-                                            minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui
-                                            similique accusamus nostrum rem vero</p>
+                                        <p class="fst-italic">
+                                            Cardiology care that listens, treats, and leads with precision—heart health is
+                                            our highest mission at every step of your
+                                            journey.
+                                        </p>
+                                        <p>
+                                            Our cardiology team is dedicated to advanced heart care. We diagnose and treat a
+                                            wide range of cardiovascular conditions
+                                            with precision and compassion. From early detection to complex procedures, we
+                                            tailor every step to your needs. We are
+                                            committed to improving outcomes and helping you live a stronger, healthier life.
+                                        </p>
                                     </div>
                                     <div class="col-lg-5 text-center order-1 order-lg-2">
                                         <img src="{{ asset('site/assets/img/departments-1.jpg') }}" alt=""
@@ -529,12 +568,15 @@
                                 <div class="row">
                                     <div class="col-lg-7 details order-2 order-lg-1">
                                         <h3>Neurology</h3>
-                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila
-                                            parde sonata raqer a videna mareta paulona marka</p>
-                                        <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et
-                                            reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit
-                                            ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna
-                                            desera vafle de nideran pal</p>
+                                        <p class="fst-italic">
+                                            Neurology care that understands the mind and body—focused expertise for every condition, from migraines to complex
+                                            neurological disorders. We guide every patient with clarity, precision, and compassion.
+                                        </p>
+                                        <p>
+                                            We provide expert neurological care for a wide range of conditions, including epilepsy, stroke, Parkinson’s disease, and
+                                            chronic migraines. Our team uses advanced diagnostics and treatment to improve quality of life. Personalized care plans,
+                                            modern technology, and a patient-first approach define every step of your journey to better neurological health.
+                                        </p>
                                     </div>
                                     <div class="col-lg-5 text-center order-1 order-lg-2">
                                         <img src="{{ asset('site/assets/img/departments-2.jpg') }}" alt=""
@@ -546,13 +588,15 @@
                                 <div class="row">
                                     <div class="col-lg-7 details order-2 order-lg-1">
                                         <h3>Hepatology</h3>
-                                        <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim
-                                            fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis
-                                            aut</p>
-                                        <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis
-                                            quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae
-                                            sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et
-                                            harum voluptatem optio quae</p>
+                                        <p class="fst-italic">
+                                            Hepatology care that protects and restores liver health—expert solutions for conditions from hepatitis to advanced liver
+                                            disease. We support every patient with knowledge, precision, and ongoing care.
+                                        </p>
+                                        <p>
+                                            We diagnose and treat a wide range of liver conditions with advanced tools and a personalized approach. Our team works
+                                            closely with patients to manage symptoms, slow disease progression, and improve quality of life. From early detection to
+                                            long-term management, your liver health is in expert hands.
+                                        </p>
                                     </div>
                                     <div class="col-lg-5 text-center order-1 order-lg-2">
                                         <img src="{{ asset('site/assets/img/departments-3.jpg') }}" alt=""
@@ -564,12 +608,15 @@
                                 <div class="row">
                                     <div class="col-lg-7 details order-2 order-lg-1">
                                         <h3>Pediatrics</h3>
-                                        <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas
-                                            iure porro quis delectus</p>
-                                        <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
-                                            necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in
-                                            consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a
-                                            laborum inventore</p>
+                                        <p class="fst-italic">
+                                            Pediatric care centered on growth, health, and compassion—expert support for children at every stage, from infancy
+                                            through adolescence. We care for every child with empathy, precision, and a family-first approach.
+                                        </p>
+                                        <p>
+                                            We offer a full range of pediatric services, from routine checkups and immunizations to managing chronic conditions and
+                                            developmental concerns. Our team of specialists is dedicated to nurturing every child's health and well-being. With a
+                                            focus on comfort and trust, we partner with families to provide expert care in every moment.
+                                        </p>
                                     </div>
                                     <div class="col-lg-5 text-center order-1 order-lg-2">
                                         <img src="{{ asset('site/assets/img/departments-4.jpg') }}" alt=""
@@ -581,11 +628,15 @@
                                 <div class="row">
                                     <div class="col-lg-7 details order-2 order-lg-1">
                                         <h3>Ophthalmologists</h3>
-                                        <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.
+                                        <p class="fst-italic">
+                                            Ophthalmology care focused on vision, clarity, and precision—expert treatment for everything from routine eye exams to
+                                            complex eye conditions. We help every patient see the world more clearly and confidently.
                                         </p>
-                                        <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae
-                                            ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet.
-                                            Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                                        <p>
+                                            We provide comprehensive eye care services, including diagnostics, vision correction, and surgical treatments for
+                                            conditions like cataracts, glaucoma, and retinal disorders. Our specialists use advanced technology and a
+                                            patient-centered approach to protect and improve your vision at every stage of life.
+                                        </p>
                                     </div>
                                     <div class="col-lg-5 text-center order-1 order-lg-2">
                                         <img src="{{ asset('site/assets/img/departments-5.jpg') }}" alt=""
@@ -615,30 +666,30 @@
                 <div class="swiper init-swiper" data-speed="600" data-delay="5000"
                     data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
                     <script type="application/json" class="swiper-config">
-                                                                            {
-                                                                              "loop": true,
-                                                                              "speed": 600,
-                                                                              "autoplay": {
-                                                                                "delay": 5000
-                                                                              },
-                                                                              "slidesPerView": "auto",
-                                                                              "pagination": {
-                                                                                "el": ".swiper-pagination",
-                                                                                "type": "bullets",
-                                                                                "clickable": true
-                                                                              },
-                                                                              "breakpoints": {
-                                                                                "320": {
-                                                                                  "slidesPerView": 1,
-                                                                                  "spaceBetween": 40
-                                                                                },
-                                                                                "1200": {
-                                                                                  "slidesPerView": 3,
-                                                                                  "spaceBetween": 20
-                                                                                }
-                                                                              }
-                                                                            }
-                                        </script>
+                                                                                                                    {
+                                                                                                                      "loop": true,
+                                                                                                                      "speed": 600,
+                                                                                                                      "autoplay": {
+                                                                                                                        "delay": 5000
+                                                                                                                      },
+                                                                                                                      "slidesPerView": "auto",
+                                                                                                                      "pagination": {
+                                                                                                                        "el": ".swiper-pagination",
+                                                                                                                        "type": "bullets",
+                                                                                                                        "clickable": true
+                                                                                                                      },
+                                                                                                                      "breakpoints": {
+                                                                                                                        "320": {
+                                                                                                                          "slidesPerView": 1,
+                                                                                                                          "spaceBetween": 40
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                          "slidesPerView": 3,
+                                                                                                                          "spaceBetween": 20
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                </script>
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
@@ -745,30 +796,30 @@
                 <div class="swiper init-swiper" data-speed="600" data-delay="5000"
                     data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
                     <script type="application/json" class="swiper-config">
-                                                                            {
-                                                                              "loop": true,
-                                                                              "speed": 600,
-                                                                              "autoplay": {
-                                                                                "delay": 5000
-                                                                              },
-                                                                              "slidesPerView": "auto",
-                                                                              "pagination": {
-                                                                                "el": ".swiper-pagination",
-                                                                                "type": "bullets",
-                                                                                "clickable": true
-                                                                              },
-                                                                              "breakpoints": {
-                                                                                "320": {
-                                                                                  "slidesPerView": 1,
-                                                                                  "spaceBetween": 40
-                                                                                },
-                                                                                "1200": {
-                                                                                  "slidesPerView": 3,
-                                                                                  "spaceBetween": 20
-                                                                                }
-                                                                              }
-                                                                            }
-                                    </script>
+                                                                                                                    {
+                                                                                                                      "loop": true,
+                                                                                                                      "speed": 600,
+                                                                                                                      "autoplay": {
+                                                                                                                        "delay": 5000
+                                                                                                                      },
+                                                                                                                      "slidesPerView": "auto",
+                                                                                                                      "pagination": {
+                                                                                                                        "el": ".swiper-pagination",
+                                                                                                                        "type": "bullets",
+                                                                                                                        "clickable": true
+                                                                                                                      },
+                                                                                                                      "breakpoints": {
+                                                                                                                        "320": {
+                                                                                                                          "slidesPerView": 1,
+                                                                                                                          "spaceBetween": 40
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                          "slidesPerView": 3,
+                                                                                                                          "spaceBetween": 20
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                            </script>
                     <div class="swiper-wrapper">
                         @foreach ($doctors as $item)
                             <div class="swiper-slide">
@@ -864,35 +915,35 @@
 
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
-                                                                            {
-                                                                              "loop": true,
-                                                                              "speed": 600,
-                                                                              "autoplay": {
-                                                                                "delay": 5000
-                                                                              },
-                                                                              "slidesPerView": "auto",
-                                                                              "centeredSlides": true,
-                                                                              "pagination": {
-                                                                                "el": ".swiper-pagination",
-                                                                                "type": "bullets",
-                                                                                "clickable": true
-                                                                              },
-                                                                              "breakpoints": {
-                                                                                "320": {
-                                                                                  "slidesPerView": 1,
-                                                                                  "spaceBetween": 0
-                                                                                },
-                                                                                "768": {
-                                                                                  "slidesPerView": 3,
-                                                                                  "spaceBetween": 20
-                                                                                },
-                                                                                "1200": {
-                                                                                  "slidesPerView": 5,
-                                                                                  "spaceBetween": 20
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                    </script>
+                                                                                                                    {
+                                                                                                                      "loop": true,
+                                                                                                                      "speed": 600,
+                                                                                                                      "autoplay": {
+                                                                                                                        "delay": 5000
+                                                                                                                      },
+                                                                                                                      "slidesPerView": "auto",
+                                                                                                                      "centeredSlides": true,
+                                                                                                                      "pagination": {
+                                                                                                                        "el": ".swiper-pagination",
+                                                                                                                        "type": "bullets",
+                                                                                                                        "clickable": true
+                                                                                                                      },
+                                                                                                                      "breakpoints": {
+                                                                                                                        "320": {
+                                                                                                                          "slidesPerView": 1,
+                                                                                                                          "spaceBetween": 0
+                                                                                                                        },
+                                                                                                                        "768": {
+                                                                                                                          "slidesPerView": 3,
+                                                                                                                          "spaceBetween": 20
+                                                                                                                        },
+                                                                                                                        "1200": {
+                                                                                                                          "slidesPerView": 5,
+                                                                                                                          "spaceBetween": 20
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                            </script>
                     <div class="swiper-wrapper align-items-center">
                         <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
                                 href="{{ asset('site/assets/img/gallery/gallery-1.jpg') }}">
@@ -1040,63 +1091,122 @@
                         <div class="faq-container">
 
                             <div class="faq-item">
-                                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                                <h3>Do I need a referral to make an appointment?</h3>
                                 <div class="faq-content">
-                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
-                                        non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
-                                        purus non.</p>
+                                    <p>
+                                        No. You can book an appointment directly with most of our specialists. However,
+                                        certain departments may require a
+                                        referral from a primary care physician. Please contact our front desk or check the
+                                        department’s page for specific
+                                        requirements.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
+                                <h3>What are the hospital's visiting hours?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                        velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
-                                        donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                                        cursus turpis massa tincidunt dui.</p>
+                                    <p>
+                                        Visiting hours are generally from 10:00 AM to 8:00 PM, but they may vary depending
+                                        on the department or the patient's
+                                        condition. Please check with the nursing staff for any restrictions, especially for
+                                        ICU or maternity wards.
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                            <div class="faq-item">
+                                <h3>Who do I contact for general inquiries?</h3>
+                                <div class="faq-content">
+                                    <p>
+                                        For general questions or to speak with a hospital
+                                        representative, please call our main line at (+8801515648973) , or use the Contact
+                                        Us form on our website.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                                <h3>How do I prepare for a scheduled surgery?</h3>
                                 <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                        pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit.
-                                        Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis
-                                        tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                                    <p>
+                                        Once your surgery is scheduled, your healthcare provider will give you detailed
+                                        pre-operative instructions. This may
+                                        include fasting, medication adjustments, or lab tests. Follow all guidelines
+                                        carefully and contact us if you have
+                                        questions.
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                            <div class="faq-item">
+                                <h3>Do you offer multilingual support?</h3>
+                                <div class="faq-content">
+                                    <p>
+                                        Yes. We provide interpretation services in multiple languages to ensure clear
+                                        communication between patients and medical
+                                        staff. Please inform us in advance if you require this service.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+                                <h3>How can I pay my bill?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                        velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
-                                        donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                                        cursus turpis massa tincidunt dui.</p>
+                                    <p>
+                                        Bills can be paid online through our secure Patient Portal, in person at the
+                                        hospital’s billing desk, or via phone. We
+                                        also offer payment plans and financial assistance for eligible patients.
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                            <div class="faq-item">
+                                <h3>What should I bring for an inpatient stay?</h3>
+                                <div class="faq-content">
+                                    <p>
+                                        Please bring a valid ID, insurance card, a list of current medications, and any
+                                        comfort items you may need (e.g.,
+                                        pajamas, slippers). Leave valuables at home for safety.
+                                    </p>
+                                </div>
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item-->
+                            <div class="faq-item">
+                                <h3>What insurance plans do you accept?</h3>
+                                <div class="faq-content">
+                                    <p>
+                                        We accept most major insurance providers. For a complete list or to verify your
+                                        coverage, please contact our billing
+                                        department or check the Insurance Information section on our website.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
+                                <h3>Where can I get a copy of my medical records?</h3>
                                 <div class="faq-content">
-                                    <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in
-                                        est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                        suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                                    <p>
+                                        You can request your medical records by contacting our Health Information Management
+                                        department. A written authorization
+                                        may be required. Some records can also be accessed through our patient portal.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
+                                <h3>Is emergency care available 24/7?</h3>
                                 <div class="faq-content">
-                                    <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in
-                                        suscipit sequi. Distinctio ipsam dolore et.</p>
+                                    <p>
+                                        Yes. Our Emergency Department is open 24 hours a day, 7 days a week to provide
+                                        immediate care for urgent medical needs.
+
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
