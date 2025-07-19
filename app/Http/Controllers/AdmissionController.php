@@ -12,10 +12,25 @@ use Illuminate\Support\Facades\DB;
 
 class AdmissionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $admissions = Admission::orderBy('id','DESC')->paginate(10);
-        return view('pages.admissions.index', compact('admissions'));
+        $query=Admission::with('patient','department','ref_doctor','under_doctor','bed');
+
+        if($request->filled('search')){
+            $admissions=$query->whereHas('patient',function($q)use($request){
+                $q->where('name','like','%'.$request->search.'%');
+            });
+        }
+
+        if($request->filled('department_id')){
+            $admissions=$query->where('department_id',$request->department_id);
+        }
+        $admissions = $query->orderBy('id','DESC')->paginate(10)->onEachSide(1);
+        $admissions->append($request->all());
+
+        $departments=Department::select('id','name')->get();
+
+        return view('pages.admissions.index', compact('admissions','departments'));
     }
 
     public function create()

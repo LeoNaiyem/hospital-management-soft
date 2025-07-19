@@ -10,4 +10,23 @@ class Admission extends Model
 
     public $timestamps = false; // Disable timestamps
 
+    public function patient(){
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function ref_doctor(){
+        return $this->belongsTo(Doctor::class);
+    }
+    public function under_doctor(){
+        return $this->belongsTo(Doctor::class);
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+
+    public function bed(){
+        return $this->belongsTo(Bed::class);
+    }
+
 }
