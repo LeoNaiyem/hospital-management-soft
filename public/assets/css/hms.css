@@ -59,6 +59,19 @@
     i {
     color: #249ba8 !important;
 }
+
+.page-link{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+
+}
+
+.page-item.active .page-link{
+    color: #ffff !important;
+}
 /* customize theme css ends */
 
 /* start index page filter search */
