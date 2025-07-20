@@ -102,7 +102,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            <nav>
+            {{-- <nav>
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -118,7 +118,8 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+            </nav> --}}
+            {{ $doctors->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

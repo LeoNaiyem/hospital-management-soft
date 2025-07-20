@@ -1,6 +1,7 @@
 //custom logics
 
-const BASE_URL = "{{ config('app.url') }}";
+const BASE_URL = document.body.dataset.baseUrl;
+
 // dynamically filling up patient info while getting appointment
 let name = document.getElementById("name");
 let mobile = document.getElementById("mobile");
@@ -9,6 +10,7 @@ let dob = document.getElementById("dob");
 let genderFields = document.querySelectorAll("input[name = 'gender']");
 let profession = document.getElementById("profession");
 mobile.addEventListener("blur", async () => {
+    console.log(BASE_URL);
     const response = await fetch(
         `${BASE_URL}/api/site/find_patient?mobile=${mobile.value}`,
         {

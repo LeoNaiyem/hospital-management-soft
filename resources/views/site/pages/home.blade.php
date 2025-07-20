@@ -791,30 +791,30 @@
                 <div class="swiper init-swiper" data-speed="600" data-delay="5000"
                     data-breakpoints='{ "320": { "slidesPerView": 1, "spaceBetween": 40 }, "1200": { "slidesPerView": 3, "spaceBetween": 40 } }'>
                     <script type="application/json" class="swiper-config">
-                        {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                            },
-                            "breakpoints": {
-                                "320": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 40
+                            {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                    "delay": 5000
                                 },
-                                "1200": {
-                                    "slidesPerView": 3,
-                                    "spaceBetween": 20
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                },
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 40
+                                    },
+                                    "1200": {
+                                        "slidesPerView": 3,
+                                        "spaceBetween": 20
+                                    }
                                 }
                             }
-                        }
-                    </script>
+                        </script>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -935,26 +935,26 @@
                 <div class="swiper init-swiper" data-speed="600" data-delay="5000"
                     data-breakpoints='{ "320": { "slidesPerView": 1, "spaceBetween": 40 }, "1200": { "slidesPerView": 3, "spaceBetween": 40 } }'>
                     <script type="application/json" class="swiper-config">
-                        {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-
-                            "breakpoints": {
-                                "320": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 40
+                            {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                    "delay": 5000
                                 },
-                                "1200": {
-                                    "slidesPerView": 3,
-                                    "spaceBetween": 20
+                                "slidesPerView": "auto",
+
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 40
+                                    },
+                                    "1200": {
+                                        "slidesPerView": 3,
+                                        "spaceBetween": 20
+                                    }
                                 }
                             }
-                        }
-                    </script>
+                        </script>
                     <div class="swiper-wrapper">
                         @foreach ($doctors as $item)
                             <div class="swiper-slide">
@@ -1054,35 +1054,35 @@
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
-                        {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "centeredSlides": true,
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                            },
-                            "breakpoints": {
-                                "320": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 0
+                            {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                    "delay": 5000
                                 },
-                                "768": {
-                                    "slidesPerView": 3,
-                                    "spaceBetween": 20
+                                "slidesPerView": "auto",
+                                "centeredSlides": true,
+                                "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
                                 },
-                                "1200": {
-                                    "slidesPerView": 5,
-                                    "spaceBetween": 20
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 0
+                                    },
+                                    "768": {
+                                        "slidesPerView": 3,
+                                        "spaceBetween": 20
+                                    },
+                                    "1200": {
+                                        "slidesPerView": 5,
+                                        "spaceBetween": 20
+                                    }
                                 }
                             }
-                        }
-                    </script>
+                        </script>
                     <div class="swiper-wrapper align-items-center">
                         <div class="swiper-slide">
                             <a class="glightbox" data-gallery="images-gallery"
@@ -1415,20 +1415,20 @@
             </div>
             <!-- End Section Title -->
 
-            <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="mb-5" data-aos="fade-up">
                 <iframe style="border: 0; width: 100%; height: 370px"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.0946452228184!2d90.36623311536445!3d23.768290284646342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c12c391a6289%3A0x5603478832d15250!2sDhaka%20Health%20Care%20Hospital!5e0!3m2!1sen!2sbd!4v1721221223456!5m2!1sen!2sbd"
                     frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <!-- End Google Maps -->
 
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up">
                 <div class="row gy-4">
                     <div class="col-lg-6">
                         <div class="row gy-4">
                             <div class="col-lg-12">
                                 <div class="info-item d-flex flex-column justify-content-center align-items-center"
-                                    data-aos="fade-up" data-aos-delay="200">
+                                    data-aos="fade-up">
                                     <i class="bi bi-geo-alt"></i>
                                     <h3>Address</h3>
                                     <p>A108 Adam Street, New York, NY 535022</p>
@@ -1437,8 +1437,7 @@
                             <!-- End Info Item -->
 
                             <div class="col-md-6">
-                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
-                                    data-aos="fade-up" data-aos-delay="300">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center">
                                     <i class="bi bi-telephone"></i>
                                     <h3>Call Us</h3>
                                     <p>+1 5589 55488 55</p>
@@ -1447,8 +1446,7 @@
                             <!-- End Info Item -->
 
                             <div class="col-md-6">
-                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
-                                    data-aos="fade-up" data-aos-delay="400">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center">
                                     <i class="bi bi-envelope"></i>
                                     <h3>Email Us</h3>
                                     <p>info@example.com</p>
@@ -1459,8 +1457,7 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                            data-aos-delay="500">
+                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up">
                             <div class="row gy-4">
                                 <div class="col-md-6">
                                     <input type="text" name="name" class="form-control" placeholder="Your Name"

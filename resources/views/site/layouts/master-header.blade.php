@@ -39,4 +39,4 @@
   ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="index-page" data-base-url="{{ config('app.url') }}">

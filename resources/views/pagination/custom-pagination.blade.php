@@ -3,11 +3,11 @@
         <ul class="pagination justify-content-center gap-1">
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled">
-                    <span class="page-link w-100 justify-content-center align-items-center" aria-hidden="true">&laquo;</span>
+                    <span class="page-link" aria-hidden="true">&laquo;</span>
                 </li>
             @else
                 <li class="page-item">
-                    <a class="page-link w-100 justify-content-center align-items-center" href="{{ $paginator->previousPageUrl() }}" aria-label="Previous">
+                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -18,18 +18,18 @@
             @foreach ($elements as $element)
                 @if (is_string($element))
                     <li class="page-item disabled">
-                        <span class="page-link w-100 justify-content-center align-items-center">{{ $element }}</span>
+                        <span class="page-link">{{ $element }}</span>
                     </li>
                 @endif
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
                             <li class="page-item active">
-                                <span style="color: white !important" class="page-link w-100 justify-content-center align-items-center">{{ $page }}</span>
+                                <span class="page-link">{{ $page }}</span>
                             </li>
 
                         @else
-                            <li class="page-item"><a class="page-link w-100 justify-content-center align-items-center" href="{{ $url }}">{{ $page }}</a></li>
+                            <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif
