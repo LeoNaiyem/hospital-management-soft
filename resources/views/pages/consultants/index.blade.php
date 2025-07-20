@@ -17,7 +17,8 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
+                    <form action="{{route('consultants.index')}}" method="get">
+                        <div class="row">
                         <!-- Search Input with Icon -->
                         <div class="col-md-5">
                             <div class="input-group">
@@ -26,31 +27,36 @@
                                         <i class="fa fa-search"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="search" placeholder="Search product by name">
+                                <input type="text" class="form-control" name="search" id="search"
+                                    placeholder="Search by name" value="{{request('search')}}">
                             </div>
                         </div>
 
                         <!-- Filter by Category -->
                         <div class="col-md-3 d-flex">
-                            <select class="form-select" id="filterCategory">
-                                <option value="">Filter by Category</option>
-                                <option value="">option-1</option>
-                                <option value="">option-2</option>
-                                <option value="">option-3</option>
-                                <option value="">option-4</option>
+                            <select class="form-select" name="department_id" id="filterCategory">
+                                <option value="">Filter by Department</option>
+                                @forelse ($departments as $dep)
+                                    <option value="{{ $dep->id }}"
+                                        {{ request('department_id') == $dep->id ? 'selected' : '' }}>
+                                        {{ $dep->name }}
+                                    </option>
+                                @empty
+                                @endforelse
                             </select>
                         </div>
 
                         <!-- Apply Filters Button -->
                         <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
+                            <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
                         </div>
 
                         <!-- Reset Filters Button -->
                         <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
+                            <a href="{{route('consultants.index')}}" class="btn btn-outline-danger btn-block">Reset Filters</a>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -61,19 +67,37 @@
             <!-- Table -->
             <div class="table-responsive rounded-3">
                 <table class="table table-hover">
-                    <thead class="table-primary"><tr><th>Id</th><th>Name</th><th>Department id</th><th>Designation</th><th>Actions</th></tr></thead>
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                     <tbody>
-                    @foreach ($consultants as $item)
-                        <tr><td>{{ $item->id }}</td><td>{{ $item->name }}</td><td>{{ optional($item->department)->name ?? $item->department_id }}</td><td>{{ $item->designation }}</td><td style="min-width:220px">
-        <a href="{{ route('consultants.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
-        <a href="{{ route('consultants.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
-        <form action="{{ route('consultants.destroy', $item->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-        </form>
-    </td></tr>
-                    @endforeach
+                        @foreach ($consultants as $item)
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ optional($item->department)->name ?? $item->department_id }}</td>
+                                <td>{{ $item->designation }}</td>
+                                <td style="min-width:220px">
+                                    <a href="{{ route('consultants.show', $item->id) }}"
+                                        class="btn btn-sm btn-info">View</a>
+                                    <a href="{{ route('consultants.edit', $item->id) }}"
+                                        class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="{{ route('consultants.destroy', $item->id) }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

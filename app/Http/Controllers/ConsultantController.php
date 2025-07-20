@@ -9,10 +9,21 @@ use App\Models\Department;
 
 class ConsultantController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $consultants = Consultant::orderBy('id','DESC')->paginate(10);
-        return view('pages.consultants.index', compact('consultants'));
+        $query = Consultant::with(['department']);
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+        if($request->filled('department_id')){
+           $query->where('department_id',$request->department_id);
+        }
+
+        $consultants = $query->orderBy('id', 'DESC')->paginate(10)->onEachSide(1);
+        $consultants->append($request->all());
+
+        $departments=Department::select('id','name')->get();
+        return view('pages.consultants.index', compact('consultants','departments'));
     }
 
     public function create()

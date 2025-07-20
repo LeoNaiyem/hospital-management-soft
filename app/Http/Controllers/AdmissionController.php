@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admission;
 use Illuminate\Http\Request;
 use App\Models\Patient;;
+
 use App\Models\Bed;
 use App\Models\Department;
 use App\Models\Doctor;
@@ -14,33 +15,33 @@ class AdmissionController extends Controller
 {
     public function index(Request $request)
     {
-        $query=Admission::with('patient','department','ref_doctor','under_doctor','bed');
+        $query = Admission::with(['patient', 'department', 'ref_doctor', 'under_doctor', 'bed']);
 
-        if($request->filled('search')){
-            $admissions=$query->whereHas('patient',function($q)use($request){
-                $q->where('name','like','%'.$request->search.'%');
+        if ($request->filled('search')) {
+            $query->whereHas('patient', function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%');
             });
         }
 
-        if($request->filled('department_id')){
-            $admissions=$query->where('department_id',$request->department_id);
+        if ($request->filled('department_id')) {
+            $query->where('department_id', $request->department_id);
         }
-        $admissions = $query->orderBy('id','DESC')->paginate(10)->onEachSide(1);
+        $admissions = $query->orderBy('id', 'DESC')->paginate(10)->onEachSide(1);
         $admissions->append($request->all());
 
-        $departments=Department::select('id','name')->get();
+        $departments = Department::select('id', 'name')->get();
 
-        return view('pages.admissions.index', compact('admissions','departments'));
+        return view('pages.admissions.index', compact('admissions', 'departments'));
     }
 
     public function create()
     {
         $patients = Patient::all();
         $doctors = Doctor::all();
-        $availableBeds=DB::table('beds')
-                        ->where('status','Available')
-                        ->select('id','bed_number')
-                        ->get();
+        $availableBeds = DB::table('beds')
+            ->where('status', 'Available')
+            ->select('id', 'bed_number')
+            ->get();
         $beds = Bed::all();
         $departments = Department::all();
 
@@ -56,11 +57,12 @@ class AdmissionController extends Controller
     }
 
     //get available beds based on bed_types and status
-    public function getAvailableBeds($type){
-        $beds=Bed::where('bed_type',$type)
-                ->where('status','Available')
-                ->select('id','bed_number')
-                ->get();
+    public function getAvailableBeds($type)
+    {
+        $beds = Bed::where('bed_type', $type)
+            ->where('status', 'Available')
+            ->select('id', 'bed_number')
+            ->get();
         return response()->json($beds);
     }
 
@@ -68,32 +70,32 @@ class AdmissionController extends Controller
     {
         //if advance is empty default value will be 0
         $request->merge([
-            'advance'=>$request->input('advance',0),
+            'advance' => $request->input('advance', 0),
         ]);
 
         //validate the form inputs
         $data = $request->validate([
-            'patient_id'=>'required|integer|exists:patients,id',
-            'ref_doctor_id'=>'required|integer|exists:doctors,id',
-            'under_doctor_id'=>'required|integer|exists:doctors,id',
-            'admission_date'=>'required|date',
-            'bed_id'=>'required|integer|exists:beds,id',
-            'department_id'=>'required|integer|exists:departments,id',
-            'advance'=>'required|numeric',
-            'remark'=>'nullable|string',
-            'problem'=>'nullable|string'
+            'patient_id' => 'required|integer|exists:patients,id',
+            'ref_doctor_id' => 'required|integer|exists:doctors,id',
+            'under_doctor_id' => 'required|integer|exists:doctors,id',
+            'admission_date' => 'required|date',
+            'bed_id' => 'required|integer|exists:beds,id',
+            'department_id' => 'required|integer|exists:departments,id',
+            'advance' => 'required|numeric',
+            'remark' => 'nullable|string',
+            'problem' => 'nullable|string'
         ]);
 
         //start operating block conflict bed selections
         DB::beginTransaction();
-        try{
+        try {
 
             //check available beds
-            $bed=Bed::where('id',$data['bed_id'])
-                    ->where('status','Available')
-                    ->lockForUpdate()
-                    ->first();
-            if(!$bed){
+            $bed = Bed::where('id', $data['bed_id'])
+                ->where('status', 'Available')
+                ->lockForUpdate()
+                ->first();
+            if (!$bed) {
                 return redirect()->back()->withErrors(['bed_id' => 'Selected bed is no longer available.']);
             }
 
@@ -101,18 +103,17 @@ class AdmissionController extends Controller
             Admission::create($data);
 
             //update bed status
-            $bed->status='Occupied';
+            $bed->status = 'Occupied';
             $bed->save();
 
             //done everything successfully
             DB::commit();
 
             return redirect()->route('admissions.index')->with('success', 'Successfully created!');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withErrors(['error'=>'Failed to create Admission!'])->withInput();
+            return back()->withErrors(['error' => 'Failed to create Admission!'])->withInput();
         }
-
     }
 
     public function show(Admission $admission)
@@ -122,10 +123,10 @@ class AdmissionController extends Controller
 
     public function edit(Admission $admission)
     {
-        $patients =Patient::all();
-        $doctors =Doctor::all();
-        $beds =Bed::all();
-        $departments =Department::all();
+        $patients = Patient::all();
+        $doctors = Doctor::all();
+        $beds = Bed::all();
+        $departments = Department::all();
 
         return view('pages.admissions.edit', [
             'mode' => 'edit',

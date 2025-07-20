@@ -9,9 +9,23 @@ use App\Models\Service;
 
 class InvoiceController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $invoices = Invoice::orderBy('id','DESC')->paginate(10);
+        $query=Invoice::with(['patient']);
+
+        if($request->filled('search')){
+            $query->whereHas('patient',function($q)use($request){
+                $q->where('name','like','%'.$request->search.'%');
+            });
+        }
+
+        // if($request->filled('date')){
+        //     $query->where('created_at',$request->date);
+        // }
+
+        $invoices = $query->orderBy('id','DESC')->paginate(10)->onEachSide(1);
+        $invoices->append($request->all());
+        
         return view('pages.invoices.index', compact('invoices'));
     }
 

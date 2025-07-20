@@ -17,40 +17,47 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
-                        <!-- Search Input with Icon -->
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text px-2 bg-info text-white">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                    <form action="{{ route('prescriptions.index') }}" method="get">
+                        <div class="row">
+                            <!-- Search Input with Icon -->
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text px-2 bg-info text-white">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" name="search" value="{{request('search')}}" id="search"
+                                        placeholder="Search by patient name">
                                 </div>
-                                <input type="text" class="form-control" id="search" placeholder="Search product by name">
+                            </div>
+
+                            <!-- Filter by Category -->
+                            <div class="col-md-3 d-flex">
+                                <select class="form-select" name="consultant_id" id="filterCategory">
+                                    <option value="">Filter by Consultant</option>
+                                    @forelse ($consultants as $con)
+                                        <option value="{{ $con->id }}"
+                                            {{ request('consultant_id') == $con->id ? 'selected' : '' }}>
+                                            {{ $con->name }}
+                                        </option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                            </div>
+
+                            <!-- Apply Filters Button -->
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
+                            </div>
+
+                            <!-- Reset Filters Button -->
+                            <div class="col-md-2">
+                                <a href="{{ route('prescriptions.index') }}" class="btn btn-outline-danger btn-block">Reset
+                                    Filters</a>
                             </div>
                         </div>
-
-                        <!-- Filter by Category -->
-                        <div class="col-md-3 d-flex">
-                            <select class="form-select" id="filterCategory">
-                                <option value="">Filter by Category</option>
-                                <option value="">option-1</option>
-                                <option value="">option-2</option>
-                                <option value="">option-3</option>
-                                <option value="">option-4</option>
-                            </select>
-                        </div>
-
-                        <!-- Apply Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
-                        </div>
-
-                        <!-- Reset Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -64,8 +71,8 @@
                     <thead class="table-primary">
                         <tr>
                             <th>Id</th>
-                            <th>Patient id</th>
-                            <th>Consultant id</th>
+                            <th>Patient</th>
+                            <th>Consultant</th>
                             <th>Cc</th>
                             <th>Rf</th>
                             <th>Investigation</th>
@@ -84,7 +91,8 @@
                                 <td>{{ $item->investigation }}</td>
                                 <td>{{ $item->advice }}</td>
                                 <td style="min-width:220px">
-                                    <a href="{{ route('prescriptions.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
+                                    <a href="{{ route('prescriptions.show', $item->id) }}"
+                                        class="btn btn-sm btn-info">View</a>
                                     <a href="{{ route('prescriptions.edit', $item->id) }}"
                                         class="btn btn-sm btn-warning">Edit</a>
                                     <form action="{{ route('prescriptions.destroy', $item->id) }}" method="POST"

@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Bed;
 use Illuminate\Http\Request;
-use App\Models\Ward;
 
 
 class BedController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $beds = Bed::orderBy('id','DESC')->paginate(10);
+        $query = Bed::query();
+        if ($request->filled('search')) {
+            $query->where('bed_number',  'like', '%' . $request->search . '%');
+        }
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $beds = $query->orderBy('id', 'DESC')->paginate(10)->onEachSide(1);
+        $beds->append($request->all());
+
         return view('pages.beds.index', compact('beds'));
     }
 

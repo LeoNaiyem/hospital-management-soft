@@ -10,16 +10,29 @@ use App\Models\Department;
 
 class DoctorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $doctors = Doctor::orderBy('id','DESC')->paginate(10);
-        return view('pages.doctors.index', compact('doctors'));
+        $query = Doctor::with(['department', 'designation']);
+
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('department_id')) {
+            $query->where('department_id', $request->department_id);
+        }
+
+        $doctors = $query->orderBy('id', 'DESC')->paginate(10)->onEachSide(1);        
+        $doctors->append($request->all());
+        
+        $departments = Department::select('id', 'name')->get();
+        return view('pages.doctors.index', compact('doctors', 'departments'));
     }
 
     public function create()
     {
-        $designations =Designation::all();
-        $departments =Department::all();
+        $designations = Designation::all();
+        $departments = Department::all();
 
         return view('pages.doctors.create', [
             'mode' => 'create',
@@ -47,8 +60,8 @@ class DoctorController extends Controller
 
     public function edit(Doctor $doctor)
     {
-        $designations =Designation::all();
-        $departments =Department::all();
+        $designations = Designation::all();
+        $departments = Department::all();
 
         return view('pages.doctors.edit', [
             'mode' => 'edit',

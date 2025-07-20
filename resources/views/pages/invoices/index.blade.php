@@ -17,7 +17,8 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
+                    <form action="{{route('invoices.index')}}" method="get">
+                        <div class="row">
                         <!-- Search Input with Icon -->
                         <div class="col-md-5">
                             <div class="input-group">
@@ -26,7 +27,7 @@
                                         <i class="fa fa-search"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="search" placeholder="Search product by name">
+                                <input name="search" type="text" class="form-control" id="search" placeholder="Search product by name" value="{{request('search')}}">
                             </div>
                         </div>
 
@@ -43,14 +44,15 @@
 
                         <!-- Apply Filters Button -->
                         <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
+                            <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
                         </div>
 
                         <!-- Reset Filters Button -->
                         <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
+                            <a href="{{route('invoices.index')}}" class="btn btn-outline-danger btn-block">Reset Filters</a>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -10,4 +10,13 @@ class Prescription extends Model
 
     public $timestamps = false; // Disable timestamps
 
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function consultant()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

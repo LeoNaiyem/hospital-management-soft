@@ -17,7 +17,8 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
+                    <form action="{{route('money_receipts.index')}}" method="get">
+                        <div class="row">
                         <!-- Search Input with Icon -->
                         <div class="col-md-5">
                             <div class="input-group">
@@ -26,7 +27,7 @@
                                         <i class="fa fa-search"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control" id="search" placeholder="Search product by name">
+                                <input value="{{request('search')}}" name="search" type="text" class="form-control" id="search" placeholder="Search product by name">
                             </div>
                         </div>
 
@@ -43,14 +44,15 @@
 
                         <!-- Apply Filters Button -->
                         <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
+                            <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
                         </div>
 
                         <!-- Reset Filters Button -->
                         <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
+                            <a href="{{route('money_receipts.index')}}" class="btn btn-outline-danger btn-block">Reset Filters</a>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -64,8 +66,8 @@
                     <thead class="table-primary">
                         <tr>
                             <th>Id</th>
-                            <th>Created at</th>
                             <th>Patient id</th>
+                            <th>Created at</th>
                             <th>Remark</th>
                             <th>Receipt total</th>
                             <th>Discount</th>
@@ -77,8 +79,8 @@
                         @foreach ($money_receipts as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->created_at->format('F d, Y') }}</td>
                                 <td>{{ optional($item->patient)->name ?? $item->patient_id }}</td>
+                                <td>{{ $item->created_at->format('F d, Y') }}</td>
                                 <td>{{ $item->remark }}</td>
                                 <td>{{ $item->receipt_total }}</td>
                                 <td>{{ $item->discount }}</td>

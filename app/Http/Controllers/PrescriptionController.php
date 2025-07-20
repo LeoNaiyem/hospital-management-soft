@@ -13,10 +13,26 @@ use App\Models\Consultant;
 
 class PrescriptionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $prescriptions = Prescription::orderBy('id','DESC')->paginate(10);
-        return view('pages.prescriptions.index', compact('prescriptions'));
+        $query = Prescription::with(['patient', 'consultant']);
+
+        if ($request->filled('search')) {
+            $query->whereHas('patient', function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        if ($request->filled('consultant_id')) {
+            $query->where('consultant_id', $request->consultant_id);
+        }
+
+        $prescriptions = $query->orderBy('id', 'DESC')->paginate(10)->onEachSide(1);
+        $prescriptions->append($request->all());
+
+        $consultants = Doctor::select('id', 'name')->get();
+
+        return view('pages.prescriptions.index', compact('prescriptions', 'consultants'));
     }
 
     public function create()
@@ -51,9 +67,9 @@ class PrescriptionController extends Controller
 
     public function show(Prescription $prescription)
     {
-        $doctor=Doctor::find($prescription->consultant_id);
-        $patient=Patient::find($prescription->patient_id);
-        return view('pages.prescriptions.view', compact('prescription','doctor','patient'));
+        $doctor = Doctor::find($prescription->consultant_id);
+        $patient = Patient::find($prescription->patient_id);
+        return view('pages.prescriptions.view', compact('prescription', 'doctor', 'patient'));
     }
 
     public function edit(Prescription $prescription)

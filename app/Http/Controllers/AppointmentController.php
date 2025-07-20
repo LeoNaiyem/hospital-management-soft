@@ -10,10 +10,25 @@ use App\Models\Doctor;
 
 class AppointmentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $appointments = Appointment::orderBy('id','DESC')->paginate(10);
-        return view('pages.appointments.index', compact('appointments'));
+        $query=Appointment::with('patient','doctor');
+
+        if($request->filled('search')){
+            $query->whereHas('patient',function($q)use($request){
+                $q->where('name','like','%'.$request->search.'%');
+            });
+        }
+
+        if($request->filled('doctor_id')){
+            $query->where('doctor_id',$request->doctor_id);
+        }
+
+        $appointments = $query->orderBy('id','DESC')->paginate(10)->onEachSide(1);
+        $appointments->append($request->all());
+        
+        $doctors=Doctor::select('id','name')->get();
+        return view('pages.appointments.index', compact('appointments','doctors'));
     }
 
     public function create()

@@ -17,41 +17,47 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
-                        <!-- Search Input with Icon -->
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text px-2 bg-info text-white">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                    <form action="{{ route('patients.index') }}" method="get">
+                        <div class="row">
+                            <!-- Search Input with Icon -->
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text px-2 bg-info text-white">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                    <input name="search" value="{{ request('search') }}" type="text"
+                                        class="form-control" id="search" placeholder="Search by name or mobile">
                                 </div>
-                                <input type="text" class="form-control" id="search"
-                                    placeholder="Search product by name">
+                            </div>
+
+                            <!-- Filter by Category -->
+                            <div class="col-md-3 d-flex">
+                                <select class="form-select" name="profession" id="filterCategory">
+                                    <option value="">Filter by Profession</option>
+                                    @forelse ($patients as $patient)
+                                        <option value="{{ $patient->profession }}"
+                                            {{ request('profession') == $patient->profession ? 'selected' : '' }}>
+                                            {{ $patient->profession }}
+                                        </option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                            </div>
+
+                            <!-- Apply Filters Button -->
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
+                            </div>
+
+                            <!-- Reset Filters Button -->
+                            <div class="col-md-2">
+                                <a href="{{ route('patients.index') }}" class="btn btn-outline-danger btn-block">Reset
+                                    Filters</a>
                             </div>
                         </div>
-
-                        <!-- Filter by Category -->
-                        <div class="col-md-3 d-flex">
-                            <select class="form-select" id="filterCategory">
-                                <option value="">Filter by Category</option>
-                                <option value="">option-1</option>
-                                <option value="">option-2</option>
-                                <option value="">option-3</option>
-                                <option value="">option-4</option>
-                            </select>
-                        </div>
-
-                        <!-- Apply Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
-                        </div>
-
-                        <!-- Reset Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

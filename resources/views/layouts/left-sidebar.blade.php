@@ -88,6 +88,27 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#consultants">
+                        <i class="fas fa-user-tie"></i>
+                        <p>Consultants</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="consultants">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ url('consultants') }}">
+                                    <span class="sub-item">Manage Consultants</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('consultants/create') }}">
+                                    <span class="sub-item">Create Consultant</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#departments">
                         <i class="fas fa-building"></i>
                         <p>Departments</p>
@@ -110,7 +131,7 @@
                 </li>
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#designations">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-suitcase"></i>
                         <p>Designations</p>
                         <span class="caret"></span>
                     </a>

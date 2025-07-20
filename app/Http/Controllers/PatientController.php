@@ -8,9 +8,22 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $patients = Patient::orderBy('id','DESC')->paginate(10);
+        $query=Patient::query();
+        if($request->filled('search')){
+            $query->where(function($q)use($request){
+                $q->where('name','like','%'.$request->search.'%')
+                ->orWhere('mobile','like','%'.$request->search.'%');
+            });
+        }
+        if($request->filled('profession')){
+            $query->where('profession',$request->profession);
+        }
+
+        $patients = $query->orderBy('id','DESC')->paginate(10)->onEachSide(1);
+        $patients->append($request->all());
+
         return view('pages.patients.index', compact('patients'));
     }
 

@@ -17,40 +17,48 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
-                        <!-- Search Input with Icon -->
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text px-2 bg-info text-white">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                    <form action="{{ route('doctors.index') }}" method="get">
+                        <div class="row">
+                            <!-- Search Input with Icon -->
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text px-2 bg-info text-white">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                    <input name="search" value="{{ request('search') }}" type="text"
+                                        class="form-control" id="search" placeholder="Search by name">
                                 </div>
-                                <input type="text" class="form-control" id="search" placeholder="Search product by name">
+                            </div>
+
+                            <!-- Filter by Category -->
+                            <div class="col-md-3 d-flex">
+                                <select class="form-select" name="department_id" id="filterCategory">
+                                    <option value="">Filter by Department</option>
+                                    @forelse ($departments as $dep)
+                                        <option value="{{ $dep->id }}"
+                                            {{ request('department_id') == $dep->id ? 'selected' : '' }}>
+                                            {{ $dep->name }}
+                                        </option>
+                                    @empty
+                                    <p>Not found</p>
+                                    @endforelse
+                                </select>
+                            </div>
+
+                            <!-- Apply Filters Button -->
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
+                            </div>
+
+                            <!-- Reset Filters Button -->
+                            <div class="col-md-2">
+                                <a href="{{ route('doctors.index') }}" class="btn btn-outline-danger btn-block">Reset
+                                    Filters</a>
                             </div>
                         </div>
-
-                        <!-- Filter by Category -->
-                        <div class="col-md-3 d-flex">
-                            <select class="form-select" id="filterCategory">
-                                <option value="">Filter by Category</option>
-                                <option value="">option-1</option>
-                                <option value="">option-2</option>
-                                <option value="">option-3</option>
-                                <option value="">option-4</option>
-                            </select>
-                        </div>
-
-                        <!-- Apply Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
-                        </div>
-
-                        <!-- Reset Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -65,12 +73,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
-                            <th>Phone</th>
-                            <th>Designation id</th>
-                            <th>Department id</th>
-                            <th>Created at</th>
-                            <th>Updated at</th>
                             <th>Photo</th>
+                            <th>Phone</th>
+                            <th>Designation</th>
+                            <th>Department</th>
                             <th class='text-center'>Actions</th>
                         </tr>
                     </thead>
@@ -79,15 +85,18 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
+                                <td>
+                                    @if ($item->photo)
+                                        <img src="{{ asset('storage/' . $item->photo) }}" width="50">
+                                    @endif
+                                </td>
                                 <td>{{ $item->phone }}</td>
                                 <td>{{ optional($item->designation)->name ?? $item->designation_id }}</td>
                                 <td>{{ optional($item->department)->name ?? $item->department_id }}</td>
-                                <td>{{ $item->created_at }}</td>
-                                <td>{{ $item->updated_at }}</td>
-                                <td>@if($item->photo)<img src="{{ asset('storage/' . $item->photo) }}" width="50">@endif</td>
                                 <td style="min-width:220px">
                                     <a href="{{ route('doctors.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
-                                    <a href="{{ route('doctors.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('doctors.edit', $item->id) }}"
+                                        class="btn btn-sm btn-warning">Edit</a>
                                     <form action="{{ route('doctors.destroy', $item->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
@@ -119,7 +128,8 @@
                     </li>
                 </ul>
             </nav> --}}
-            {{ $doctors->links('pagination.custom-pagination') }}
+            {{ $doctors->appends(request()->all())->links('pagination.custom-pagination') }}
+
         </div>
         <!-- End table section -->
     </div>

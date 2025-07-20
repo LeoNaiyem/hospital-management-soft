@@ -17,40 +17,46 @@
         <div class="card mb-3 p-4">
             <div class="row">
                 <div class="col-12">
-                    <div class="row">
-                        <!-- Search Input with Icon -->
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text px-2 bg-info text-white">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                    <form action="{{ route('appointments.index') }}" method="get">
+                        <div class="row">
+                            <!-- Search Input with Icon -->
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text px-2 bg-info text-white">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" name="search" class="form-control" id="search"
+                                        placeholder="Search by patient name" value="{{ request('search') }}">
                                 </div>
-                                <input type="text" class="form-control" id="search" placeholder="Search product by name">
+                            </div>
+
+                            <!-- Filter by Category -->
+                            <div class="col-md-3 d-flex">
+                                <select class="form-select" name="doctor_id" id="filterCategory">
+                                    <option value="">Filter by Doctor</option>
+                                    @foreach ($doctors as $doctor)
+                                        <option value="{{ $doctor->id }}"
+                                            {{ request('doctor_id') == $doctor->id ? 'selected' : '' }}>
+                                            {{ $doctor->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <!-- Apply Filters Button -->
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-info btn-block">Apply Filters</button>
+                            </div>
+
+                            <!-- Reset Filters Button -->
+                            <div class="col-md-2">
+                                <a href="{{ route('appointments.index') }}" class="btn btn-outline-danger btn-block">Reset
+                                    Filters</a>
                             </div>
                         </div>
-
-                        <!-- Filter by Category -->
-                        <div class="col-md-3 d-flex">
-                            <select class="form-select" id="filterCategory">
-                                <option value="">Filter by Category</option>
-                                <option value="">option-1</option>
-                                <option value="">option-2</option>
-                                <option value="">option-3</option>
-                                <option value="">option-4</option>
-                            </select>
-                        </div>
-
-                        <!-- Apply Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-info btn-block">Apply Filters</button>
-                        </div>
-
-                        <!-- Reset Filters Button -->
-                        <div class="col-md-2">
-                            <button class="btn btn-outline-danger btn-block">Reset Filters</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -80,7 +86,8 @@
                                 <td>{{ $item->appointment_at }}</td>
                                 <td>{{ $item->cc }}</td>
                                 <td>
-                                    <a href="{{ route('appointments.show', $item->id) }}" class="btn btn-sm btn-info">View</a>
+                                    <a href="{{ route('appointments.show', $item->id) }}"
+                                        class="btn btn-sm btn-info">View</a>
                                     <a href="{{ route('appointments.edit', $item->id) }}"
                                         class="btn btn-sm btn-warning">Edit</a>
                                     <form action="{{ route('appointments.destroy', $item->id) }}" method="POST"
