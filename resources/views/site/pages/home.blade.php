@@ -288,7 +288,8 @@
                         <img src="{{ asset('site/assets/img/features.jpg') }}" alt="" />
                     </div>
 
-                    <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up"
+                        data-aos-delay="200">
                         <h3>
                             Dedicated to Meeting Every Healthcare Need with
                             Excellence and Integrity
@@ -495,8 +496,7 @@
             <div class="container section-title" data-aos="fade-up">
                 <h2>MAKE AN APPOINTMENT</h2>
                 <p>
-                    Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-                    consectetur velit
+                    Get expert care at your convenience — book your visit in just a few steps.
                 </p>
             </div>
             <!-- End Section Title -->
@@ -504,44 +504,69 @@
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <form action="{{ route('site.appointments.store') }}" method="POST">
                     <!-- CSRF token for Laravel -->
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    @csrf
+
+                    <!-- Flash messages -->
+                    @if (session('message'))
+                        <div class="alert alert-{{ session('alert-type', 'info') }}">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+
+                    <!-- Validation errors -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops! Something went wrong.</strong>
+                            <ul class="mb-0 mt-2">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <!-- PATIENT SECTION -->
                     <h5 class="mb-3 text-uppercase">Patient Information</h5>
                     <div class="row g-3 mb-4">
                         <div class="col-md-4">
                             <label class="form-label">Full Name</label>
-                            <input id="name" type="text" name="name" class="form-control" placeholder="Your full name"
-                                required />
+                            <input id="name" type="text" name="name" class="form-control"
+                                value="{{ old('name') }}" placeholder="Your full name" required />
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Mobile</label>
-                            <input id="mobile" type="text" name="mobile" class="form-control" required
-                                placeholder="+08815xxxxxxxx" />
+                            <input id="mobile" type="text" name="mobile" class="form-control"
+                                value="{{ old('mobile') }}" required placeholder="015xxxxxxxx" />
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Mobile Ext (optional)</label>
-                            <input id="mob_ext" type="number" name="mob_ext" class="form-control" placeholder="Optional" />
+                            <input id="mob_ext" type="number" name="mob_ext" class="form-control"
+                                value="{{ old('mob_ext') }}" placeholder="Optional" />
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Date of Birth</label>
-                            <input id="dob" type="date" name="dob" class="form-control" required />
+                            <input id="dob" type="date" name="dob" class="form-control"
+                                value="{{ old('dob') }}" required />
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Gender</label> <br />
-                            <input type="radio" name="gender" value="0" /> Male
-                            <input type="radio" name="gender" value="1" /> Female
-                            <input type="radio" name="gender" value="2" /> Others
+                            <input type="radio" name="gender" value="0"
+                                {{ old('gender') === '0' ? 'checked' : '' }} /> Male
+                            <input type="radio" name="gender" value="1"
+                                {{ old('gender') === '1' ? 'checked' : '' }} /> Female
+                            <input type="radio" name="gender" value="2"
+                                {{ old('gender') === '2' ? 'checked' : '' }} /> Others
+
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Profession</label>
                             <input id="profession" type="text" name="profession" class="form-control"
-                                placeholder="e.g., student, pilot" />
+                                value="{{ old('profession') }}" placeholder="e.g., student, pilot" />
                         </div>
                     </div>
 
@@ -555,7 +580,8 @@
                             <select name="doctor_id" class="form-select" required>
                                 <option value="">-- Select Doctor --</option>
                                 @foreach ($doctors as $doctor)
-                                    <option value="{{ $doctor->id }}">
+                                    <option value="{{ $doctor->id }}"
+                                        {{ old('doctor_id') == $doctor->id ? 'selected' : '' }}>
                                         {{ $doctor->name }}
                                     </option>
                                 @endforeach
@@ -564,20 +590,21 @@
 
                         <div class="col-md-6">
                             <label class="form-label">Appointment Date & Time</label>
-                            <input type="datetime-local" name="appointment_at" class="form-control" required />
+                            <input type="datetime-local" name="appointment_at" class="form-control"
+                                value="{{ old('appointment_at') ? \Carbon\Carbon::parse(old('appointment_at'))->format('Y-m-d\TH:i') : '' }}"
+                                required />
                         </div>
 
                         <div class="col-12">
                             <label class="form-label">Chief Complaint (CC)</label>
-                            <textarea name="cc" class="form-control" rows="3"
-                                placeholder="e.g., chest pain, fever"></textarea>
+                            <textarea name="cc" class="form-control" rows="3" placeholder="e.g., chest pain, fever">{{ old('cc') }}</textarea>
                         </div>
                     </div>
 
                     <!-- SUBMIT -->
                     <div class="d-flex align-items-center justify-content-center">
-                        <button style="background: #3dbabf" type="submit" class="btn btn-info text-light w-25">
-                            Save Appointment
+                        <button style="background: #3dbabf" type="submit" class="btn text-uppercase btn-info text-light w-25">
+                            Get Appointment
                         </button>
                     </div>
                 </form>
@@ -961,8 +988,8 @@
                                 <div class="d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                                     <div class="team-member">
                                         <div class="member-img">
-                                            @if($item->photo)
-                                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid"
+                                            @if ($item->photo)
+                                                <img src="{{ asset('storage/app/public/' . $item->photo) }}" class="img-fluid"
                                                     alt="{{ $item->name }}" />
                                             @else
                                                 <img src="{{ asset('site/assets/img/doctors/Image_not_available.png') }}"
@@ -1013,7 +1040,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="team-member">
                             <div class="member-img">
-                                @if($item->photo)
+                                @if ($item->photo)
                                 <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid" alt="" />
                                 @else
                                 <img src="{{ asset('site/assets/img/doctors/doctors-1.jpg') }}" class="img-fluid" alt="" />
@@ -1418,7 +1445,8 @@
             <div class="mb-5" data-aos="fade-up">
                 <iframe style="border: 0; width: 100%; height: 370px"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.0946452228184!2d90.36623311536445!3d23.768290284646342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c12c391a6289%3A0x5603478832d15250!2sDhaka%20Health%20Care%20Hospital!5e0!3m2!1sen!2sbd!4v1721221223456!5m2!1sen!2sbd"
-                    frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    frameborder="0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <!-- End Google Maps -->
 
@@ -1475,8 +1503,7 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="4" placeholder="Message"
-                                        required=""></textarea>
+                                    <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
                                 </div>
 
                                 <div class="col-md-12 text-center">
@@ -1500,7 +1527,7 @@
         <!-- Bootstrap 5 Toast Container -->
         <div aria-live="polite" aria-atomic="true" class="position-relative">
             <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
-                @if(session('message'))
+                @if (session('message'))
                     <div class="toast align-items-center text-white bg-{{ session('alert-type', 'success') == 'danger' ? 'danger' : session('alert-type', 'success') }} border-0"
                         role="alert" aria-live="assertive" aria-atomic="true" id="liveToast">
                         <div class="d-flex">

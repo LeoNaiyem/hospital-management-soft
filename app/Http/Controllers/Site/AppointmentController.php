@@ -31,6 +31,12 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+        // if mob_ext not given use default
+        $request->merge([
+            'mob_ext' => $request->mob_ext ?: '+880',
+            'cc' => $request->cc?: 'Not sure',
+            'profession' => $request->profession?: 'Unknown',
+        ]);
         // check if patient exists
         $patient = Patient::where('mobile', $request->mobile)->first();
 
@@ -46,7 +52,6 @@ class AppointmentController extends Controller
                     'profession' => $request->profession,
 
                 ]);
-
             }
 
             //create appointment
@@ -60,14 +65,22 @@ class AppointmentController extends Controller
             return redirect()->route('home')->with([
                 'message' => 'Appointment Created Successfully!',
                 'alert-type' => 'success',
-                'created appointment'=>$appointment,
+                'created appointment' => $appointment,
             ]);
         } catch (\Exception $e) {
             // Log the error (optional)
             Log::error('Appointment creation failed: ' . $e->getMessage());
+            
+            // Optional: provide different messages based on known DB errors
+            $userMessage = 'Something went wrong!.';
 
-            return redirect()->back()->withInput()->with([
-                'message' => 'Something went wrong while creating the appointment.',
+            if (str_contains($e->getMessage(), 'Integrity constraint violation')) {
+                $userMessage = 'Required Information is missing or incorrect. Please fill all necessary fields.';
+            }
+
+
+            return redirect()->to(url()->previous() . '#appointment')->withInput()->with([
+                'message' => $userMessage,
                 'alert-type' => 'danger'
             ]);
         }
