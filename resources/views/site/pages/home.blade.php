@@ -989,7 +989,7 @@
                                     <div class="team-member">
                                         <div class="member-img">
                                             @if ($item->photo)
-                                                <img src="{{ asset('storage/app/public/' . $item->photo) }}" class="img-fluid"
+                                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid"
                                                     alt="{{ $item->name }}" />
                                             @else
                                                 <img src="{{ asset('site/assets/img/doctors/Image_not_available.png') }}"

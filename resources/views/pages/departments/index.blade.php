@@ -95,7 +95,7 @@
                     </li>
                 </ul>
             </nav> --}}
-            {{ $departments->links('pagination.custom-pagination') }}
+            {{ $departments->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

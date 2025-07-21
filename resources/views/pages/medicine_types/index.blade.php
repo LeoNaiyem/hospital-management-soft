@@ -91,7 +91,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $medicine_types->links('pagination.custom-pagination') }}
+            {{ $medicine_types->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

@@ -109,7 +109,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $prescriptions->links('pagination.custom-pagination') }}
+            {{ $prescriptions->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

@@ -103,7 +103,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $money_receipts->links('pagination.custom-pagination') }}
+            {{ $money_receipts->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

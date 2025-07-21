@@ -104,7 +104,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $appointments->links('pagination.custom-pagination') }}
+            {{ $appointments->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

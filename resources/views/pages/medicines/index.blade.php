@@ -78,7 +78,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $medicines->links('pagination.custom-pagination') }}
+            {{ $medicines->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

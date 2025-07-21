@@ -78,7 +78,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $services->links('pagination.custom-pagination') }}
+            {{ $services->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

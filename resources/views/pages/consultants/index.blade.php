@@ -102,7 +102,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $consultants->links('pagination.custom-pagination') }}
+            {{ $consultants->appends(request()->all())->links('pagination.custom-pagination') }}
             {{-- <nav>
                 <ul class="pagination justify-content-center">
                     <li class="page-item">

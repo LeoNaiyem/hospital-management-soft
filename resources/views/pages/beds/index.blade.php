@@ -106,7 +106,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $beds->links('pagination.custom-pagination') }}
+            {{ $beds->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

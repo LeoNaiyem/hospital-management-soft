@@ -93,7 +93,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $medicine_categories->links('pagination.custom-pagination') }}
+            {{ $medicine_categories->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>

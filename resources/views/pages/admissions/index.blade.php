@@ -112,7 +112,7 @@
                 </table>
             </div>
             <!-- Pagination -->
-            {{ $admissions->links('pagination.custom-pagination') }}
+            {{ $admissions->appends(request()->all())->links('pagination.custom-pagination') }}
         </div>
         <!-- End table section -->
     </div>
