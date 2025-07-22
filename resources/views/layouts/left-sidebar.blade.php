@@ -335,6 +335,11 @@
                     <div class="collapse" id="accounts">
                         <ul class="nav nav-collapse">
                             <li>
+                                <a href="{{ url('bill') }}">
+                                    <span class="sub-item">Crate Bill</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ url('invoices') }}">
                                     <span class="sub-item">Manage Invoices</span>
                                 </a>

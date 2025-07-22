@@ -3,19 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
+use App\Models\InvoiceDetail;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Models\Service;
 
 class InvoiceController extends Controller
 {
+
+    public function bill()
+    {
+        $patients = Patient::with('latestInvoice')->get();  // Fetch patients + their invoices
+        $services = Service::select('id', 'name', 'price')->get();  // For dropdowns, etc.
+
+        return view('pages.bills.bill', compact('patients', 'services'));
+    }
+
+    public function createBill(Request $request){
+        $details=new InvoiceDetail();
+        $details->invoice_id=$request->invoice_id;
+        $details->service_id=$request->service_id;
+        $details->unit=$request->unit;
+        $details->price=$request->price;
+        $details->discount=$request->discount;
+        $details->vat=$request->vat;
+        $details->save();
+
+        return redirect()->back()->with('message', 'Successfully Added!');
+    }
+
     public function index(Request $request)
     {
-        $query=Invoice::with(['patient']);
+        $query = Invoice::with(['patient']);
 
-        if($request->filled('search')){
-            $query->whereHas('patient',function($q)use($request){
-                $q->where('name','like','%'.$request->search.'%');
+        if ($request->filled('search')) {
+            $query->whereHas('patient', function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%');
             });
         }
 
@@ -23,9 +46,9 @@ class InvoiceController extends Controller
         //     $query->where('created_at',$request->date);
         // }
 
-        $invoices = $query->orderBy('id','DESC')->paginate(10)->onEachSide(1);
+        $invoices = $query->orderBy('id', 'DESC')->paginate(10)->onEachSide(1);
         $invoices->append($request->all());
-        
+
         return view('pages.invoices.index', compact('invoices'));
     }
 

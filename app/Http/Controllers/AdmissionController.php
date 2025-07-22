@@ -9,6 +9,7 @@ use App\Models\Patient;;
 use App\Models\Bed;
 use App\Models\Department;
 use App\Models\Doctor;
+use App\Models\Invoice;
 use Illuminate\Support\Facades\DB;
 
 class AdmissionController extends Controller
@@ -108,6 +109,16 @@ class AdmissionController extends Controller
 
             //done everything successfully
             DB::commit();
+
+            //crating invoice against the patient
+            $invoice = new Invoice();
+            $invoice->patient_id=$data['patient_id'];
+            $invoice->remark=$data['remark'];
+            $invoice->invoice_total=0;
+            $invoice->discount=0;
+            $invoice->vat=0;
+            $invoice->paid_total=$data['advance'];
+            $invoice->save();
 
             return redirect()->route('admissions.index')->with('success', 'Successfully created!');
         } catch (\Exception $e) {

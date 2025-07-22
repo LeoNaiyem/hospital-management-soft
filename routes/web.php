@@ -34,6 +34,8 @@ Route::post('login', [OAuthController::class, 'login'])->name('login');
 
 Route::middleware('auth')->group(function () {
     Route::get('logout', [OAuthController::class, 'logout'])->name('logout');
+    Route::get('bill',[InvoiceController::class,'bill'])->name('bill');
+    Route::post('bill',[InvoiceController::class,'createBill']);
     // Route::get('/', function () {
     //     return view('pages.dashboard.home');
     // });
